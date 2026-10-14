@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rems Plugins</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Halcyon, a wavetable synth, and MixPilot, an assisted mixing and mastering duo. Free VST3 / AU plug-ins for macOS, pay what you want.">
@@ -15,6 +20,10 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
 body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
 a{color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -139,6 +148,7 @@ code{font-family:var(--mono);font-size:13px;background:var(--bg);border:1px soli
 
 /* merci après téléchargement */
 .thanks{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:0 max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;justify-content:center;pointer-events:none}
+.thanks[hidden]{display:none}
 .thanks-card{pointer-events:auto;max-width:640px;width:100%;background:var(--panel-2);border:1px solid var(--amber);border-radius:8px;padding:18px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;box-shadow:0 18px 50px rgba(0,0,0,.55);animation:up .35s ease-out}
 .thanks-card p{flex:1 1 260px;font-size:15px}
 .thanks-card p b{display:block;font-family:var(--display);font-size:16px;margin-bottom:2px}
@@ -149,7 +159,8 @@ code{font-family:var(--mono);font-size:13px;background:var(--bg);border:1px soli
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:22px}
 </style>
-
+</head>
+<body>
 <div class="ribbon"><div class="wrap">
   <span>OUT NOW · Halcyon 1.0 + MixPilot 1.0 · Free, pay what you want</span>
   <a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a>
@@ -361,3 +372,5 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   });
 })();
 </script>
+</body>
+</html>
