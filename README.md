@@ -6,6 +6,6 @@ Free audio plug-ins for macOS (VST3 / AU, Apple Silicon + Intel).
 - **MixPilot**: assisted mixing and mastering (Track + Master).
 
 Download page: https://rems21-mtz.github.io/rems-plugins/
-Downloads: see [Releases](https://github.com/rems21-mtz/rems-plugins/releases/latest).
+Downloads: [Halcyon](downloads/Halcyon-1.0.0-macOS.zip) · [MixPilot](downloads/MixPilot-1.0.0-macOS.zip)
 
 Free, pay what you want: https://buymeacoffee.com/remsplugins
