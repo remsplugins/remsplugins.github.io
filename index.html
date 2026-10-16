@@ -150,6 +150,24 @@ code{font-family:var(--mono);font-size:13px;background:var(--bg);border:1px soli
 @media (max-width:760px){.install{grid-template-columns:1fr}}
 
 /* soutien */
+/* changelog */
+.log{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
+.log>article{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px;min-width:0}
+.log h3{font-size:18px;letter-spacing:.12em;margin-bottom:6px}
+.log .sub{font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:18px}
+.rel{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:16px 0;border-top:1px solid var(--line)}
+.rel:first-of-type{border-top:0;padding-top:0}
+.rel .v{font-family:var(--mono);font-weight:600;font-size:14px;color:var(--fg);white-space:nowrap}
+.rel .d{font-family:var(--mono);font-size:12px;color:var(--muted);align-self:center}
+.rel .latest{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--amber-ink);background:var(--amber);border-radius:3px;padding:2px 6px;margin-left:8px;vertical-align:2px}
+.rel ul{grid-column:1/-1;margin:8px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.rel li{display:grid;grid-template-columns:76px 1fr;gap:10px;font-size:14.5px;color:#d6d0c4;line-height:1.5}
+.rel li code{font-size:12px}
+.k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;padding:2px 0;text-align:center;align-self:start;margin-top:2px;border:1px solid}
+.k-new{color:var(--amber);border-color:var(--amber)}
+.k-imp{color:var(--teal);border-color:var(--teal)}
+.k-fix{color:#e7e1d6;border-color:var(--muted)}
+@media (max-width:480px){.rel li{grid-template-columns:1fr;gap:4px}.k{justify-self:start;padding:2px 8px}}
 .support{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:minmax(0,1.4fr) auto;gap:24px;align-items:center}
 .support h2{font-size:clamp(24px,3.6vw,34px);margin-bottom:12px}
 .support p{color:var(--muted);max-width:52ch}
@@ -177,7 +195,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 
 <header><div class="wrap">
   <a class="brand" href="#top" aria-label="Rems, home"><span class="logo"><i></i><i></i><i></i><i></i></span><b>REMS</b></a>
-  <nav><a href="#halcyon">Halcyon</a><a href="#mixpilot">MixPilot</a><a href="#install">Install</a><a href="#support">Support</a></nav>
+  <nav><a href="#halcyon">Halcyon</a><a href="#mixpilot">MixPilot</a><a href="#install">Install</a><a href="#changelog">What's new</a><a href="#support">Support</a></nav>
 </div></header>
 
 <main id="top">
@@ -342,6 +360,62 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       <p>The plug-ins are not notarized by Apple yet, so macOS may quarantine them. Paste this into Terminal, then restart your DAW:</p>
       <p>Halcyon also ships with <code>fix_mac_plugins.command</code>: double-click it and it installs, unblocks and rescans the plug-in for you.</p>
       <div class="cmd"><pre id="cmd">xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/Halcyon.vst3 ~/Library/Audio/Plug-Ins/VST3/MixPilot*.vst3 ~/Library/Audio/Plug-Ins/Components/Halcyon.component ~/Library/Audio/Plug-Ins/Components/MixPilot*.component</pre><button type="button" id="copy">Copy</button></div>
+    </article>
+  </div>
+</div></section>
+
+<section class="block" id="changelog"><div class="wrap">
+  <h2>What's new</h2>
+  <!-- Release notes: add new versions at the top of each list -->
+  <div class="log">
+    <article>
+      <h3>HALCYON</h3>
+      <p class="sub">Wavetable synthesizer</p>
+      <div class="rel">
+        <span class="v">v1.1.1<span class="latest">LATEST</span></span><span class="d">Oct 16, 2026</span>
+        <ul>
+          <li><span class="k k-imp">Improved</span><span>Breed: hover parent A or B to hear it (with Auto preview on). Your previous sound comes back as soon as you leave the card.</span></li>
+          <li><span class="k k-fix">Fixed</span><span>The preset arrows now step through presets in the same order as the browser.</span></li>
+        </ul>
+      </div>
+      <div class="rel">
+        <span class="v">v1.1.0</span><span class="d">Oct 16, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>Import Vital (<code>.vital</code>) and Serum 2 (<code>.SerumPreset</code>) presets with the IMPORT button or by drag and drop: wavetables, macros and their names, modulations and effects come along. Halcyon lists anything it had to approximate.</span></li>
+          <li><span class="k k-new">New</span><span>Load your own <code>.wav</code> wavetables on any oscillator.</span></li>
+          <li><span class="k k-new">New</span><span>Windows version: VST3 and standalone app, 64-bit.</span></li>
+          <li><span class="k k-new">New</span><span>Mac: <code>fix_mac_plugins.command</code> installs, unblocks and rescans the plug-in in one double-click.</span></li>
+        </ul>
+      </div>
+      <div class="rel">
+        <span class="v">v1.0.0</span><span class="d">Oct 14, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>First release: 3 wavetable, granular or spectral oscillators, 2,041 presets, Time Machine, Breed, 16-step arpeggiator and 10 effects.</span></li>
+        </ul>
+      </div>
+    </article>
+    <article>
+      <h3>MIXPILOT</h3>
+      <p class="sub">Assisted mixing &amp; mastering</p>
+      <div class="rel">
+        <span class="v">v1.0.2<span class="latest">LATEST</span></span><span class="d">Oct 16, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>Windows version (VST3, 64-bit). MixPilot Track and MixPilot Master find each other on Windows too.</span></li>
+          <li><span class="k k-imp">Improved</span><span>Clearer English wording and wider labels across the interface.</span></li>
+        </ul>
+      </div>
+      <div class="rel">
+        <span class="v">v1.0.1</span><span class="d">Oct 16, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>Full English interface: controls, tooltips, tips, mix review and built-in guides. Existing projects open unchanged.</span></li>
+        </ul>
+      </div>
+      <div class="rel">
+        <span class="v">v1.0.0</span><span class="d">Oct 14, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>First release: one-click ASSISTANT, 5 styles, 6 outputs, reference track, mashup mode and mix review.</span></li>
+        </ul>
+      </div>
     </article>
   </div>
 </div></section>
