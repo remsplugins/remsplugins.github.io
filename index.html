@@ -187,6 +187,24 @@ code{font-family:var(--mono);font-size:13px;background:var(--bg);border:1px soli
 @keyframes up{from{transform:translateY(20px);opacity:.4}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+
+/* inscription */
+dialog.signup{border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--fg);padding:0;width:min(480px,calc(100vw - 32px));box-shadow:0 30px 80px rgba(0,0,0,.6)}
+dialog.signup::backdrop{background:rgba(10,9,12,.72)}
+.signup form{display:grid;gap:16px;padding:28px}
+.signup h2{font-size:24px;letter-spacing:.04em}
+.signup .sub{color:var(--muted);font-size:15px;margin-top:-6px}
+.signup label.f{display:grid;gap:6px;font-size:14px;font-weight:600}
+.signup input[type=email]{font:inherit;font-size:16px;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:12px 14px;width:100%}
+.signup input[type=email]:focus{outline:2px solid var(--amber);outline-offset:1px;border-color:var(--amber)}
+.signup .opt{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start;font-size:15px;color:#d6d0c4;cursor:pointer}
+.signup .opt input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--amber)}
+.signup .opt small{display:block;color:var(--muted);font-size:13px}
+.signup .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.signup .err{color:#ff8f7a;font-size:14px;min-height:1.2em}
+.signup .legal{font-size:12px;color:var(--muted)}
+.signup .close{position:absolute;top:10px;right:12px;background:none;border:0;color:var(--muted);font-size:24px;cursor:pointer;line-height:1}
+.signup .btn[disabled]{opacity:.6;cursor:wait}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:22px}
 </style>
@@ -255,11 +273,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
         </ul>
         <div class="dl">
           <p class="dl-title">Download Halcyon</p>
-          <div class="dl-os">
-            <a class="btn btn-amber js-dl" data-os="mac" href="downloads/Halcyon-1.2.0-macOS.zip" target="_blank" rel="noopener">macOS</a>
-            <a class="btn btn-ghost js-dl" data-os="win" href="downloads/Halcyon-1.2.0-Windows.zip" target="_blank" rel="noopener">Windows</a>
-          </div>
-          <p class="note">Mac: Apple Silicon + Intel, macOS 10.13+ · Windows: 10/11 64-bit · VST3 + Standalone</p>
+          <a class="btn btn-amber js-get" data-plugin="Halcyon" href="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==">Get Halcyon, free</a>
+          <p class="note">Enter your email and you'll get the macOS and Windows downloads right away. Mac: Apple Silicon + Intel, macOS 10.13+ · Windows: 10/11 64-bit · VST3 + Standalone</p>
         </div>
       </div>
     </div>
@@ -336,11 +351,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
         </div>
         <div class="dl">
           <p class="dl-title">Download MixPilot</p>
-          <div class="dl-os">
-            <a class="btn btn-amber js-dl" data-os="mac" href="downloads/MixPilot-1.0.2-macOS.zip" target="_blank" rel="noopener">macOS</a>
-            <a class="btn btn-ghost js-dl" data-os="win" href="downloads/MixPilot-1.0.2-Windows.zip" target="_blank" rel="noopener">Windows</a>
-          </div>
-          <p class="note">Track + Master in one file · Mac: VST3 + AU · Windows: VST3 64-bit</p>
+          <a class="btn btn-amber js-get" data-plugin="MixPilot" href="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==">Get MixPilot, free</a>
+          <p class="note">Enter your email and you'll get the macOS and Windows downloads right away. Track + Master in one file · Mac: VST3 + AU · Windows: VST3 64-bit</p>
         </div>
       </div>
     </div>
@@ -460,8 +472,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 </div></section>
 </main>
 
-<footer><div class="wrap"><span>© 2026 Rems · Halcyon &amp; MixPilot</span><span>VST is a trademark of Steinberg Media Technologies GmbH.</span></div></footer>
+<footer><div class="wrap"><span>© 2026 Rems · Halcyon &amp; MixPilot</span><span>VST is a trademark of Steinberg Media Technologies GmbH.</span></div><div class="wrap"><p style="font-size:12px;padding-bottom:18px">Your email is used to send you the download links and, only if you tick the box, news about updates and new plug-ins. Unsubscribe anytime. Emails are sent with Brevo.</p></div></footer>
 
+
+<dialog class="signup" id="signup" aria-labelledby="su-title">
+  <button class="close" type="button" id="su-close" aria-label="Close">×</button>
+  <form id="su-form" method="POST" action="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==" novalidate>
+    <div><h2 id="su-title">Get <span id="su-name">Rems Plugins</span>, free</h2></div>
+    <p class="sub">Enter your email and you'll get the macOS and Windows downloads right away.</p>
+    <label class="f">Email address
+      <input type="email" name="EMAIL" id="su-email" autocomplete="email" placeholder="you@example.com" required>
+    </label>
+    <label class="opt"><input type="checkbox" name="NEWSLETTER" value="1">
+      <span>Keep me posted about updates and new plug-ins<small>Optional. Unsubscribe anytime with one click.</small></span></label>
+    <input type="text" name="email_address_check" value="" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="locale" value="en">
+    <p class="err" id="su-err" role="alert"></p>
+    <button class="btn btn-amber" type="submit" id="su-go">Get the download links</button>
+    <p class="legal">We use your email to give you the downloads and, only if you tick the box, to send news. Emails are sent with Brevo. No spam, ever.</p>
+  </form>
+</dialog>
 <div class="thanks" id="thanks" hidden>
   <div class="thanks-card" role="status">
     <p><b>Thanks, your download is opening.</b>If you enjoy the plug-in, a coffee helps ship the next one.</p>
@@ -520,6 +550,28 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     });
   });
   try{ if(/Windows/i.test(navigator.userAgent)){ document.querySelectorAll('.dl-os').forEach(function(r){var m=r.querySelector('[data-os=mac]'),w=r.querySelector('[data-os=win]');m.classList.replace('btn-amber','btn-ghost');w.classList.replace('btn-ghost','btn-amber');r.insertBefore(w,m);}); } }catch(e){}
+
+  // email signup before download (Brevo)
+  var dlg=document.getElementById('signup'),fm=document.getElementById('su-form'),em=document.getElementById('su-email'),er=document.getElementById('su-err'),go=document.getElementById('su-go');
+  var DEST='https://remsplugins.github.io/download.html';
+  if(dlg&&typeof dlg.showModal==='function'){
+    document.querySelectorAll('.js-get').forEach(function(a){a.addEventListener('click',function(e){
+      e.preventDefault();document.getElementById('su-name').textContent=a.dataset.plugin||'Rems Plugins';er.textContent='';dlg.showModal();em.focus();});});
+    document.getElementById('su-close').addEventListener('click',function(){dlg.close();});
+    dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+    fm.addEventListener('submit',function(e){
+      e.preventDefault();
+      var v=em.value.trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){er.textContent='Please enter a valid email address.';em.focus();return;}
+      go.disabled=true;go.textContent='One moment…';er.textContent='';
+      var done=false;function next(){if(!done){done=true;location.href=DEST;}}
+      try{
+        fetch(fm.action,{method:'POST',body:new FormData(fm),mode:'no-cors'}).then(next,function(){
+          done=true;clearTimeout(t);go.disabled=false;go.textContent='Get the download links';er.textContent='Something went wrong. Please check your connection and try again.';});
+        var t=setTimeout(next,8000);   // slow network: go on anyway
+      }catch(x){fm.submit();}
+    });
+  }
   var th=document.getElementById('thanks');
   document.querySelectorAll('.js-dl').forEach(function(a){a.addEventListener('click',function(){th.hidden=false;})});
   document.getElementById('close').addEventListener('click',function(){th.hidden=true;});
