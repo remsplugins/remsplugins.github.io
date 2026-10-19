@@ -106,6 +106,9 @@ nav a{text-decoration:none;color:var(--muted)} nav a:hover{color:var(--fg)}
 .dl-os .btn{width:100%;padding-inline:12px}
 .btn-ghost[data-os]{border-color:var(--amber);color:var(--amber)}
 .dl-os .btn-amber{color:var(--amber-ink)}
+.dl-count{display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:-4px}
+.dl-count b{color:var(--fg);font-weight:600;font-variant-numeric:tabular-nums}
+.dl-count svg{width:14px;height:14px;flex:none}
 .dl .note{font-size:13px;color:var(--muted);text-align:center}
 
 /* chiffres */
@@ -273,6 +276,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
         </ul>
         <div class="dl">
           <p class="dl-title">Download Halcyon</p>
+          <p class="dl-count" data-plugin="Halcyon" hidden><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10"/></svg><span><b>0</b> downloads</span></p>
           <a class="btn btn-amber js-get" data-plugin="Halcyon" href="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==">Get Halcyon, free</a>
           <p class="note">Enter your email and you'll get the macOS and Windows downloads right away. Mac: Apple Silicon + Intel, macOS 10.13+ · Windows: 10/11 64-bit · VST3 + Standalone</p>
         </div>
@@ -351,6 +355,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
         </div>
         <div class="dl">
           <p class="dl-title">Download MixPilot</p>
+          <p class="dl-count" data-plugin="MixPilot" hidden><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10"/></svg><span><b>0</b> downloads</span></p>
           <a class="btn btn-amber js-get" data-plugin="MixPilot" href="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==">Get MixPilot, free</a>
           <p class="note">Enter your email and you'll get the macOS and Windows downloads right away. Track + Master in one file · Mac: VST3 + AU · Windows: VST3 64-bit</p>
         </div>
@@ -580,6 +585,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     function sel(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';}
     try{navigator.clipboard.writeText(pre.textContent).then(function(){btn.textContent='Copied';},sel);}catch(e){sel();}
   });
+
+  // download counters: GitHub counts every download of a release asset (see .github/workflows/releases.yml)
+  (function(){
+    var MIN_SHOW=1, KEY='rems-dl-counts', API='https://api.github.com/repos/remsplugins/remsplugins.github.io/releases?per_page=100';
+    function show(c){document.querySelectorAll('.dl-count').forEach(function(el){var n=c[el.dataset.plugin]||0;if(n>=MIN_SHOW){el.querySelector('b').textContent=n.toLocaleString('en-US');el.querySelector('span').lastChild.textContent=n===1?' download':' downloads';el.hidden=false;}});}
+    try{var s=JSON.parse(sessionStorage.getItem(KEY)||'null');if(s&&Date.now()-s.t<6e5){show(s.c);return;}}catch(e){}
+    fetch(API,{headers:{'Accept':'application/vnd.github+json'}}).then(function(r){return r.ok?r.json():Promise.reject(r.status);}).then(function(rel){
+      var c={};rel.forEach(function(r){(r.assets||[]).forEach(function(a){var p=a.name.split('-')[0];c[p]=(c[p]||0)+a.download_count;});});
+      try{sessionStorage.setItem(KEY,JSON.stringify({t:Date.now(),c:c}));}catch(e){}
+      show(c);
+    }).catch(function(){});
+  })();
 })();
 </script>
 </body>
