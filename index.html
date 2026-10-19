@@ -111,6 +111,32 @@ nav a{text-decoration:none;color:var(--muted)} nav a:hover{color:var(--fg)}
 .dl-count svg{width:14px;height:14px;flex:none}
 .dl .note{font-size:13px;color:var(--muted);text-align:center}
 
+/* extraits audio */
+.listen{padding:24px 28px 0}
+.listen .label{margin-bottom:10px}
+.sounds{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}
+.snd{position:relative;display:grid;grid-template-columns:34px minmax(0,1fr);gap:4px 12px;align-items:center;text-align:left;background:var(--panel-2);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:12px 14px 14px;cursor:pointer;font:inherit;overflow:hidden}
+.snd:hover{border-color:var(--muted)}
+.snd[aria-pressed="true"]{border-color:var(--amber)}
+.snd .ic{grid-row:span 2;width:34px;height:34px;border-radius:50%;background:var(--amber);color:var(--amber-ink);display:grid;place-items:center}
+.snd .ic svg{width:14px;height:14px}
+.snd b{font-family:var(--display);font-size:14px;font-weight:500;letter-spacing:.02em}
+.snd small{font-size:12px;color:var(--muted);line-height:1.35}
+.snd .bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--amber)}
+@media (max-width:860px){.listen{padding:20px 18px 0}}
+
+.ab{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px 14px;align-items:center;background:var(--panel-2);border:1px solid var(--line);border-radius:6px;padding:14px}
+.ab .ic{width:44px;height:44px;border:0;border-radius:50%;background:var(--teal);color:#0b1d1b;display:grid;place-items:center;cursor:pointer}
+.ab .ic svg{width:16px;height:16px}
+.ab-top{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;min-width:0}
+.ab-top b{font-family:var(--display);font-size:14px;font-weight:500}
+.ab-sw{display:inline-flex;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.ab-sw button{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--muted);border:0;padding:8px 12px;cursor:pointer}
+.ab-sw button[aria-pressed="true"]{background:var(--teal);color:#0b1d1b}
+.ab-track{grid-column:1/-1;height:4px;background:var(--line);border-radius:2px;overflow:hidden;cursor:pointer}
+.ab-track span{display:block;height:100%;width:0;background:var(--teal)}
+.ab-note{grid-column:1/-1;font-size:13px;color:var(--muted)}
+
 /* chiffres */
 .figures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
 .figures div{padding:18px 20px;border-right:1px solid var(--line)}
@@ -249,6 +275,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
         </video>
         <p>Demo · 1:34 · sound on</p>
       </div>
+      <div class="listen">
+        <p class="label">Listen · Classics presets, straight out of Halcyon</p>
+        <div class="sounds">
+          <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-mug.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Mug</b><small>70s mono ladder: fat bass, Holy Ladder, Crimson Low</small><span class="bar"></span></button>
+          <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-dz8.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Dz8</b><small>80s FM keys: Warm Ballad EP, Salty Tine Piano</small><span class="bar"></span></button>
+          <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-jiputer.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Jiputer</b><small>Early-80s poly: Hidden Wide, Giant Lush, Eternal pads</small><span class="bar"></span></button>
+          <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-profet5.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Profet 5</b><small>Late-70s poly brass: Gentle, Hyper, Rusty stacks</small><span class="bar"></span></button>
+          <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-krogn1.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Krog N1</b><small>Late-80s workstation: house stab and club pianos</small><span class="bar"></span></button>
+        </div>
+      </div>
       
     <div class="rack-grid">
       <div class="shots">
@@ -308,6 +344,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
           <source src="video/mixpilot-demo.mp4?v=3" type="video/mp4">
         </video>
         <p>Demo · 1:06 · sound on</p>
+      </div>
+      <div class="listen">
+        <p class="label">Listen · Before / after</p>
+        <div class="ab" data-a="audio/mixpilot-house-before.mp3" data-b="audio/mixpilot-house-after.mp3">
+          <button class="ic" type="button" aria-label="Play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button>
+          <div class="ab-top">
+            <b>House loop</b>
+            <div class="ab-sw" role="group" aria-label="Compare">
+              <button type="button" aria-pressed="true" data-k="a">Without</button>
+              <button type="button" aria-pressed="false" data-k="b">With MixPilot</button>
+            </div>
+          </div>
+          <div class="ab-track"><span></span></div>
+          <p class="ab-note">Same 15 s of a house track. Switch while it plays: both versions run in sync and are loudness-matched, so you hear the mix, not the volume.</p>
+        </div>
       </div>
       
     <div class="mp-shots">
@@ -611,6 +662,45 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       show(c);
     }).catch(function(){});
   })();
+})();
+
+// extraits audio : un seul joue à la fois
+(function(){
+  const btns=[...document.querySelectorAll('.snd')]; if(!btns.length) return;
+  const a=new Audio(); a.preload='none'; let cur=null; let raf=0;
+  const ic={play:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>',stop:'<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="3.5" width="9" height="9" rx="1" fill="currentColor"/></svg>'};
+  const reset=b=>{b.setAttribute('aria-pressed','false');b.querySelector('.ic').innerHTML=ic.play;b.querySelector('.bar').style.width='0'};
+  const tick=()=>{if(cur&&a.duration){cur.querySelector('.bar').style.width=(a.currentTime/a.duration*100)+'%'} raf=requestAnimationFrame(tick)};
+  const stop=()=>{a.pause();cancelAnimationFrame(raf);if(cur)reset(cur);cur=null};
+  a.addEventListener('ended',stop);
+  btns.forEach(b=>b.addEventListener('click',()=>{
+    if(cur===b){stop();return}
+    stop(); document.querySelectorAll('video').forEach(v=>v.pause());
+    cur=b; a.src=b.dataset.src; a.play().catch(stop);
+    b.setAttribute('aria-pressed','true'); b.querySelector('.ic').innerHTML=ic.stop; tick();
+  }));
+  document.querySelectorAll('video').forEach(v=>v.addEventListener('play',stop));
+})();
+
+// avant / après MixPilot : les deux versions jouent ensemble, on bascule le son
+(function(){
+  const box=document.querySelector('.ab'); if(!box) return;
+  const A=new Audio(box.dataset.a), B=new Audio(box.dataset.b); A.preload=B.preload='none'; A.loop=B.loop=true; B.muted=true;
+  const btn=box.querySelector('.ic'), bar=box.querySelector('.ab-track span'), sw=[...box.querySelectorAll('.ab-sw button')];
+  const ic={play:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>',stop:'<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="3.5" width="9" height="9" rx="1" fill="currentColor"/></svg>'};
+  let on=false, raf=0;
+  const tick=()=>{if(A.duration)bar.style.width=(A.currentTime/A.duration*100)+'%'; if(Math.abs(B.currentTime-A.currentTime)>.05)B.currentTime=A.currentTime; raf=requestAnimationFrame(tick)};
+  const stop=()=>{if(!on)return;on=false;A.pause();B.pause();cancelAnimationFrame(raf);btn.innerHTML=ic.play;btn.setAttribute('aria-label','Play')};
+  btn.addEventListener('click',()=>{
+    if(on){stop();return}
+    document.querySelectorAll('video').forEach(v=>v.pause()); document.querySelectorAll('.snd[aria-pressed="true"]').forEach(b=>b.click());
+    on=true; B.currentTime=A.currentTime; Promise.all([A.play(),B.play()]).catch(stop);
+    btn.innerHTML=ic.stop; btn.setAttribute('aria-label','Stop'); tick();
+  });
+  sw.forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.k; A.muted=k!=='a'; B.muted=k!=='b'; sw.forEach(x=>x.setAttribute('aria-pressed',String(x===b)))}));
+  box.querySelector('.ab-track').addEventListener('click',e=>{if(!A.duration)return;const r=e.currentTarget.getBoundingClientRect();A.currentTime=B.currentTime=(e.clientX-r.left)/r.width*A.duration});
+  document.querySelectorAll('video').forEach(v=>v.addEventListener('play',stop));
+  document.querySelectorAll('.snd').forEach(b=>b.addEventListener('click',stop));
 })();
 </script>
 </body>
