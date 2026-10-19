@@ -1,0 +1,41 @@
+name: Publish downloads as releases
+
+# Every zip in downloads/ is attached to a GitHub release named after the plug-in and
+# its version (e.g. halcyon-1.2.0). GitHub counts each download of a release asset,
+# and the site reads those counters to show the number of downloads.
+on:
+  push:
+    branches: [main]
+    paths: ['downloads/**', '.github/workflows/releases.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  releases:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create releases and upload missing assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          for f in downloads/*.zip; do
+            name=$(basename "$f")                                  # Halcyon-1.2.0-macOS.zip
+            plugin=$(echo "$name" | cut -d- -f1)                    # Halcyon
+            version=$(echo "$name" | cut -d- -f2)                   # 1.2.0
+            tag="$(echo "$plugin" | tr 'A-Z' 'a-z')-$version"       # halcyon-1.2.0
+            if ! gh release view "$tag" >/dev/null 2>&1; then
+              gh release create "$tag" --title "$plugin $version" \
+                --notes "$plugin $version for macOS and Windows. Download page: https://remsplugins.github.io/" --latest=false
+            fi
+            if gh release view "$tag" --json assets --jq '.assets[].name' | grep -qx "$name"; then
+              echo "already published: $tag/$name"
+            else
+              gh release upload "$tag" "$f"
+              echo "uploaded: $tag/$name"
+            fi
+          done
+          gh release list
