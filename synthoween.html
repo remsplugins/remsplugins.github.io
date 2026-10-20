@@ -139,6 +139,12 @@ code{font-family:var(--mono);font-size:13px;background:var(--bg);border:1px soli
 .cmd pre{flex:1;min-width:0;margin:0;overflow-x:auto;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:10px 12px;font-family:var(--mono);font-size:13px;color:var(--pumpkin)}
 .cmd button{font-family:var(--mono);font-size:12px;background:var(--panel-2);color:var(--fg);border:1px solid var(--line);border-radius:4px;padding:0 12px;cursor:pointer}
 
+/* commentaires */
+.block .intro{color:var(--muted);margin:-10px 0 22px;max-width:60ch}
+.comments{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:clamp(16px,3vw,28px);min-height:120px}
+.comments .empty{color:var(--muted);font-size:15px}
+#cusdis_thread iframe{width:100%;border:0}
+
 /* soutien */
 .support{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:minmax(0,1.4fr) auto;gap:24px;align-items:center}
 .support h2{font-size:clamp(24px,3.6vw,34px);margin-bottom:12px}
@@ -158,7 +164,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 
 <header><div class="wrap">
   <a class="brand" href="index.html" aria-label="Rems Plugins, home"><span class="logo"><i></i><i></i><i></i><i></i></span><b>REMS</b></a>
-  <nav><a href="#synthoween">Synth'O'Ween</a><a href="#listen">Listen</a><a href="#install">Install</a><a href="index.html">Halcyon &amp; MixPilot</a></nav>
+  <nav><a href="#synthoween">Synth'O'Ween</a><a href="#listen">Listen</a><a href="#install">Install</a><a href="#comments">Comments</a><a href="index.html">Halcyon &amp; MixPilot</a></nav>
 </div></header>
 
 <main id="top">
@@ -277,6 +283,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   </div>
 </div></section>
 
+<section class="block" id="comments"><div class="wrap">
+  <h2>Leave a comment</h2>
+  <p class="intro">Which sound scared you most? What did you make with it? What should haunt the next version? No account needed, just a name.</p>
+  <div class="comments">
+    <!-- Cusdis: paste the App ID from cusdis.com (Dashboard → your website → Embed code) into data-app-id -->
+    <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="" data-page-id="synthoween" data-page-url="https://remsplugins.github.io/synthoween.html" data-page-title="Synth'O'Ween" data-theme="dark"></div>
+    <p class="empty" id="comments-soon">Comments open soon.</p>
+  </div>
+</div></section>
+
 <section class="block" id="support"><div class="wrap">
   <div class="support">
     <div>
@@ -308,6 +324,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     function sel(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';}
     try{navigator.clipboard.writeText(pre.textContent).then(function(){btn.textContent='Copied';},sel);}catch(e){sel();}
   });
+})();
+
+// commentaires (Cusdis) : chargés seulement quand l'App ID est renseigné
+(function(){
+  const box=document.getElementById('cusdis_thread'); if(!box||!box.dataset.appId) return;
+  document.getElementById('comments-soon').hidden=true;
+  const s=document.createElement('script'); s.src='https://cusdis.com/js/cusdis.es.js'; s.async=true; s.defer=true; document.body.appendChild(s);
 })();
 
 // extraits audio : un seul joue à la fois
