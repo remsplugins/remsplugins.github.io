@@ -104,6 +104,8 @@ section{padding-block:30px 60px}
 /* the cursed screenshot */
 .frame{margin-top:30px;position:relative;border:10px solid #0b0707;outline:1px solid var(--crack);border-radius:6px;box-shadow:0 0 0 1px #000,0 0 60px rgba(196,19,12,.35),0 30px 80px rgba(0,0,0,.8);background:#000;aspect-ratio:1240/826;overflow:hidden}
 .frame img{width:100%;height:100%;object-fit:cover}
+.frame.vid{aspect-ratio:1198/834}
+.frame video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
 .web{position:absolute;width:110px;height:110px;pointer-events:none;opacity:.55;z-index:2}
 .web.tl{left:-10px;top:-10px}.web.br{right:-10px;bottom:-10px;transform:rotate(180deg)}
 .shot-tabs{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
@@ -232,7 +234,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
 
 <header><div class="wrap">
   <a class="brand" href="index.html">REMS PLUGINS</a>
-  <nav><a href="#listen">Listen</a><a href="#inside">Inside</a><a href="#spells">Effects</a><a href="#ritual">Install</a><a href="#comments">Comments</a><a href="index.html">Halcyon &amp; MixPilot</a></nav>
+  <nav><a href="#watch">Watch</a><a href="#listen">Listen</a><a href="#inside">Inside</a><a href="#spells">Effects</a><a href="#ritual">Install</a><a href="#comments">Comments</a><a href="index.html">Halcyon &amp; MixPilot</a></nav>
 </div></header>
 
 <main id="top">
@@ -255,6 +257,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
     <div class="tags"><span>VST3</span><span>AU</span><span>macOS Apple Silicon + Intel</span><span>Windows 10/11</span><span>$0 · pay what you want</span><span>No DRM</span></div>
   </div>
 </section>
+
+<section id="watch"><div class="wrap">
+  <h2 class="title">Watch it come alive</h2>
+  <p class="under">Ninety seconds inside Synth'O'Ween: 23 presets, from the Funeral Organ to the Braaam. Turn your sound up.</p>
+  <div class="frame vid">
+    <video controls preload="metadata" playsinline poster="img/synthoween-video-poster.jpg" width="1198" height="834">
+      <source src="video/synthoween-demo.mp4" type="video/mp4">
+      Your browser can't play this video. <a href="video/synthoween-demo.mp4">Download it</a>.
+    </video>
+  </div>
+</div></section>
 
 <section id="look"><div class="wrap">
   <h2 class="title">Open the cursed box</h2>
