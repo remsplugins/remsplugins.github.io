@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Synth'O'Ween · Rems Plugins</title>
+<meta name="description" content="Synth'O'Ween, a Halloween synth: 25 spooky sounds synthesized from scratch, haunted filters and cursed effects. Free VST3 / AU plug-in by Rems Plugins.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Creepster&family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Same console layout as the main page (ribbon, rack, listen, install, support), dressed for Halloween: pumpkin orange, blood red, candle glow. */
+:root{
+  --bg:#0f0b0d; --panel:#1a1214; --panel-2:#241719; --line:#3d2629;
+  --fg:#f1e6dc; --muted:#a8958c; --pumpkin:#ff7a1a; --pumpkin-ink:#1c0b02; --blood:#d7261e; --ghost:#b9a6ff; --wood:#3a0f0f; --wood-2:#6b1712;
+  --creep:"Creepster","Unbounded",system-ui,sans-serif;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+body{background:radial-gradient(1200px 600px at 80% -10%,rgba(255,122,26,.13),transparent 60%),radial-gradient(900px 500px at -10% 30%,rgba(215,38,30,.10),transparent 60%),var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+:focus-visible{outline:2px solid var(--pumpkin);outline-offset:3px}
+
+/* bandeau */
+.ribbon{background:linear-gradient(90deg,var(--blood),var(--pumpkin));color:var(--pumpkin-ink);font-family:var(--mono);font-size:13px;font-weight:600}
+.ribbon .wrap{display:flex;gap:8px 20px;flex-wrap:wrap;justify-content:space-between;align-items:center;padding-block:9px}
+.ribbon a{font-weight:600}
+
+/* en-tête */
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo{display:grid;gap:2px;width:28px}
+.logo i{display:block;height:5px;border-radius:1px}
+.logo i:nth-child(1){background:#f7b85a}.logo i:nth-child(2){background:#f5a03a}.logo i:nth-child(3){background:#e2702e}.logo i:nth-child(4){background:#8a5530}
+.brand b{font-family:var(--display);font-size:18px;letter-spacing:.18em}
+nav{display:flex;gap:18px;flex-wrap:wrap;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)} nav a:hover{color:var(--fg)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--body);font-weight:600;font-size:16px;padding:13px 22px;border-radius:6px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-pumpkin{background:var(--pumpkin);color:var(--pumpkin-ink)}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--muted)}
+.btn-coffee{background:#ffdd00;color:#141317}
+.btn[aria-disabled="true"]{background:var(--panel-2);color:var(--muted);border-color:var(--line);cursor:default;transform:none}
+
+/* hero */
+.hero{padding-block:44px 52px}
+.hero h1{font-family:var(--creep);font-weight:400;font-size:clamp(54px,11vw,118px);letter-spacing:.02em;line-height:.95;color:var(--pumpkin);text-shadow:0 0 28px rgba(255,122,26,.35),0 3px 0 var(--blood)}
+.hero .sub{font-family:var(--display);font-size:clamp(18px,2.6vw,26px);margin-top:14px;max-width:24ch}
+.hero .sub em{font-style:normal;color:var(--pumpkin)}
+.hero p.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:58ch;margin-top:18px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.specs{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.chip{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:99px;padding:5px 12px;color:var(--muted)}
+
+/* rack produit */
+.rack{display:grid;grid-template-columns:14px 1fr 14px;margin-block:0 56px}
+.cheek{background:linear-gradient(90deg,var(--wood),var(--wood-2) 45%,var(--wood));border-radius:4px}
+.rack-body{background:var(--panel);border-block:1px solid var(--line);min-width:0}
+.rack-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;padding:28px 28px 0}
+.rack-head h2{font-family:var(--creep);font-weight:400;font-size:clamp(38px,6vw,56px);letter-spacing:.04em;color:var(--pumpkin)}
+.rack-head .tag{color:var(--ghost);font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-top:8px}
+.version{font-family:var(--mono);font-size:13px;color:var(--muted);text-align:right}
+.rack-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px;padding:24px 28px 28px}
+@media (max-width:860px){.rack-grid{grid-template-columns:1fr}.rack-head{padding:22px 18px 0}.rack-grid{padding:20px 18px 22px}.rack{grid-template-columns:8px 1fr 8px}}
+
+/* galerie */
+.shots{padding:24px 28px 0;min-width:0}
+.screen{background:#000;border:1px solid var(--line);border-radius:6px;overflow:hidden;aspect-ratio:1240/826;max-width:100%;box-shadow:0 0 60px rgba(255,122,26,.12)}
+.screen img{display:block;width:100%;height:100%;object-fit:cover}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.tab{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:var(--panel-2);color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:7px 11px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--pumpkin);color:var(--pumpkin-ink);border-color:var(--pumpkin)}
+.caption{font-size:14px;color:var(--muted);margin-top:10px;min-height:2.8em}
+@media (max-width:860px){.shots{padding:20px 18px 0}}
+
+.copy{min-width:0;display:flex;flex-direction:column;gap:18px}
+.copy .pitch{font-size:18px}
+.copy ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.copy ul li{padding-left:18px;position:relative;font-size:15px;color:#ddd0c6}
+.copy ul li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;background:var(--pumpkin);border-radius:50%}
+.copy li b{color:var(--fg)}
+.dl{display:grid;gap:10px;margin-top:auto;padding-top:6px}
+.dl .btn{width:100%}
+.dl-title{font-family:var(--display);font-size:15px;letter-spacing:.06em;text-align:center}
+.dl .note{font-size:13px;color:var(--muted);text-align:center}
+
+/* familles */
+.families{display:grid;gap:8px}
+.fam{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:baseline;border-top:1px solid var(--line);padding-top:8px;font-size:14px;color:#ddd0c6}
+.fam:first-child{border-top:0;padding-top:0}
+.fam b{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--pumpkin)}
+@media (max-width:480px){.fam{grid-template-columns:1fr;gap:2px}}
+
+/* extraits audio */
+.listen{padding:24px 28px 0}
+.listen .label{margin-bottom:10px}
+.sounds{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}
+.snd{position:relative;display:grid;grid-template-columns:34px minmax(0,1fr);gap:4px 12px;align-items:center;text-align:left;background:var(--panel-2);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:12px 14px 14px;cursor:pointer;font:inherit;overflow:hidden}
+.snd:hover{border-color:var(--muted)}
+.snd[aria-pressed="true"]{border-color:var(--pumpkin);box-shadow:0 0 18px rgba(255,122,26,.25)}
+.snd .ic{grid-row:span 2;width:34px;height:34px;border-radius:50%;background:var(--pumpkin);color:var(--pumpkin-ink);display:grid;place-items:center}
+.snd .ic svg{width:14px;height:14px}
+.snd b{font-family:var(--display);font-size:14px;font-weight:500;letter-spacing:.02em}
+.snd small{font-size:12px;color:var(--muted);line-height:1.35}
+.snd .bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--pumpkin)}
+@media (max-width:860px){.listen{padding:20px 18px 0}}
+
+/* chiffres */
+.figures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.figures div{padding:18px 20px;border-right:1px solid var(--line)}
+.figures div:last-child{border-right:0}
+.figures b{display:block;font-family:var(--display);font-size:26px;color:var(--fg);font-variant-numeric:tabular-nums}
+.figures span{font-size:13px;color:var(--muted)}
+@media (max-width:640px){.figures{grid-template-columns:repeat(2,minmax(0,1fr))}.figures div:nth-child(2){border-right:0}.figures div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* installation */
+section.block{padding-block:8px 56px}
+.block h2{font-size:clamp(24px,3.4vw,32px);margin-bottom:22px}
+.install{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.install article{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px;display:grid;gap:12px;align-content:start;min-width:0}
+.install h3{font-size:16px;letter-spacing:.08em}
+.install p,.install li{font-size:15px;color:#ddd0c6}
+.install ol{margin:0;padding-left:20px;display:grid;gap:6px}
+code{font-family:var(--mono);font-size:13px;background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:1px 5px;word-break:break-all}
+.cmd{display:flex;gap:8px;align-items:stretch;min-width:0}
+.cmd pre{flex:1;min-width:0;margin:0;overflow-x:auto;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:10px 12px;font-family:var(--mono);font-size:13px;color:var(--pumpkin)}
+.cmd button{font-family:var(--mono);font-size:12px;background:var(--panel-2);color:var(--fg);border:1px solid var(--line);border-radius:4px;padding:0 12px;cursor:pointer}
+
+/* soutien */
+.support{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:minmax(0,1.4fr) auto;gap:24px;align-items:center}
+.support h2{font-size:clamp(24px,3.6vw,34px);margin-bottom:12px}
+.support p{color:var(--muted);max-width:52ch}
+@media (max-width:720px){.support{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:22px}
+</style>
+</head>
+<body>
+<div class="ribbon"><div class="wrap">
+  <span>🎃 HALLOWEEN SPECIAL · Synth'O'Ween · Free, pay what you want</span>
+  <a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a>
+</div></div>
+
+<header><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Rems Plugins, home"><span class="logo"><i></i><i></i><i></i><i></i></span><b>REMS</b></a>
+  <nav><a href="#synthoween">Synth'O'Ween</a><a href="#listen">Listen</a><a href="#install">Install</a><a href="index.html">Halcyon &amp; MixPilot</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <p class="label">Halloween special · Rems Plugins</p>
+  <h1 style="margin-top:14px">Synth'O'Ween</h1>
+  <p class="sub">Sounds from <em>the other side.</em></p>
+  <p class="lead">A Halloween synth packed with screams, drones, creaking doors and cursed music boxes. Bend them through haunted filters and effects, then play them from your keyboard. Free, no account, no license to activate.</p>
+  <div class="ctas">
+    <a class="btn btn-pumpkin" href="#listen">Listen to the sounds</a>
+    <a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+  </div>
+  <div class="specs"><span class="chip">VST3</span><span class="chip">AU</span><span class="chip">macOS Apple Silicon + Intel</span><span class="chip">Windows 10/11</span><span class="chip">$0 · pay what you want</span><span class="chip">No DRM</span></div>
+</div></section>
+
+<div class="wrap" id="synthoween">
+<article class="rack">
+  <div class="cheek" aria-hidden="true"></div>
+  <div class="rack-body">
+    <div class="rack-head">
+      <div><h2>Synth'O'Ween</h2><p class="tag">Halloween sample synth</p></div>
+      <p class="version">v1.0.0<br>VST3 · AU</p>
+    </div>
+
+    <div class="shots">
+      <div class="screen"><img id="shot" src="img/synthoween-main.jpg" alt="Synth'O'Ween interface, main page" width="1240" height="826"></div>
+      <div class="tabs" role="tablist" aria-label="Synth'O'Ween screenshots">
+        <button class="tab" role="tab" aria-selected="true" data-k="0">Synth</button>
+        <button class="tab" role="tab" aria-selected="false" data-k="1">Matrix</button>
+      </div>
+      <p class="caption" id="cap">The Phantom Choir preset: sample, filter, amp, LFO and two FX slots, with the playheads running over the waveform.</p>
+    </div>
+
+    <div class="listen" id="listen">
+      <p class="label">Listen · Factory presets, straight out of Synth'O'Ween</p>
+      <div class="sounds">
+        <button class="snd" type="button" aria-pressed="false" data-src="audio/synthoween-ghost-howl.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Ghost Howl</b><small>Screams · a wailing ghost in the Haunted Hall</small><span class="bar"></span></button>
+        <button class="snd" type="button" aria-pressed="false" data-src="audio/synthoween-banshee-night.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Banshee Night</b><small>Screams · each echo climbs a fifth</small><span class="bar"></span></button>
+        <button class="snd" type="button" aria-pressed="false" data-src="audio/synthoween-demon-inside.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Demon Inside</b><small>Screams · a roar through the Possession FX</small><span class="bar"></span></button>
+        <button class="snd" type="button" aria-pressed="false" data-src="audio/synthoween-braaam.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Braaam</b><small>Jump Scares · the trailer impact</small><span class="bar"></span></button>
+        <button class="snd" type="button" aria-pressed="false" data-src="audio/synthoween-phantom-choir.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Phantom Choir</b><small>Drones · a cursed choir that never ends</small><span class="bar"></span></button>
+        <button class="snd" type="button" aria-pressed="false" data-src="audio/synthoween-graveyard-wind.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Graveyard Wind</b><small>Drones · wind sweeping through the band pass</small><span class="bar"></span></button>
+        <button class="snd" type="button" aria-pressed="false" data-src="audio/synthoween-creaky-door.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Creaky Door</b><small>Haunted FX · someone is coming in</small><span class="bar"></span></button>
+        <button class="snd" type="button" aria-pressed="false" data-src="audio/synthoween-thunderstorm.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Thunderstorm</b><small>Haunted FX · thunder cracks over the manor</small><span class="bar"></span></button>
+        <button class="snd" type="button" aria-pressed="false" data-src="audio/synthoween-midnight-bell.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Midnight Bell</b><small>Bells &amp; Boxes · the church strikes twelve</small><span class="bar"></span></button>
+        <button class="snd" type="button" aria-pressed="false" data-src="audio/synthoween-haunted-theremin.mp3"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span><b>Haunted Theremin</b><small>Bells &amp; Boxes · the 50s B-movie classic</small><span class="bar"></span></button>
+      </div>
+    </div>
+
+    <div class="rack-grid">
+      <div class="copy">
+        <p class="pitch">Every sound in Synth'O'Ween is synthesized by the plug-in itself: formant voices for the screams, string clusters, additive bells, friction for the creaking door. No sample library to install, nothing to license.</p>
+        <ul>
+          <li><b>Sample</b>: 25 spooky sounds. START, END, CROSSFADE and TUNE shape the one you pick. Set CROSSFADE to 0 to play it once, or turn it up to loop.</li>
+          <li><b>Filter</b>: low pass 12 and 24 dB, high pass, band pass, notch, plus two weird ones. <i>Demon Vowel</i> makes the sound speak in vowels, <i>Haunted Comb</i> turns it into a metal pipe.</li>
+          <li><b>LFO</b>: 7 shapes, including <i>Heartbeat</i> and <i>Chaos</i>.</li>
+          <li><b>Cursed effects</b>: Reverb, Haunted Hall, Possession (demon voice), Bone Crusher and Grave Tape, then Delay, Banshee Echo, Reverse Spectre, Heartbeat Gate and Ring of Hell, synced to your tempo.</li>
+          <li><b>Modulation</b>: 2 slots on the main page and 4 more in MATRIX, with a second envelope, glide and pitch bend range.</li>
+          <li><b>Trick or Synth</b>: click the logo at the bottom right and a random sound is born.</li>
+        </ul>
+      </div>
+      <div class="copy">
+        <div>
+          <p class="label" style="margin-bottom:10px">5 families of sounds</p>
+          <div class="families">
+            <p class="fam"><b>Screams</b><span>Ghost howl, banshee wail, female scream, demon roar, witch cackle, wolf, whispers</span></p>
+            <p class="fam"><b>Jump Scares</b><span>Stinger, psycho strings, braaam, reverse riser, slam</span></p>
+            <p class="fam"><b>Drones</b><span>Abyss, cursed choir, dark organ, graveyard wind, hell rumble</span></p>
+            <p class="fam"><b>Haunted FX</b><span>Creaky door, heartbeat, thunder, rattling chains, blood drip</span></p>
+            <p class="fam"><b>Bells &amp; Boxes</b><span>Church bell, music box, theremin</span></p>
+          </div>
+        </div>
+        <div class="dl">
+          <p class="dl-title">Download Synth'O'Ween</p>
+          <a class="btn" aria-disabled="true" role="link">Coming soon</a>
+          <p class="note">Free download for macOS (VST3 + AU) and Windows (VST3), just in time for Halloween.</p>
+        </div>
+      </div>
+    </div>
+    <div class="figures">
+      <div><b>25</b><span>spooky sounds</span></div>
+      <div><b>29</b><span>factory presets</span></div>
+      <div><b>7</b><span>filter types</span></div>
+      <div><b>10</b><span>cursed effects</span></div>
+    </div>
+  </div>
+  <div class="cheek" aria-hidden="true"></div>
+</article>
+</div>
+
+<section class="block" id="install"><div class="wrap">
+  <h2>Install</h2>
+  <div class="install">
+    <article>
+      <h3>MACOS</h3>
+      <ol>
+        <li>Unzip the download.</li>
+        <li>Copy <code>SynthOWeen.vst3</code> to <code>~/Library/Audio/Plug-Ins/VST3</code> and <code>SynthOWeen.component</code> (AU) to <code>~/Library/Audio/Plug-Ins/Components</code>.</li>
+        <li>Or double-click <code>fix_mac_plugins.command</code>: it installs, unblocks and rescans the plug-in for you.</li>
+        <li>Restart your DAW and rescan plug-ins. In Ableton Live: Settings → Plug-Ins → Rescan.</li>
+      </ol>
+    </article>
+    <article>
+      <h3>WINDOWS</h3>
+      <ol>
+        <li>Unzip the download.</li>
+        <li>Copy the <code>SynthOWeen.vst3</code> folder to <code>C:\Program Files\Common Files\VST3</code>.</li>
+        <li>Restart your DAW and rescan plug-ins. In Ableton Live: Options → Preferences → Plug-Ins → Rescan.</li>
+      </ol>
+    </article>
+    <article>
+      <h3>IF MACOS BLOCKS THE PLUG-IN</h3>
+      <p>The plug-in is not notarized by Apple yet, so macOS may quarantine it. Paste this into Terminal, then restart your DAW:</p>
+      <div class="cmd"><pre id="cmd">xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/SynthOWeen.vst3 ~/Library/Audio/Plug-Ins/Components/SynthOWeen.component</pre><button type="button" id="copy">Copy</button></div>
+    </article>
+  </div>
+</div></section>
+
+<section class="block" id="support"><div class="wrap">
+  <div class="support">
+    <div>
+      <h2>Free, and staying free.</h2>
+      <p>No subscription, no account, no crippled demo. If Synth'O'Ween haunts one of your tracks, a coffee pays for the dev hours and the next plug-ins.</p>
+    </div>
+    <a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Rems · Synth'O'Ween · <a href="index.html">Halcyon &amp; MixPilot</a></span><span>VST is a trademark of Steinberg Media Technologies GmbH.</span></div></footer>
+
+<script>
+(function(){
+  var shots=[
+    {src:"img/synthoween-main.jpg",cap:"The Phantom Choir preset: sample, filter, amp, LFO and two FX slots, with the playheads running over the waveform."},
+    {src:"img/synthoween-matrix.jpg",cap:"MATRIX: envelope 2, FX B mix, volume, pitch bend range, glide and four more modulation slots."}
+  ];
+  var img=document.getElementById('shot'),cap=document.getElementById('cap');
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      var s=shots[+t.dataset.k];img.src=s.src;cap.textContent=s.cap;
+      document.querySelectorAll('.tab').forEach(function(o){o.setAttribute('aria-selected',o===t?'true':'false')});
+    });
+  });
+  var btn=document.getElementById('copy'),pre=document.getElementById('cmd');
+  btn.addEventListener('click',function(){
+    function sel(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';}
+    try{navigator.clipboard.writeText(pre.textContent).then(function(){btn.textContent='Copied';},sel);}catch(e){sel();}
+  });
+})();
+
+// extraits audio : un seul joue à la fois
+(function(){
+  const btns=[...document.querySelectorAll('.snd')]; if(!btns.length) return;
+  const a=new Audio(); a.preload='none'; let cur=null; let raf=0;
+  const ic={play:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>',stop:'<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="3.5" width="9" height="9" rx="1" fill="currentColor"/></svg>'};
+  const reset=b=>{b.setAttribute('aria-pressed','false');b.querySelector('.ic').innerHTML=ic.play;b.querySelector('.bar').style.width='0'};
+  const tick=()=>{if(cur&&a.duration){cur.querySelector('.bar').style.width=(a.currentTime/a.duration*100)+'%'} raf=requestAnimationFrame(tick)};
+  const stop=()=>{a.pause();cancelAnimationFrame(raf);if(cur)reset(cur);cur=null};
+  a.addEventListener('ended',stop);
+  btns.forEach(b=>b.addEventListener('click',()=>{
+    if(cur===b){stop();return}
+    stop();
+    cur=b; a.src=b.dataset.src; a.play().catch(stop);
+    b.setAttribute('aria-pressed','true'); b.querySelector('.ic').innerHTML=ic.stop; tick();
+  }));
+})();
+</script>
+</body>
+</html>
