@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Download Synth'O'Ween · Rems Plugins</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nosifer&family=Creepster&family=Special+Elite&family=IM+Fell+English:ital@0;1&family=Instrument+Sans:wght@400;600&display=swap">
+<style>
+/* Download page reached after the email form, dressed like synthoween.html. */
+:root{
+  --night:#070405; --stone:#141011; --crack:#35231f; --bone:#e8dcc4; --ash:#a99a8e; --blood:#c4130c; --blood-hi:#ff2a1a; --ember:#ff7a1a;
+  --drip:"Nosifer","Creepster",system-ui,sans-serif; --creep:"Creepster",system-ui,sans-serif; --type:"Special Elite","Courier New",monospace;
+  --book:"IM Fell English",Georgia,serif; --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(196,19,12,.22),transparent 70%),var(--night);color:var(--bone);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.75) 100%)}
+img{max-width:100%;display:block}
+a{color:inherit}
+p{margin:0}
+h1,h2{margin:0;font-weight:400;line-height:1.1}
+:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+.wrap{max-width:900px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.ribbon{background:var(--blood);color:#fff1e8;font-family:var(--type);font-size:14px}
+.ribbon .wrap{display:flex;gap:6px 20px;flex-wrap:wrap;justify-content:space-between;padding-block:8px}
+.drips{display:block;width:100%;height:40px;margin-top:-1px;color:var(--blood)}
+header .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-block:4px 10px;font-family:var(--type)}
+header a{text-decoration:none;color:var(--ash)} header a:hover{color:var(--blood-hi)}
+main{padding-block:20px 60px}
+.logo{width:min(560px,100%);margin:0 auto;mix-blend-mode:lighten;-webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 70%,transparent 100%);mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 70%,transparent 100%)}
+h1{font-family:var(--drip);font-size:clamp(26px,5vw,44px);color:var(--blood);text-shadow:0 0 18px rgba(196,19,12,.5);text-align:center;margin-top:18px}
+.lead{font-family:var(--book);font-style:italic;font-size:20px;color:#d9cbb8;text-align:center;margin:12px auto 0;max-width:34em}
+.os{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+@media (max-width:560px){.os{grid-template-columns:1fr}}
+.btn{display:grid;place-items:center;gap:2px;text-align:center;text-decoration:none;border-radius:4px;padding:18px 20px;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn b{font-family:var(--creep);font-weight:400;font-size:30px;letter-spacing:.06em}
+.btn small{font-family:var(--type);font-size:13px;opacity:.85}
+.btn-blood{background:linear-gradient(#d8170f,#8e0904);color:#fff3ea;box-shadow:0 0 26px rgba(196,19,12,.45),inset 0 -3px 0 rgba(0,0,0,.35)}
+.btn-stone{background:linear-gradient(#2c2423,#151011);color:var(--bone);border:1px solid #3a2e2b}
+.btn-coffee{display:inline-flex;background:#ffdd00;color:#141317;font-weight:600;padding:13px 22px}
+.next{margin-top:40px;border:1px solid var(--crack);background:rgba(20,16,17,.9);border-radius:4px;padding:24px;display:grid;gap:14px}
+.next p{color:#d3c6b5}
+.next b{color:var(--bone)}
+code{font-family:var(--type);font-size:13px;background:#0b0808;border:1px solid var(--crack);border-radius:2px;padding:1px 5px}
+.privacy{font-size:12px;color:var(--ash);margin-top:26px;text-align:center}
+footer{border-top:1px solid var(--crack);color:#7d6f68;font-family:var(--type);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-block:22px}
+</style>
+</head>
+<body>
+<div class="ribbon"><div class="wrap">
+  <span>🎃 The pact is sealed · free, pay what you want</span>
+  <a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a>
+</div></div>
+<svg class="drips" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 0h1200v10c-14 0-18 4-22 14s-8 12-12 0-6-14-20-14H980c-12 0-14 8-16 22s-4 18-8 18-6-6-7-20-5-20-15-20H760c-10 0-12 6-14 12s-6 8-9 0-5-12-14-12H520c-14 0-16 10-18 26s-5 20-9 20-6-8-7-22-6-24-16-24H300c-10 0-13 6-15 14s-6 10-9 0-6-14-16-14H120c-12 0-15 8-17 18s-4 14-8 14-6-6-7-16-6-16-14-16H0z"/></svg>
+<header><div class="wrap"><a href="synthoween.html">← Synth'O'Ween</a><a href="./">Rems Plugins</a></div></header>
+<main class="wrap">
+  <img class="logo" src="img/sow-logo.jpg" alt="Synth'O'Ween" width="620" height="165">
+  <h1>It's yours now</h1>
+  <p class="lead">Pick your system. Bookmark this page if you like: it always has the latest version.</p>
+  <div class="os">
+    <a class="btn btn-blood" data-os="mac" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/synthoween-1.0.0/SynthOWeen-1.0.0-macOS.zip"><b>macOS</b><small>VST3 + AU · Apple Silicon + Intel</small></a>
+    <a class="btn btn-stone" data-os="win" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/synthoween-1.0.0/SynthOWeen-1.0.0-Windows.zip"><b>Windows</b><small>VST3 · Windows 10/11 64-bit</small></a>
+  </div>
+  <div class="next">
+    <p><b>Next step:</b> unzip, then follow the <a href="synthoween.html#ritual">summoning ritual</a>. On a Mac, double-click <code>fix_mac_plugins.command</code> if your DAW doesn't see the plug-in.</p>
+    <p>Made something scary with it? <a href="synthoween.html#comments">Leave your mark</a>. And if it haunts one of your tracks, a coffee helps ship the next one.</p>
+    <div><a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Buy me a coffee</a></div>
+  </div>
+  <p class="privacy">Your email is used to send you this page and, only if you ticked the box, news about updates and new plug-ins. You can unsubscribe at any time from any email. Emails are sent with Brevo.</p>
+</main>
+<footer><div class="wrap"><span>© 2026 Rems · Synth'O'Ween</span><span>VST is a trademark of Steinberg Media Technologies GmbH.</span></div></footer>
+<script>
+// Windows first for Windows visitors
+try{if(/Windows/i.test(navigator.userAgent)){var m=document.querySelector('[data-os=mac]'),w=document.querySelector('[data-os=win]');m.className='btn btn-stone';w.className='btn btn-blood';w.parentNode.insertBefore(w,m);}}catch(e){}
+</script>
+</body>
+</html>
