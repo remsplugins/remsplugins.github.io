@@ -35,8 +35,8 @@ main{padding-block:20px 60px}
 .logo{width:min(560px,100%);margin:0 auto;mix-blend-mode:lighten;-webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 70%,transparent 100%);mask-image:radial-gradient(ellipse 60% 60% at 50% 50%,#000 70%,transparent 100%)}
 h1{font-family:var(--drip);font-size:clamp(26px,5vw,44px);color:var(--blood);text-shadow:0 0 18px rgba(196,19,12,.5);text-align:center;margin-top:18px}
 .lead{font-family:var(--book);font-style:italic;font-size:20px;color:#d9cbb8;text-align:center;margin:12px auto 0;max-width:34em}
-.os{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
-@media (max-width:560px){.os{grid-template-columns:1fr}}
+.os{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+@media (max-width:760px){.os{grid-template-columns:1fr}}
 .btn{display:grid;place-items:center;gap:2px;text-align:center;text-decoration:none;border-radius:4px;padding:18px 20px;cursor:pointer;transition:transform .15s,box-shadow .15s}
 .btn:hover{transform:translateY(-2px)}
 .btn b{font-family:var(--creep);font-weight:400;font-size:30px;letter-spacing:.06em}
@@ -67,9 +67,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
   <div class="os">
     <a class="btn btn-blood" data-os="mac" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/synthoween-1.0.0/SynthOWeen-1.0.0-macOS.zip"><b>macOS</b><small>VST3 + AU · Apple Silicon + Intel</small></a>
     <a class="btn btn-stone" data-os="win" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/synthoween-1.0.0/SynthOWeen-1.0.0-Windows.zip"><b>Windows</b><small>VST3 · Windows 10/11 64-bit</small></a>
+    <a class="btn btn-stone" data-os="linux" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/synthoween-1.0.0/SynthOWeen-1.0.0-Linux.zip"><b>Linux</b><small>VST3 + LV2 · x86_64</small></a>
   </div>
   <div class="next">
-    <p><b>Next step:</b> unzip, then follow the <a href="synthoween.html#ritual">summoning ritual</a>. On a Mac, double-click <code>fix_mac_plugins.command</code> if your DAW doesn't see the plug-in.</p>
+    <p><b>Next step:</b> unzip, then follow the <a href="synthoween.html#ritual">summoning ritual</a>. On a Mac, double-click <code>fix_mac_plugins.command</code> if your DAW doesn't see the plug-in. On Linux, copy it to <code>~/.vst3</code> and <code>~/.lv2</code>.</p>
     <p>Made something scary with it? <a href="synthoween.html#comments">Leave your mark</a>. And if it haunts one of your tracks, a coffee helps ship the next one.</p>
     <div><a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Buy me a coffee</a></div>
   </div>
@@ -77,8 +78,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
 </main>
 <footer><div class="wrap"><span>© 2026 Rems · Synth'O'Ween</span><span>VST is a trademark of Steinberg Media Technologies GmbH.</span></div></footer>
 <script>
-// Windows first for Windows visitors
-try{if(/Windows/i.test(navigator.userAgent)){var m=document.querySelector('[data-os=mac]'),w=document.querySelector('[data-os=win]');m.className='btn btn-stone';w.className='btn btn-blood';w.parentNode.insertBefore(w,m);}}catch(e){}
+// put the visitor's system first
+try{var ua=navigator.userAgent,os=/Windows/i.test(ua)?'win':(/Linux|X11/i.test(ua)&&!/Android/i.test(ua))?'linux':null;if(os){var m=document.querySelector('[data-os=mac]'),f=document.querySelector('[data-os='+os+']');m.className='btn btn-stone';f.className='btn btn-blood';f.parentNode.insertBefore(f,m);}}catch(e){}
 </script>
 </body>
 </html>

@@ -101,7 +101,8 @@ nav a{text-decoration:none;color:var(--muted)} nav a:hover{color:var(--fg)}
 .dl{display:grid;gap:10px;margin-top:auto;padding-top:6px}
 .dl .btn{width:100%}
 .dl-title{font-family:var(--display);font-size:15px;letter-spacing:.06em;text-align:center}
-.dl-os{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dl-os{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:420px){.dl-os{grid-template-columns:1fr}}
 .dl-os .btn{width:100%;padding-inline:12px}
 .btn-ghost[data-os]{border-color:var(--amber);color:var(--amber)}
 .dl-os .btn-amber{color:var(--amber-ink)}
@@ -220,25 +221,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   <div class="cards">
     <article class="card">
       <div><h2>HALCYON</h2><p class="tag">Wavetable synthesizer</p></div>
-      <p class="ver">v1.3.0 · VST3 · AU · Standalone</p>
+      <p class="ver">v1.3.0 · VST3 · AU · LV2 · Standalone</p>
       <div class="dl-os">
         <a class="btn btn-amber js-dl" data-os="mac" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/halcyon-1.3.0/Halcyon-1.3.0-macOS.zip">macOS</a>
         <a class="btn btn-ghost js-dl" data-os="win" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/halcyon-1.3.0/Halcyon-1.3.0-Windows.zip">Windows</a>
+        <a class="btn btn-ghost js-dl" data-os="linux" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/halcyon-1.3.0/Halcyon-1.3.0-Linux.zip">Linux</a>
       </div>
-      <p class="privacy">Mac: Apple Silicon + Intel, macOS 10.13+ · Windows: 10/11 64-bit</p>
+      <p class="privacy">Mac: Apple Silicon + Intel, macOS 10.13+ · Windows: 10/11 64-bit · Linux: x86_64, VST3 + LV2</p>
     </article>
     <article class="card">
       <div><h2>MIXPILOT</h2><p class="tag teal">Assisted mixing &amp; mastering</p></div>
-      <p class="ver">v1.0.2 · Track + Master · VST3 · AU</p>
+      <p class="ver">v1.0.2 · Track + Master · VST3 · AU · LV2</p>
       <div class="dl-os">
         <a class="btn btn-amber js-dl" data-os="mac" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/mixpilot-1.0.2/MixPilot-1.0.2-macOS.zip">macOS</a>
         <a class="btn btn-ghost js-dl" data-os="win" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/mixpilot-1.0.2/MixPilot-1.0.2-Windows.zip">Windows</a>
+        <a class="btn btn-ghost js-dl" data-os="linux" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/mixpilot-1.0.2/MixPilot-1.0.2-Linux.zip">Linux</a>
       </div>
-      <p class="privacy">Mac: VST3 + AU · Windows: VST3 64-bit</p>
+      <p class="privacy">Mac: VST3 + AU · Windows: VST3 64-bit · Linux: VST3 + LV2, x86_64</p>
     </article>
   </div>
   <div class="next">
-    <p><b>Next step:</b> unzip, then follow the <a href="./#install">install guide</a>. On a Mac, double-click <code>fix_mac_plugins.command</code> if your DAW doesn't see the plug-in.</p>
+    <p><b>Next step:</b> unzip, then follow the <a href="./#install">install guide</a>. On a Mac, double-click <code>fix_mac_plugins.command</code> if your DAW doesn't see the plug-in. On Linux, copy the plug-ins to <code>~/.vst3</code> and <code>~/.lv2</code>.</p>
     <p>If Halcyon or MixPilot end up in your tracks, a coffee helps ship the next one.</p>
     <div><a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Buy me a coffee</a></div>
   </div>
@@ -246,7 +249,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 </main>
 <footer><div class="wrap"><span>© 2026 Rems · Halcyon &amp; MixPilot</span><span>VST is a trademark of Steinberg Media Technologies GmbH.</span></div></footer>
 <script>
-try{ if(/Windows/i.test(navigator.userAgent)){ document.querySelectorAll('.dl-os').forEach(function(r){var m=r.querySelector('[data-os=mac]'),w=r.querySelector('[data-os=win]');m.classList.replace('btn-amber','btn-ghost');w.classList.replace('btn-ghost','btn-amber');r.insertBefore(w,m);}); } }catch(e){}
+// put the visitor's system first
+try{ var ua=navigator.userAgent, os=/Windows/i.test(ua)?'win':(/Linux|X11/i.test(ua)&&!/Android/i.test(ua))?'linux':null;
+  if(os){ document.querySelectorAll('.dl-os').forEach(function(r){var m=r.querySelector('[data-os=mac]'),f=r.querySelector('[data-os='+os+']');m.classList.replace('btn-amber','btn-ghost');f.classList.replace('btn-ghost','btn-amber');r.insertBefore(f,m);}); } }catch(e){}
 </script>
 </body>
 </html>
