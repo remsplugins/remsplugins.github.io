@@ -8,7 +8,7 @@
 <meta name="description" content="Halcyon, a wavetable synth, and MixPilot, an assisted mixing and mastering duo. Free VST3 / AU plug-ins for macOS, pay what you want.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Creepster&family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
 /* Layout: a studio console. Launch ribbon, two product "racks" with wooden cheeks, install, support. Deliberately dark, like the plug-in UIs. */
 :root{
@@ -236,6 +236,20 @@ dialog.signup::backdrop{background:rgba(10,9,12,.72)}
 .signup .btn[disabled]{opacity:.6;cursor:wait}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:22px}
+/* Synth'O'Ween : lien du menu et encart Halloween (affiché jusqu'au 2 novembre 2026) */
+nav a.nav-sow{color:#ff7a1a}
+.sow-promo{margin-block:0 56px}
+.sow-card{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px;align-items:center;padding:clamp(20px,4vw,34px);border:1px solid #5a1410;border-radius:8px;text-decoration:none;color:#efe4d8;
+  background:linear-gradient(90deg,rgba(7,4,5,.94) 35%,rgba(7,4,5,.55)),url(img/sow-backdrop.jpg) center/cover;box-shadow:0 0 40px rgba(196,19,12,.25)}
+.sow-card::before{content:"";position:absolute;left:0;right:0;top:0;height:16px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'><path fill='%23c4130c' d='M0 0h120v4c-4 0-5 2-6 6s-3 5-4 0-2-6-6-6H70c-3 0-4 3-5 8s-2 6-3 0-2-8-5-8H30c-3 0-4 2-5 5s-2 3-3 0-2-5-5-5H0z'/></svg>") top/240px 16px repeat-x}
+.sow-card:hover{border-color:#c4130c;box-shadow:0 0 60px rgba(196,19,12,.4)}
+.sow-card .kick{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#ff7a1a}
+.sow-card h2{font-family:"Creepster",var(--display);font-weight:400;font-size:clamp(40px,7vw,68px);letter-spacing:.03em;color:#d4241b;text-shadow:0 0 22px rgba(212,36,27,.45);margin-top:6px}
+.sow-card p.txt{color:#d9cbb8;font-size:17px;margin-top:10px;max-width:44ch}
+.sow-card .go{display:inline-flex;margin-top:18px;font-family:"Creepster",var(--display);font-size:22px;letter-spacing:.06em;background:linear-gradient(#d8170f,#8e0904);color:#fff3ea;padding:10px 22px;border-radius:4px}
+.sow-card .until{font-family:var(--mono);font-size:12px;color:#a99a8e;margin-top:12px}
+.sow-card img{width:100%;height:auto;border:1px solid #3b2222;border-radius:4px;box-shadow:0 0 30px rgba(196,19,12,.35);transform:rotate(1.2deg)}
+@media (max-width:760px){.sow-card{grid-template-columns:1fr}.sow-card img{order:-1;max-width:420px}}
 </style>
 </head>
 <body>
@@ -246,7 +260,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 
 <header><div class="wrap">
   <a class="brand" href="#top" aria-label="Rems, home"><span class="logo"><i></i><i></i><i></i><i></i></span><b>REMS</b></a>
-  <nav><a href="#halcyon">Halcyon</a><a href="#mixpilot">MixPilot</a><a href="#install">Install</a><a href="#changelog">What's new</a><a href="#support">Support</a></nav>
+  <nav><a href="#halcyon">Halcyon</a><a href="#mixpilot">MixPilot</a><a class="nav-sow" href="synthoween.html">Synth'O'Ween 🎃</a><a href="#install">Install</a><a href="#changelog">What's new</a><a href="#support">Support</a></nav>
 </div></header>
 
 <main id="top">
@@ -261,6 +275,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   <div class="specs"><span class="chip">VST3</span><span class="chip">AU</span><span class="chip">macOS Apple Silicon + Intel</span><span class="chip">Windows 10/11</span><span class="chip">$0 · pay what you want</span><span class="chip">No DRM</span></div>
 </div></section>
 
+<!-- Synth'O'Ween : encart Halloween, masqué automatiquement à partir du 3 novembre 2026 -->
+<div class="wrap sow-promo" id="sow-promo" data-until="2026-11-03T00:00:00" hidden>
+  <a class="sow-card" href="synthoween.html">
+    <div>
+      <p class="kick">🎃 New for Halloween · free</p>
+      <h2>Synth'O'Ween</h2>
+      <p class="txt">A horror synth with 25 sounds from the other side: screams, jump scares, cursed choirs, creaking doors and midnight bells. VST3 / AU for Mac and Windows.</p>
+      <span class="go">Hear them scream →</span>
+    </div>
+    <img src="img/synthoween-main.jpg" alt="Synth'O'Ween interface" width="1240" height="826" loading="lazy">
+  </a>
+</div>
 <div class="wrap" id="halcyon">
 <article class="rack">
   <div class="cheek" aria-hidden="true"></div>
@@ -663,6 +689,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     }).catch(function(){});
   })();
 })();
+
+// encart Synth'O'Ween : visible seulement jusqu'au 2 novembre 2026 inclus
+(function(){var el=document.getElementById('sow-promo');if(el&&Date.now()<new Date(el.dataset.until).getTime())el.hidden=false;})();
 
 // extraits audio : un seul joue à la fois
 (function(){
