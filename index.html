@@ -254,7 +254,8 @@ nav a.nav-sow{color:#ff7a1a}
 </head>
 <body>
 <div class="ribbon"><div class="wrap">
-  <span>OUT NOW · Halcyon 1.3 + MixPilot 1.0.2 · Free, pay what you want</span>
+  <span id="ribbon-default">OUT NOW · Halcyon 1.3 + MixPilot 1.0.2 · Free, pay what you want</span>
+  <a id="ribbon-sow" href="synthoween.html" hidden>🎃 NEW FOR HALLOWEEN · Synth'O'Ween, a free horror synth · Hear it →</a>
   <a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a>
 </div></div>
 
@@ -690,8 +691,8 @@ nav a.nav-sow{color:#ff7a1a}
   })();
 })();
 
-// encart Synth'O'Ween : visible seulement jusqu'au 2 novembre 2026 inclus
-(function(){var el=document.getElementById('sow-promo');if(el&&Date.now()<new Date(el.dataset.until).getTime())el.hidden=false;})();
+// encart et bandeau Synth'O'Ween : visibles seulement jusqu'au 2 novembre 2026 inclus
+(function(){var el=document.getElementById('sow-promo');if(el&&Date.now()<new Date(el.dataset.until).getTime()){el.hidden=false;document.getElementById('ribbon-sow').hidden=false;document.getElementById('ribbon-default').hidden=true;}})();
 
 // extraits audio : un seul joue à la fois
 (function(){
