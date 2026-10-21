@@ -389,13 +389,13 @@ nav a.nav-sow{color:#ff7a1a}
       </div>
       
     <div class="mp-shots">
-        <div class="screen mp-screen"><img id="mpshot" src="img/mixpilot-master.jpg" alt="MixPilot Master interface" width="1240" height="911"></div>
+        <div class="screen mp-screen"><img id="mpshot" src="img/mixpilot-master.jpg?v=2" alt="MixPilot Master interface" width="1240" height="911"></div>
         <div class="tabs" role="tablist" aria-label="MixPilot screenshots">
           <button class="tab mptab" role="tab" aria-selected="true" data-k="0">Master</button>
           <button class="tab mptab" role="tab" aria-selected="false" data-k="1">Track</button>
           <button class="tab mptab" role="tab" aria-selected="false" data-k="2">Built-in guide</button>
         </div>
-        <p class="caption" id="mpcap">MixPilot Master after ASSISTANT: -14.0 LUFS on target, reference track loaded, 6 linked tracks.</p>
+        <p class="caption" id="mpcap">MixPilot Master after ASSISTANT: -14.0 LUFS on target, no clipping, 6 linked tracks.</p>
       </div>
       <div class="rack-grid">
       <div class="copy">
@@ -652,9 +652,9 @@ nav a.nav-sow{color:#ff7a1a}
 
   var MPSRC={};
   var mps=[
-    {src:"img/mixpilot-master.jpg",cap:"MixPilot Master after ASSISTANT: -14.0 LUFS on target, reference track loaded, 6 linked tracks."},
-    {src:"img/mixpilot-track.jpg",cap:"MixPilot Track on a bass: detected at 99% confidence, low cut, EQ, compression and kick ducking."},
-    {src:"img/mixpilot-guide.jpg",cap:"Every section has its own guide inside the plug-in: click ? on any panel."}
+    {src:"img/mixpilot-master.jpg?v=2",cap:"MixPilot Master after ASSISTANT: -14.0 LUFS on target, no clipping, 6 linked tracks."},
+    {src:"img/mixpilot-track.jpg?v=2",cap:"MixPilot Track on a vocal, detected at 99% confidence. The orange EQ points were dragged by hand on top of the analysis."},
+    {src:"img/mixpilot-guide.jpg?v=2",cap:"Every section has its own guide inside the plug-in: click ? on any panel."}
   ];
   var mpi=document.getElementById('mpshot'),mpc=document.getElementById('mpcap');
   document.querySelectorAll('.mptab').forEach(function(t){
