@@ -3,7 +3,7 @@
 Free audio plug-ins for macOS (VST3 / AU, Apple Silicon + Intel) and Windows (VST3, 64-bit).
 
 - **Halcyon 1.3.0**: wavetable synthesizer with 2,342 presets (10 Classics categories), wavetable, granular, spectral and sampler engines, MPE, Time Machine, Breed, Vital / Serum 2 preset import and skins.
-- **MixPilot 1.1.0**: assisted mixing and mastering (Track + Master), with an EQ you can edit by dragging its points.
+- **MixPilot 1.1.1**: assisted mixing and mastering (Track + Master), with an EQ you can edit by dragging its points.
 
 Download page: https://remsplugins.github.io/
 
