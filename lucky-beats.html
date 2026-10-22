@@ -83,6 +83,10 @@ section{padding-block:40px 60px}
 .under{font-size:17px;color:var(--muted);margin-top:12px;max-width:44em}
 .panel{background:linear-gradient(180deg,var(--lacquer-2),var(--lacquer));border:1px solid var(--trim);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,217,138,.12),0 20px 50px rgba(0,0,0,.5)}
 
+/* launch video */
+.screen{margin-top:30px;border:2px solid var(--gold-lo);border-radius:18px;overflow:hidden;background:#000;aspect-ratio:16/9;box-shadow:0 0 0 4px #1a110a,0 0 0 6px var(--gold-lo),0 0 60px rgba(232,176,74,.18),0 30px 70px rgba(0,0,0,.7)}
+.screen video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+
 /* try your luck: three reels in the page */
 .slot{margin-top:30px;padding:clamp(16px,3vw,28px);position:relative;border:2px solid var(--gold-lo);box-shadow:0 0 0 4px #1a110a,0 0 0 6px var(--gold-lo),0 0 60px rgba(232,176,74,.18),0 30px 70px rgba(0,0,0,.7)}
 .slot .bulbs{position:absolute;left:18px;right:18px;top:-8px}
@@ -229,7 +233,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
 
 <header><div class="wrap">
   <a class="brand" href="index.html">REMS PLUGINS</a>
-  <nav><a href="#try">Try it</a><a href="#listen">Listen</a><a href="#how">How it works</a><a href="#reels">Reels</a><a href="#features">Features</a><a href="#install">Install</a><a href="#comments">Comments</a><a href="index.html">Halcyon &amp; MixPilot</a></nav>
+  <nav><a href="#watch">Watch</a><a href="#try">Try it</a><a href="#listen">Listen</a><a href="#how">How it works</a><a href="#reels">Reels</a><a href="#features">Features</a><a href="#install">Install</a><a href="#comments">Comments</a><a href="index.html">Halcyon &amp; MixPilot</a></nav>
 </div></header>
 
 <main id="top">
@@ -246,6 +250,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
     <div class="tags"><span>VST3</span><span>AU</span><span>LV2</span><span>Standalone</span><span>macOS Apple Silicon + Intel</span><span>Windows 10/11</span><span>Linux</span><span>$0 · pay what you want</span><span>No DRM</span></div>
   </div>
   <div class="machine"><img src="img/luckybeats-machine.webp" alt="The Lucky Beats plug-in: a gold and black slot machine with Instrument, Pattern and Tonality reels, a Chords panel, a red SPIN button, a tempo box and an Export to DAW button" width="1240" height="807"></div>
+</div></section>
+
+<section id="watch"><div class="wrap">
+  <h2 class="title gold">See it spin</h2>
+  <p class="under">Two minutes inside Lucky Beats 1.4.1, filmed in the plug-in with its own sound, including a spin played by a VST synth (Halcyon). Turn your sound up.</p>
+  <div class="screen">
+    <video controls preload="metadata" playsinline poster="img/luckybeats-video-poster.jpg" width="1920" height="1080">
+      <source src="video/luckybeats-demo.mp4" type="video/mp4">
+      Your browser can't play this video. <a href="video/luckybeats-demo.mp4">Download it</a>.
+    </video>
+  </div>
 </div></section>
 
 <section id="try"><div class="wrap">
@@ -522,6 +537,8 @@ sfxBtn.addEventListener('click',()=>{
   audio.src=SFX; audio.play().catch(stopAll); sfxBtn.setAttribute('aria-pressed','true');
 });
 audio.addEventListener('ended',stopAll);
+document.querySelectorAll('video').forEach(v=>v.addEventListener('play',stopAll));
+audio.addEventListener('play',()=>document.querySelectorAll('video').forEach(v=>v.pause()));
 audio.addEventListener('timeupdate',()=>{
   if(!audio.src.endsWith(DEMO)||!audio.duration) return;
   const p=audio.currentTime/audio.duration*100; prog.style.width=p+'%'; wave.setAttribute('aria-valuenow',Math.round(p));
