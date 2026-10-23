@@ -12,7 +12,7 @@
 <meta name="description" content="Halcyon, a wavetable synth, and MixPilot, an assisted mixing and mastering duo. Free VST3 / AU plug-ins for macOS, pay what you want.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Creepster&family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Creepster&family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
 /* Layout: a studio console. Launch ribbon, two product "racks" with wooden cheeks, install, support. Deliberately dark, like the plug-in UIs. */
 :root{
@@ -255,6 +255,22 @@ nav a.nav-lb{color:#e8b04a}
 .sow-card .until{font-family:var(--mono);font-size:12px;color:#a99a8e;margin-top:12px}
 .sow-card img{width:100%;height:auto;border:1px solid #3b2222;border-radius:4px;box-shadow:0 0 30px rgba(196,19,12,.35);transform:rotate(1.2deg)}
 @media (max-width:760px){.sow-card{grid-template-columns:1fr}.sow-card img{order:-1;max-width:420px}}
+/* Lucky Beats : encart de promo (machine à sous noir et or) */
+.lb-promo{margin-block:0 40px}
+.lb-card{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;align-items:center;padding:clamp(22px,4vw,36px);border:2px solid #8a5a1c;border-radius:18px;text-decoration:none;color:#f2e9da;
+  background:radial-gradient(ellipse 70% 90% at 80% 50%,rgba(232,176,74,.2),transparent 70%),linear-gradient(180deg,#1b130e,#0c0806);box-shadow:0 0 0 4px #1a110a,0 0 0 6px #8a5a1c,0 0 50px rgba(232,176,74,.18)}
+.lb-card::before,.lb-card::after{content:"";position:absolute;left:18px;right:18px;height:12px;background:radial-gradient(circle at 6px 6px,#ffd98a 0 2.5px,rgba(255,217,138,.3) 3.5px,transparent 5px) 0 0/20px 12px repeat-x;animation:lb-chase 1.2s steps(2) infinite}
+.lb-card::before{top:6px}.lb-card::after{bottom:6px}
+@keyframes lb-chase{to{background-position:10px 0}}
+.lb-card:hover{box-shadow:0 0 0 4px #1a110a,0 0 0 6px #e8b04a,0 0 70px rgba(232,176,74,.35)}
+.lb-card .kick{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#e8b04a}
+.lb-card h2{font-family:"Alfa Slab One",var(--display);font-weight:400;font-size:clamp(40px,7vw,66px);margin-top:6px;background:linear-gradient(180deg,#fff0c2,#ffd98a 25%,#e8b04a 55%,#a8701f);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 3px 0 #5b3a12)}
+.lb-card p.txt{color:#ddd0bc;font-size:17px;margin-top:10px;max-width:44ch}
+.lb-card .go{display:inline-flex;margin-top:20px;font-family:"Alfa Slab One",var(--display);font-size:20px;letter-spacing:.03em;color:#fff3e0;padding:11px 24px;border-radius:999px;background:radial-gradient(circle at 50% 30%,#ff5a4e,#c8161d 55%,#7c0a0f);box-shadow:0 0 0 3px #e8b04a,0 0 0 5px #5b3a12,0 0 26px rgba(200,22,29,.5)}
+.lb-card .meta{font-family:var(--mono);font-size:12px;color:#b4a58f;margin-top:16px}
+.lb-card img{width:100%;height:auto;filter:drop-shadow(0 20px 30px rgba(0,0,0,.6))}
+@media (max-width:760px){.lb-card{grid-template-columns:1fr}.lb-card img{order:-1;max-width:460px}}
+@media (prefers-reduced-motion:reduce){.lb-card::before,.lb-card::after{animation:none}}
 </style>
 </head>
 <body>
@@ -281,6 +297,19 @@ nav a.nav-lb{color:#e8b04a}
   <div class="specs"><span class="chip">VST3</span><span class="chip">AU</span><span class="chip">macOS Apple Silicon + Intel</span><span class="chip">Windows 10/11</span><span class="chip">Linux</span><span class="chip">$0 · pay what you want</span><span class="chip">No DRM</span></div>
 </div></section>
 
+<!-- Lucky Beats : encart de promo -->
+<div class="wrap lb-promo">
+  <a class="lb-card" href="lucky-beats.html">
+    <div>
+      <p class="kick">🎰 New · free plug-in</p>
+      <h2>Lucky Beats</h2>
+      <p class="txt">Pull the lever, get a beat. A slot machine that deals an instrument, a groove, a key and the chords, plays the loop, and lets you drag it into your DAW as MIDI or WAV. It can even play your own synths.</p>
+      <span class="go">Try your luck →</span>
+      <p class="meta">v1.4.1 · VST3 · AU · LV2 · Mac, Windows, Linux</p>
+    </div>
+    <img src="img/luckybeats-machine.webp" alt="The Lucky Beats slot machine plug-in" width="1240" height="807" loading="lazy">
+  </a>
+</div>
 <!-- Synth'O'Ween : encart Halloween, masqué automatiquement à partir du 3 novembre 2026 -->
 <div class="wrap sow-promo" id="sow-promo" data-until="2026-11-03T00:00:00" hidden>
   <a class="sow-card" href="synthoween.html">
