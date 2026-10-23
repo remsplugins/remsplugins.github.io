@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lucky Beats · Rems Plugins</title>
+<meta name="description" content="Lucky Beats, a free slot-machine beat generator: pull the lever and get an instrument, a groove and a key, then drag the loop into your DAW as MIDI or WAV. VST3 / AU / LV2 by Rems Plugins.">
+<meta property="og:title" content="Lucky Beats · pull the lever, get a beat">
+<meta property="og:description" content="A free slot-machine plug-in: instrument, pattern and key on three reels, chords that fit, MIDI and WAV export.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<meta property="og:image" content="https://remsplugins.github.io/img/luckybeats-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+/* A casino page, dressed like the plug-in: black lacquer, gold trim, marquee bulbs, a red SPIN button and cream reels. */
+:root{
+  --night:#080505; --lacquer:#120c09; --lacquer-2:#1b130e; --trim:#3d2c17;
+  --gold:#e8b04a; --gold-hi:#ffd98a; --gold-lo:#8a5a1c; --cream:#f4e7c8; --cream-ink:#2a1a0c;
+  --red:#c8161d; --red-hi:#ff3b3b; --navy:#16264a;
+  --fg:#f2e9da; --muted:#b4a58f;
+  --slab:"Alfa Slab One",Georgia,serif;
+  --body:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse 90% 60% at 50% 0%,rgba(232,176,74,.12),transparent 70%),var(--night);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:400;line-height:1.1;text-wrap:balance}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));position:relative}
+.gold{background:linear-gradient(180deg,#fff0c2 0%,var(--gold-hi) 25%,var(--gold) 55%,#a8701f 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ribbon */
+.ribbon{background:linear-gradient(90deg,#8e0d12,var(--red),#8e0d12);color:#fff3e0;font-weight:600;font-size:14px}
+.ribbon .wrap{display:flex;gap:6px 20px;flex-wrap:wrap;justify-content:space-between;align-items:center;padding-block:8px}
+.ribbon a{text-decoration:none} .ribbon a:hover{text-decoration:underline}
+
+/* marquee bulbs, used on the ribbon edge and around framed blocks */
+.bulbs{height:14px;background:radial-gradient(circle at 7px 7px,var(--gold-hi) 0 3px,rgba(255,217,138,.35) 4px,transparent 6px) 0 0/22px 14px repeat-x;animation:chase 1.2s steps(2) infinite}
+@keyframes chase{to{background-position:11px 0}}
+
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:14px;letter-spacing:.3em;text-decoration:none;color:var(--muted)}
+.brand:hover{color:var(--fg)}
+nav{display:flex;gap:6px 18px;flex-wrap:wrap;font-size:14px;font-weight:500}
+nav a{text-decoration:none;color:var(--muted)} nav a:hover{color:var(--gold-hi)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--slab);font-size:20px;letter-spacing:.04em;padding:13px 26px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s,filter .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-spin{background:radial-gradient(circle at 50% 30%,#ff5a4e,var(--red) 55%,#7c0a0f);color:#fff3e0;box-shadow:0 0 0 3px var(--gold),0 0 0 5px #5b3a12,0 0 30px rgba(200,22,29,.55),inset 0 -4px 0 rgba(0,0,0,.3);text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.btn-spin:hover{box-shadow:0 0 0 3px var(--gold-hi),0 0 0 5px #5b3a12,0 0 44px rgba(255,59,59,.7),inset 0 -4px 0 rgba(0,0,0,.3)}
+.btn-coffee{background:#ffdd00;color:#141317;font-family:var(--body);font-weight:700;font-size:16px;letter-spacing:0;border-radius:8px}
+.btn-gold{background:linear-gradient(#ffe39e,var(--gold) 55%,#a8701f);color:#2a1606;box-shadow:inset 0 -3px 0 rgba(0,0,0,.25),0 0 22px rgba(232,176,74,.35)}
+
+/* hero */
+.hero{padding-block:26px 50px;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:30px;align-items:center}
+@media (max-width:900px){.hero .grid{grid-template-columns:1fr}}
+.kicker{font-weight:600;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.hero h1{font-family:var(--slab);font-size:clamp(46px,7.4vw,84px);margin-top:12px;letter-spacing:.01em;filter:drop-shadow(0 3px 0 #5b3a12) drop-shadow(0 0 24px rgba(232,176,74,.3))}
+.hero .tagline{font-family:var(--slab);font-size:clamp(20px,2.6vw,28px);color:var(--fg);margin-top:10px}
+.hero .lead{font-size:18px;color:#ddd0bc;max-width:32em;margin-top:16px}
+.hero .lead b{color:var(--gold-hi);font-weight:600}
+.ctas{display:flex;gap:16px 14px;flex-wrap:wrap;margin-top:28px;align-items:center}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.tags span{font-size:12.5px;font-weight:600;color:var(--muted);border:1px solid var(--trim);padding:3px 10px;border-radius:999px;background:rgba(0,0,0,.35)}
+.machine{position:relative}
+.machine img{width:100%;height:auto;filter:drop-shadow(0 30px 50px rgba(0,0,0,.7)) drop-shadow(0 0 40px rgba(232,176,74,.22))}
+.machine::before{content:"";position:absolute;inset:8% 6% 4%;z-index:-1;background:radial-gradient(ellipse at 50% 55%,rgba(232,176,74,.28),transparent 65%)}
+
+/* sections */
+section{padding-block:40px 60px}
+.title{font-family:var(--slab);font-size:clamp(30px,4.6vw,48px);letter-spacing:.01em;filter:drop-shadow(0 2px 0 #5b3a12)}
+.under{font-size:17px;color:var(--muted);margin-top:12px;max-width:44em}
+.panel{background:linear-gradient(180deg,var(--lacquer-2),var(--lacquer));border:1px solid var(--trim);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,217,138,.12),0 20px 50px rgba(0,0,0,.5)}
+
+/* launch video */
+.screen{margin-top:30px;border:2px solid var(--gold-lo);border-radius:18px;overflow:hidden;background:#000;aspect-ratio:16/9;box-shadow:0 0 0 4px #1a110a,0 0 0 6px var(--gold-lo),0 0 60px rgba(232,176,74,.18),0 30px 70px rgba(0,0,0,.7)}
+.screen video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+
+/* try your luck: three reels in the page */
+.slot{margin-top:30px;padding:clamp(16px,3vw,28px);position:relative;border:2px solid var(--gold-lo);box-shadow:0 0 0 4px #1a110a,0 0 0 6px var(--gold-lo),0 0 60px rgba(232,176,74,.18),0 30px 70px rgba(0,0,0,.7)}
+.slot .bulbs{position:absolute;left:18px;right:18px;top:-8px}
+.slot .bulbs.b{top:auto;bottom:-8px}
+.reels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,2vw,18px)}
+.reel{min-width:0}
+.reel h3{position:relative;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;text-align:center;color:#ffe2b0;background:linear-gradient(#5a0d10,#3a0709);border:1px solid var(--gold-lo);border-radius:10px 10px 0 0;padding:7px 4px}
+.lock{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;border:1px solid var(--gold-lo);background:#1a0b07;color:var(--gold);display:grid;place-items:center;cursor:pointer;padding:0}
+.lock svg{width:12px;height:12px}
+.lock[aria-pressed="true"]{background:linear-gradient(#ffe39e,var(--gold));color:#2a1606;box-shadow:0 0 10px rgba(232,176,74,.6)}
+.reel.locked .window{box-shadow:inset 0 14px 18px -8px rgba(0,0,0,.55),inset 0 -14px 18px -8px rgba(0,0,0,.55),0 0 0 2px var(--gold-hi)}
+.window{position:relative;height:150px;overflow:hidden;background:linear-gradient(90deg,#c9b48a,var(--cream) 18%,#fff8e6 50%,var(--cream) 82%,#c9b48a);border:3px solid var(--gold);border-top:0;border-radius:0 0 10px 10px;box-shadow:inset 0 14px 18px -8px rgba(0,0,0,.55),inset 0 -14px 18px -8px rgba(0,0,0,.55)}
+.window::after{content:"";position:absolute;left:0;right:0;top:50%;height:50px;transform:translateY(-50%);border-block:1px solid rgba(138,90,28,.35);pointer-events:none}
+.strip{position:absolute;left:0;right:0;top:0;will-change:transform}
+.strip div{height:50px;display:grid;place-items:center;font-family:var(--slab);font-size:clamp(14px,2.2vw,22px);color:var(--cream-ink);text-align:center;line-height:1.05;padding:0 6px}
+.strip div.key{color:var(--navy)}
+.strip div.key{display:flex;align-items:baseline;justify-content:center;gap:6px}
+.strip div small{font-family:var(--body);font-size:11px;font-weight:700;letter-spacing:.12em;color:#6d5a3d}
+@media (max-width:520px){.reel h3{font-size:10px;letter-spacing:.06em;padding:7px 26px 7px 2px;text-align:left}.lock{width:20px;height:20px;right:3px}.strip div{font-size:13px}.strip div.key{flex-direction:column;align-items:center;justify-content:center;gap:0;line-height:1}.strip div small{font-size:9px}}
+.slot-foot{display:flex;gap:14px 22px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:22px}
+.slot-foot p{font-size:15px;color:#ddd0bc;flex:1 1 260px}
+.slot-foot p b{color:var(--gold-hi);font-weight:600}
+.slot .sound{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);cursor:pointer}
+.slot .sound input{accent-color:var(--gold)}
+
+/* demo player */
+.player{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:center;padding:clamp(18px,3vw,28px);margin-top:30px}
+.play{width:78px;height:78px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;background:radial-gradient(circle at 50% 30%,#ff5a4e,var(--red) 55%,#7c0a0f);color:#fff;box-shadow:0 0 0 3px var(--gold),0 0 0 5px #5b3a12,0 0 26px rgba(200,22,29,.5)}
+.play svg{width:26px;height:26px}
+.track b{display:block;font-family:var(--slab);font-size:22px;color:var(--fg);font-weight:400}
+.track span{font-size:14px;color:var(--muted)}
+.wave{position:relative;height:46px;margin-top:10px;cursor:pointer;border-radius:8px;overflow:hidden;background:repeating-linear-gradient(90deg,rgba(232,176,74,.35) 0 2px,transparent 2px 5px);-webkit-mask-image:linear-gradient(transparent 0,#000 30%,#000 70%,transparent 100%);mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent)}
+.wave i{position:absolute;inset:0 auto 0 0;width:0;background:repeating-linear-gradient(90deg,var(--gold-hi) 0 2px,transparent 2px 5px)}
+@media (max-width:600px){.player{grid-template-columns:1fr;justify-items:start}.play{width:64px;height:64px}}
+.times{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:4px;font-variant-numeric:tabular-nums}
+.sfx{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:none;border:1px solid var(--trim);color:var(--fg);font:inherit;font-size:14px;padding:6px 14px;border-radius:999px;cursor:pointer}
+.sfx:hover{border-color:var(--gold)}
+.sfx[aria-pressed="true"]{border-color:var(--gold);color:var(--gold-hi)}
+
+/* how it works */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:18px;margin-top:30px}
+.steps article{padding:24px}
+.steps .n{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--slab);font-size:22px;color:#2a1606;background:linear-gradient(#ffe39e,var(--gold) 55%,#a8701f);box-shadow:0 0 18px rgba(232,176,74,.4)}
+.steps h3{font-family:var(--slab);font-size:24px;margin-top:14px;color:var(--gold-hi)}
+.steps p{color:#ddd0bc;font-size:15.5px;margin-top:8px}
+
+/* reel contents */
+.lists{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:30px}
+@media (max-width:820px){.lists{grid-template-columns:1fr}}
+.lists article{padding:22px}
+.lists h3{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips span{font-size:14px;font-weight:600;color:var(--cream-ink);background:var(--cream);border-radius:6px;padding:4px 10px;box-shadow:inset 0 -2px 0 rgba(0,0,0,.15)}
+.chips.keys span{background:var(--navy);color:#e6ecff;box-shadow:inset 0 0 0 1px rgba(232,176,74,.5)}
+.lists p{color:var(--muted);font-size:14px;margin-top:14px}
+.jackpot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:30px;border-block:1px solid var(--trim)}
+.jackpot div{padding:18px 10px;text-align:center;border-right:1px solid var(--trim)}
+.jackpot div:last-child{border-right:0}
+.jackpot b{display:block;font-family:var(--slab);font-weight:400;font-size:clamp(28px,4.4vw,44px)}
+.jackpot span{font-size:13px;color:var(--muted)}
+@media (max-width:600px){.jackpot{grid-template-columns:repeat(2,minmax(0,1fr))}.jackpot div:nth-child(2){border-right:0}.jackpot div:nth-child(-n+2){border-bottom:1px solid var(--trim)}}
+
+/* features with a crop of the plug-in */
+.feat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:center;margin-top:30px}
+.feat.flip > :first-child{order:2}
+.feat + .feat{margin-top:64px}
+@media (max-width:820px){.feat{grid-template-columns:1fr}.feat.flip > :first-child{order:0}}
+.feat img{width:100%;height:auto;border-radius:16px;border:1px solid var(--trim);box-shadow:0 0 40px rgba(232,176,74,.15),0 20px 50px rgba(0,0,0,.6)}
+.feat h3{font-family:var(--slab);font-size:clamp(24px,3vw,32px);color:var(--gold-hi)}
+.feat p{color:#ddd0bc;margin-top:12px}
+.feat ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.feat li{position:relative;padding-left:26px;color:#ddd0bc;font-size:15.5px}
+.feat li::before{content:"";position:absolute;left:3px;top:.45em;width:11px;height:11px;transform:rotate(45deg);background:linear-gradient(135deg,var(--gold-hi),var(--gold-lo));box-shadow:0 0 8px rgba(232,176,74,.6)}
+.feat li b{color:var(--fg);font-weight:600}
+.feat small{display:block;color:var(--muted);font-size:13.5px;margin-top:14px}
+.vst{padding:clamp(20px,3vw,30px)}
+.vst-menu{font-size:14px;background:#0c0806;border:1px solid var(--trim);border-radius:10px;padding:8px;display:grid;gap:2px}
+.vst-menu span{padding:7px 12px;border-radius:6px;color:#ddd0bc;display:flex;justify-content:space-between;gap:10px}
+.vst-menu span.on{background:rgba(232,176,74,.16);color:var(--gold-hi)}
+.vst-menu span em{font-style:normal;color:var(--muted);font-size:12.5px}
+.vst-menu .sep{height:1px;background:var(--trim);margin:4px 6px;padding:0}
+
+/* download */
+.cashier{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;margin-top:30px;padding:clamp(20px,4vw,34px);border:2px solid var(--gold-lo);box-shadow:0 0 0 4px #1a110a,0 0 0 6px var(--gold-lo),0 0 60px rgba(232,176,74,.18)}
+.cashier p{font-size:18px;color:#ddd0bc}
+.cashier small{display:block;font-size:13.5px;color:var(--muted);margin-top:8px}
+.cashier .acts{display:grid;gap:14px;justify-items:stretch}
+@media (max-width:720px){.cashier{grid-template-columns:1fr}}
+
+/* install */
+.install{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:30px}
+.install article{padding:22px;min-width:0}
+.install h3{font-family:var(--slab);font-size:22px;color:var(--gold-hi)}
+.install ol{margin:12px 0 0;padding:0;list-style:none;counter-reset:r;display:grid;gap:10px}
+.install li{counter-increment:r;display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:15px;color:#ddd0bc}
+.install li::before{content:counter(r);font-family:var(--slab);font-size:14px;color:#2a1606;background:linear-gradient(#ffe39e,var(--gold));border-radius:50%;width:26px;height:26px;display:grid;place-items:center}
+.install article.wide{grid-column:1/-1}
+.install p{font-size:15px;color:#ddd0bc;margin-top:10px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;background:#0c0806;border:1px solid var(--trim);border-radius:4px;padding:1px 5px;overflow-wrap:anywhere;color:var(--cream)}
+.cmd{display:flex;gap:8px;margin-top:12px;min-width:0}
+.cmd pre{flex:1;min-width:0;margin:0;overflow-x:auto;background:#0c0806;border:1px solid var(--trim);border-radius:8px;padding:10px 12px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;color:var(--gold-hi)}
+.cmd button{font:inherit;font-size:13px;font-weight:600;background:var(--lacquer-2);color:var(--fg);border:1px solid var(--trim);border-radius:8px;padding:0 12px;cursor:pointer}
+
+/* email before download */
+dialog.pact{border:2px solid var(--gold-lo);border-radius:18px;background:radial-gradient(ellipse at 50% 0%,rgba(232,176,74,.18),transparent 60%),#100a07;color:var(--fg);padding:0;width:min(480px,calc(100vw - 32px));box-shadow:0 0 60px rgba(232,176,74,.25),0 30px 80px rgba(0,0,0,.8)}
+dialog.pact::backdrop{background:rgba(5,3,2,.82)}
+.pact form{display:grid;gap:16px;padding:30px 28px 26px;position:relative}
+.pact h2{font-family:var(--slab);font-size:32px}
+.pact .sub{font-size:16px;color:#ddd0bc;margin-top:-6px}
+.pact label.f{display:grid;gap:6px;font-size:14px;font-weight:600}
+.pact input[type=email]{font:inherit;font-size:16px;background:#070404;color:var(--fg);border:1px solid var(--trim);border-radius:8px;padding:12px 14px;width:100%}
+.pact input[type=email]:focus{outline:2px solid var(--gold);outline-offset:1px}
+.pact .opt{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start;font-size:15px;color:#ddd0bc;cursor:pointer}
+.pact .opt input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--gold)}
+.pact .opt small{display:block;color:var(--muted);font-size:13px}
+.pact .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.pact .err{color:#ff8f7a;font-size:14px;min-height:1.2em}
+.pact .legal{font-size:12px;color:var(--muted)}
+.pact .close{position:absolute;top:10px;right:14px;background:none;border:0;color:var(--muted);font-size:26px;cursor:pointer;line-height:1}
+.pact .btn[disabled]{opacity:.6;cursor:wait}
+
+/* comments */
+.guest{margin-top:30px;padding:clamp(16px,3vw,28px);min-height:120px}
+.guest .empty{font-size:16px;color:var(--muted)}
+.giscus,.giscus-frame{width:100%}
+
+/* support */
+.feed{display:grid;grid-template-columns:minmax(0,1.4fr) auto;gap:24px;align-items:center;padding:clamp(22px,4vw,40px);border-color:#5b3a12;background:linear-gradient(135deg,rgba(200,22,29,.16),rgba(0,0,0,.2)),var(--lacquer)}
+.feed h2{font-family:var(--slab);font-size:clamp(28px,4.4vw,42px)}
+.feed p{color:var(--muted);margin-top:10px;max-width:54ch}
+@media (max-width:720px){.feed{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--trim);color:#857762;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-block:22px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="ribbon"><div class="wrap">
+  <span>🎰 New · Lucky Beats 1.4 · free, pay what you want</span>
+  <a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Support the next plugin ☕</a>
+</div></div>
+<div class="bulbs" aria-hidden="true"></div>
+
+<header><div class="wrap">
+  <a class="brand" href="index.html">REMS PLUGINS</a>
+  <nav><a href="#watch">Watch</a><a href="#try">Try it</a><a href="#listen">Listen</a><a href="#how">How it works</a><a href="#reels">Reels</a><a href="#features">Features</a><a href="#install">Install</a><a href="#comments">Comments</a><a href="index.html">Halcyon &amp; MixPilot</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap grid">
+  <div>
+    <p class="kicker">A new free plug-in · Rems Plugins</p>
+    <h1 class="gold">Lucky Beats</h1>
+    <p class="tagline">Pull the lever. Get a beat.</p>
+    <p class="lead">A slot machine for producers. Three reels pick an <b>instrument</b>, a <b>pattern</b> and a <b>key</b>, a fourth panel deals the chords, and the loop plays right away. Like it? Drag it into your DAW as MIDI or audio. Don't? Spin again.</p>
+    <div class="ctas">
+      <a class="btn btn-spin" href="#try">Try your luck</a>
+      <a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Support the next plugin</a>
+    </div>
+    <div class="tags"><span>VST3</span><span>AU</span><span>LV2</span><span>Standalone</span><span>macOS Apple Silicon + Intel</span><span>Windows 10/11</span><span>Linux</span><span>$0 · pay what you want</span><span>No DRM</span></div>
+  </div>
+  <div class="machine"><img src="img/luckybeats-machine.webp" alt="The Lucky Beats plug-in: a gold and black slot machine with Instrument, Pattern and Tonality reels, a Chords panel, a red SPIN button, a tempo box and an Export to DAW button" width="1240" height="807"></div>
+</div></section>
+
+<section id="watch"><div class="wrap">
+  <h2 class="title gold">See it spin</h2>
+  <p class="under">Two minutes inside Lucky Beats 1.4.1, filmed in the plug-in with its own sound, including a spin played by a VST synth (Halcyon). Turn your sound up.</p>
+  <div class="screen">
+    <video controls preload="metadata" playsinline poster="img/luckybeats-video-poster.jpg" width="1920" height="1080">
+      <source src="video/luckybeats-demo.mp4" type="video/mp4">
+      Your browser can't play this video. <a href="video/luckybeats-demo.mp4">Download it</a>.
+    </video>
+  </div>
+</div></section>
+
+<section id="try"><div class="wrap">
+  <h2 class="title gold">Try your luck</h2>
+  <p class="under">The same three reels as in the plug-in, with the same lists. Spin them here to see what kind of combos you'll get, and click a padlock to keep a reel while the others roll. In the plug-in, the loop starts playing the moment the reels stop.</p>
+  <div class="slot panel">
+    <div class="bulbs" aria-hidden="true"></div>
+    <div class="reels">
+      <div class="reel"><h3>Instrument<button class="lock" type="button" aria-pressed="false" aria-label="Lock the Instrument reel"></button></h3><div class="window"><div class="strip" id="r0"></div></div></div>
+      <div class="reel"><h3>Pattern<button class="lock" type="button" aria-pressed="false" aria-label="Lock the Pattern reel"></button></h3><div class="window"><div class="strip" id="r1"></div></div></div>
+      <div class="reel"><h3>Tonality<button class="lock" type="button" aria-pressed="false" aria-label="Lock the Tonality reel"></button></h3><div class="window"><div class="strip" id="r2"></div></div></div>
+    </div>
+    <div class="slot-foot">
+      <p id="combo" aria-live="polite">Pull the lever: <b>Keys</b>, <b>Hip Hop Groove</b>, <b>A minor</b> is where the machine left off.</p>
+      <label class="sound"><input type="checkbox" id="sfx-on" checked> Slot machine sounds</label>
+      <button class="btn btn-spin" type="button" id="spin">SPIN</button>
+    </div>
+    <div class="bulbs b" aria-hidden="true"></div>
+  </div>
+</div></section>
+
+<section id="listen"><div class="wrap">
+  <h2 class="title gold">Ten spins, no cheating</h2>
+  <p class="under">Ten pulls of the lever in a row, straight out of the plug-in with its built-in sounds. Each loop is four bars, in key, at the machine's tempo. In the plug-in you can stretch it to 8, 12 or 16 bars.</p>
+  <div class="player panel">
+    <button class="play" type="button" id="play" aria-label="Play the demo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button>
+    <div class="track">
+      <b>Lucky Beats · demo of 10 spins</b>
+      <span>Built-in sounds, no effects added afterwards</span>
+      <div class="wave" id="wave" role="slider" aria-label="Demo position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><i id="prog"></i></div>
+      <div class="times"><span id="t-cur">0:00</span><span id="t-dur">1:36</span></div>
+      <button class="sfx" type="button" id="sfx" aria-pressed="false">🔔 Hear the machine itself: lever, reels and the jackpot bell</button>
+    </div>
+  </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <h2 class="title gold">How it works</h2>
+  <div class="steps">
+    <article class="panel"><span class="n">1</span><h3>Spin</h3><p>Pull the lever or hit SPIN and all three reels roll. The RANDOM buttons reroll a single reel, the ‹ › arrows let you pick by hand, and a padlock keeps a reel you like while the others spin.</p></article>
+    <article class="panel"><span class="n">2</span><h3>Listen</h3><p>▶ plays the loop, 4 to 16 bars long. Set the tempo or click DAW SYNC to follow your project, roll the dice in CHORDS for another progression, and keep spinning until it clicks.</p></article>
+    <article class="panel"><span class="n">3</span><h3>Cash out</h3><p>Drag EXPORT TO DAW onto a track and the MIDI is there. Click it for MIDI and WAV tags you can drag too, or click a tag to save the file in Documents/Lucky Beats.</p></article>
+  </div>
+</div></section>
+
+<section id="reels"><div class="wrap">
+  <h2 class="title gold">What's on the reels</h2>
+  <div class="lists">
+    <article class="panel"><h3>Instrument</h3>
+      <div class="chips"><span>Drums</span><span>Bass</span><span>808</span><span>Keys</span><span>Piano</span><span>Lead</span><span>Pad</span><span>Pluck</span><span>Strings</span><span>Brass</span></div>
+      <p>All synthesized by the plug-in. Or play them with your own synth (see below).</p></article>
+    <article class="panel"><h3>Pattern</h3>
+      <div class="chips"><span>Hip Hop Groove</span><span>Boom Bap</span><span>Trap</span><span>Lo-Fi</span><span>House</span><span>Deep House</span><span>Techno</span><span>Drum &amp; Bass</span><span>Reggaeton</span><span>Afrobeat</span><span>Funk</span><span>Synthwave</span><span>UK Garage</span><span>Dubstep</span><span>Drill</span><span>Amapiano</span><span>Disco</span><span>Trip Hop</span><span>R&amp;B</span><span>Dancehall</span><span>Pop</span><span>Phonk</span></div>
+      <p>The reel shows the notes that are really playing, as a mini piano roll with a playhead.</p></article>
+    <article class="panel"><h3>Tonality</h3>
+      <div class="chips keys"><span>C</span><span>C#</span><span>D</span><span>D#</span><span>E</span><span>F</span><span>F#</span><span>G</span><span>G#</span><span>A</span><span>A#</span><span>B</span></div>
+      <p>Every root, in major and in minor: 24 keys in all.</p></article>
+  </div>
+  <div class="jackpot">
+    <div><b class="gold">10</b><span>instruments</span></div>
+    <div><b class="gold">22</b><span>patterns</span></div>
+    <div><b class="gold">24</b><span>keys</span></div>
+    <div><b class="gold">12</b><span>chord progressions per mode</span></div>
+  </div>
+</div></section>
+
+<section id="features"><div class="wrap">
+  <h2 class="title gold">The house always helps you win</h2>
+  <div class="feat">
+    <div>
+      <h3>Chords that fit, dealt at random</h3>
+      <p>The CHORDS panel shows the chords of the loop with their degrees, for example Am7, G7, Fmaj7, Em7 (i, VII, VI, v), and the chord that's playing lights up.</p>
+      <ul>
+        <li><b>12 progressions per mode</b>, always in the key on the Tonality reel.</li>
+        <li><b>The dice</b> deals a new progression, <b>‹ ›</b> browse them, and every SPIN draws a fresh one.</li>
+        <li><b>4, 8, 12 or 16 bars</b>, with a real song progression over the whole length (A B, A B C, A B A C). Tabs above the chords show each section.</li>
+      </ul>
+    </div>
+    <img src="img/luckybeats-chords.jpg" alt="The Chords panel: a dice, a 16 bars button, the sections A, B, A, C, and the chords Am7, G7, Fmaj7 and Em7 with their degrees" width="385" height="165" loading="lazy">
+  </div>
+  <div class="feat flip">
+    <div>
+      <h3>Play it with your own synth</h3>
+      <p>Click RANDOM GENERATOR VST on the left of the machine and pick any VST3 or AU instrument installed on your computer: Serum, Analog Lab, Kontakt, or anything else.</p>
+      <ul>
+        <li>The reel picks the part (bass, chords, lead…) and <b>your synth plays it</b>.</li>
+        <li>Every spin loads <b>one of its presets at random</b>, and its name shows under the reel.</li>
+        <li><b>Preset picker</b>: tick the presets the spins may draw from, with All, None and search. Click one to hear it.</li>
+        <li><b>My Sounds</b>: for synths that keep their presets to themselves, open the synth's window, find a sound you love and click <b>+ Add to my sounds</b>. The spins then draw from your list.</li>
+        <li>The WAV export is rendered with that sound.</li>
+      </ul>
+      <small>Pick Built-in sounds to go back to the machine's own instruments.</small>
+    </div>
+    <div class="vst panel" aria-hidden="true">
+      <div class="vst-menu">
+        <span>Built-in sounds</span>
+        <span class="sep"></span>
+        <span class="on">Play with a VST3 plug-in ›<em>your synths</em></span>
+        <span>Play with a AU plug-in ›<em>macOS</em></span>
+        <span class="sep"></span>
+        <span>+ Add to my sounds</span>
+        <span>Choose presets…<em>All · None · Search</em></span>
+      </div>
+    </div>
+  </div>
+  <div class="feat">
+    <div>
+      <h3>From the reels to your track</h3>
+      <ul>
+        <li><b>Drag and drop</b>: drag EXPORT TO DAW onto a track for the MIDI, or click it for MIDI and WAV tags that drag too. Works in Ableton Live and any DAW that accepts drag and drop.</li>
+        <li><b>DAW SYNC</b>: the loop follows your project's tempo and bars.</li>
+        <li><b>Slot machine sounds</b> for the lever, the reels and the jackpot bell. Turn them off with a right-click. They never end up in your exports.</li>
+        <li><b>A machine, not a box</b>: on macOS the DAW's title bar is hidden, so only the machine shows. Move it by its body, close it with the big ×.</li>
+        <li><b>Standalone app</b>: no DAW needed. The window takes the shape of the machine.</li>
+        <li><b>Resizable</b>: right-click to change the size of the machine.</li>
+      </ul>
+    </div>
+    <img src="img/luckybeats-export.jpg" alt="The player with its waveform, the DAW SYNC button, the tempo set to 90, and the Export to DAW button" width="465" height="165" loading="lazy">
+  </div>
+</div></section>
+
+<section id="download"><div class="wrap">
+  <h2 class="title gold">Hit the jackpot</h2>
+  <div class="cashier panel">
+    <div>
+      <p>Free for macOS (VST3 + AU + Standalone, Apple Silicon + Intel), Windows 10/11 (VST3 + Standalone, 64-bit) and Linux (VST3 + LV2 + Standalone).</p>
+      <small>Enter your email and the downloads open right away. No account, no license to activate.</small>
+    </div>
+    <div class="acts">
+      <a class="btn btn-spin js-get" href="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==">Get it free</a>
+      <a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Support the next plugin</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="install"><div class="wrap">
+  <h2 class="title gold">Install</h2>
+  <div class="install">
+    <article class="panel">
+      <h3>macOS</h3>
+      <ol>
+        <li><span>Unzip the download.</span></li>
+        <li><span>Double-click <code>fix_mac_plugins.command</code>: it installs the VST3 and the AU, unblocks them and forces a rescan.</span></li>
+        <li><span>Or copy <code>VST3/LuckyBeats.vst3</code> to <code>~/Library/Audio/Plug-Ins/VST3</code> and <code>AU/LuckyBeats.component</code> to <code>~/Library/Audio/Plug-Ins/Components</code>. Logic and GarageBand only use the AU.</span></li>
+        <li><span>Restart your DAW and rescan plug-ins. Lucky Beats is an instrument, by Rems Plugins.</span></li>
+      </ol>
+    </article>
+    <article class="panel">
+      <h3>Windows</h3>
+      <ol>
+        <li><span>Unzip the download.</span></li>
+        <li><span>Copy the <code>LuckyBeats.vst3</code> folder (inside <code>VST3</code>) to <code>C:\Program Files\Common Files\VST3</code>.</span></li>
+        <li><span>Restart your DAW and rescan plug-ins. In Ableton Live: Options → Preferences → Plug-Ins → Rescan.</span></li>
+      </ol>
+      <p>If SmartScreen warns about the standalone app, click More info → Run anyway. It isn't code-signed yet.</p>
+    </article>
+    <article class="panel">
+      <h3>Linux</h3>
+      <ol>
+        <li><span>Unzip the download.</span></li>
+        <li><span>Copy <code>LuckyBeats.vst3</code> to <code>~/.vst3</code> and <code>LuckyBeats.lv2</code> to <code>~/.lv2</code>.</span></li>
+        <li><span>Restart your DAW and rescan. Works in Bitwig, Reaper, Renoise, Tracktion, Ardour, Carla and Zrythm (x86_64, Ubuntu 22.04, Debian 12, Fedora 36 or newer).</span></li>
+      </ol>
+    </article>
+    <article class="panel wide">
+      <h3>If macOS blocks it</h3>
+      <p>The plug-in is not notarized by Apple yet, so macOS may block it. Paste this into Terminal, then restart your DAW:</p>
+      <div class="cmd"><pre id="cmd">xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/LuckyBeats.vst3 ~/Library/Audio/Plug-Ins/Components/LuckyBeats.component</pre><button type="button" id="copy">Copy</button></div>
+    </article>
+  </div>
+</div></section>
+
+<section id="comments"><div class="wrap">
+  <h2 class="title gold">Show us your winnings</h2>
+  <p class="under">What was your luckiest spin? Which instrument or groove should join the reels next? Sign in with a free GitHub account to post.</p>
+  <div class="guest panel">
+    <div id="giscus" data-repo="remsplugins/remsplugins.github.io" data-repo-id="R_kgDOVKALsw" data-category="Announcements" data-category-id="DIC_kwDOVKALs84DJIOm"></div>
+    <p class="empty" id="comments-soon">Comments open soon…</p>
+  </div>
+</div></section>
+
+<section id="support"><div class="wrap">
+  <div class="feed panel">
+    <div>
+      <h2 class="gold">Keep the machine running</h2>
+      <p>Lucky Beats is free and stays free: no subscription, no account, no crippled demo. If one of its loops ends up in your tracks, a coffee pays for the dev hours and the next plug-ins.</p>
+    </div>
+    <a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Support the next plugin</a>
+  </div>
+</div></section>
+</main>
+
+<dialog class="pact" id="signup" aria-labelledby="su-title">
+  <form id="su-form" method="POST" action="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==" novalidate>
+    <button class="close" type="button" id="su-close" aria-label="Close">×</button>
+    <h2 id="su-title" class="gold">Cash in your chip</h2>
+    <p class="sub">Leave your email and Lucky Beats is yours, for macOS, Windows and Linux.</p>
+    <label class="f">Email address
+      <input type="email" name="EMAIL" id="su-email" autocomplete="email" placeholder="you@example.com" required>
+    </label>
+    <label class="opt"><input type="checkbox" name="NEWSLETTER" value="1">
+      <span>Keep me posted about updates and new plug-ins<small>Optional. Unsubscribe anytime with one click.</small></span></label>
+    <input type="text" name="email_address_check" value="" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="locale" value="en">
+    <p class="err" id="su-err" role="alert"></p>
+    <button class="btn btn-spin" type="submit" id="su-go">Get the download links</button>
+    <p class="legal">We use your email to give you the downloads and, only if you tick the box, to send news. Emails are sent with Brevo. No spam, ever.</p>
+  </form>
+</dialog>
+
+<footer><div class="wrap"><span>© 2026 Rems · Lucky Beats · <a href="index.html">Halcyon &amp; MixPilot</a> · <a href="synthoween.html">Synth'O'Ween</a></span><span>VST is a trademark of Steinberg Media Technologies GmbH.</span></div></footer>
+
+<script>
+// une seule source audio pour toute la page (démo, bruitages, rouleaux)
+const audio=new Audio(); audio.preload='none';
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// rouleaux : mêmes listes que le plugin
+(function(){
+  const notes=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+  const lists=[
+    ['Drums','Bass','808','Keys','Piano','Lead','Pad','Pluck','Strings','Brass'],
+    ['Hip Hop Groove','Boom Bap','Trap','Lo-Fi','House','Deep House','Techno','Drum & Bass','Reggaeton','Afrobeat','Funk','Synthwave','UK Garage','Dubstep','Drill','Amapiano','Disco','Trip Hop','R&B','Dancehall','Pop','Phonk'],
+    notes.flatMap(n=>[n+' major',n+' minor'])
+  ];
+  const H=50, LAPS=4, strips=[0,1,2].map(i=>document.getElementById('r'+i));
+  const label=(r,v)=>r<2?v:v.split(' ')[0]+'<small>'+v.split(' ')[1].toUpperCase()+'</small>';
+  strips.forEach((s,r)=>{
+    const L=lists[r]; let h='';
+    for(let k=0;k<LAPS+2;k++) L.forEach(v=>{h+='<div'+(r===2?' class="key"':'')+'>'+label(r,v).replace('&','&amp;')+'</div>'});
+    s.innerHTML=h;
+  });
+  let pos=[3,0,lists[2].indexOf('A minor')];
+  const place=(r,idx,anim,ms)=>{const s=strips[r];s.style.transition=anim?'transform '+ms+'ms cubic-bezier(.15,.6,.25,1.04)':'none';s.style.transform='translateY('+(-(idx-1)*H)+'px)'};
+  pos.forEach((p,r)=>place(r,p+lists[r].length,false));
+  const btn=document.getElementById('spin'),out=document.getElementById('combo'),sfx=document.getElementById('sfx-on');
+  const ico={open:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 7V5a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor"/></svg>',shut:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 7V5a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor"/></svg>'};
+  const locks=[...document.querySelectorAll('.lock')];
+  locks.forEach(l=>{l.innerHTML=ico.open;l.addEventListener('click',()=>{const on=l.getAttribute('aria-pressed')!=='true';l.setAttribute('aria-pressed',on);l.innerHTML=on?ico.shut:ico.open;l.closest('.reel').classList.toggle('locked',on)})});
+  const locked=r=>locks[r].getAttribute('aria-pressed')==='true';
+  btn.addEventListener('click',()=>{
+    btn.disabled=true;
+    if(sfx.checked){stopAll();audio.src='audio/luckybeats-slot.mp3';audio.currentTime=0;audio.play().catch(()=>{})}
+    const pick=lists.map((L,r)=>locked(r)?pos[r]:Math.floor(Math.random()*L.length));
+    let longest=0;
+    pick.forEach((p,r)=>{
+      if(locked(r)) return;
+      const n=lists[r].length, ms=reduce?0:1500+r*700; longest=Math.max(longest,ms);
+      place(r,pos[r]+n,false); strips[r].offsetHeight;
+      place(r,p+n*(LAPS+1),!reduce,ms);
+    });
+    setTimeout(()=>{
+      pick.forEach((p,r)=>{pos[r]=p;place(r,p+lists[r].length,false)});
+      const k=lists[2][pick[2]];
+      out.innerHTML='<b>'+lists[0][pick[0]]+'</b>, <b>'+lists[1][pick[1]].replace('&','&amp;')+'</b>, <b>'+k+'</b>. In the plug-in, this loop would already be playing.';
+      btn.disabled=false;
+    },longest+80);
+  });
+})();
+
+// lecteur de la démo et des bruitages
+const play=document.getElementById('play'),wave=document.getElementById('wave'),prog=document.getElementById('prog'),sfxBtn=document.getElementById('sfx');
+const icPlay='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>',icStop='<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="3.5" width="9" height="9" rx="1" fill="currentColor"/></svg>';
+const DEMO='audio/luckybeats-demo.mp3',SFX='audio/luckybeats-slot.mp3';
+const fmt=t=>Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0');
+function stopAll(){audio.pause();play.innerHTML=icPlay;play.setAttribute('aria-label','Play the demo');sfxBtn.setAttribute('aria-pressed','false')}
+play.addEventListener('click',()=>{
+  if(!audio.paused&&audio.src.endsWith(DEMO)){stopAll();return}
+  stopAll(); if(!audio.src.endsWith(DEMO)) audio.src=DEMO;
+  audio.play().catch(stopAll); play.innerHTML=icStop; play.setAttribute('aria-label','Pause the demo');
+});
+sfxBtn.addEventListener('click',()=>{
+  const on=!audio.paused&&audio.src.endsWith(SFX); stopAll(); if(on) return;
+  audio.src=SFX; audio.play().catch(stopAll); sfxBtn.setAttribute('aria-pressed','true');
+});
+audio.addEventListener('ended',stopAll);
+document.querySelectorAll('video').forEach(v=>v.addEventListener('play',stopAll));
+audio.addEventListener('play',()=>document.querySelectorAll('video').forEach(v=>v.pause()));
+audio.addEventListener('timeupdate',()=>{
+  if(!audio.src.endsWith(DEMO)||!audio.duration) return;
+  const p=audio.currentTime/audio.duration*100; prog.style.width=p+'%'; wave.setAttribute('aria-valuenow',Math.round(p));
+  document.getElementById('t-cur').textContent=fmt(audio.currentTime); document.getElementById('t-dur').textContent=fmt(audio.duration);
+});
+function seek(f){if(!audio.src.endsWith(DEMO)){stopAll();audio.src=DEMO}
+  const go=()=>{audio.currentTime=f*audio.duration;if(audio.paused){audio.play().catch(stopAll);play.innerHTML=icStop}};
+  audio.duration?go():audio.addEventListener('loadedmetadata',go,{once:true}); if(!audio.duration) audio.load();}
+wave.addEventListener('click',e=>{const r=wave.getBoundingClientRect();seek(Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)))});
+wave.addEventListener('keydown',e=>{if(!audio.duration||!audio.src.endsWith(DEMO))return;if(e.key==='ArrowRight')audio.currentTime=Math.min(audio.duration,audio.currentTime+5);if(e.key==='ArrowLeft')audio.currentTime=Math.max(0,audio.currentTime-5)});
+
+// commande macOS à copier
+(function(){
+  var btn=document.getElementById('copy'),pre=document.getElementById('cmd');
+  btn.addEventListener('click',function(){
+    function sel(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';}
+    try{navigator.clipboard.writeText(pre.textContent).then(function(){btn.textContent='Copied';},sel);}catch(e){sel();}
+  });
+})();
+
+// email avant téléchargement (Brevo), puis la page de téléchargement de Lucky Beats
+(function(){
+  var dlg=document.getElementById('signup'),fm=document.getElementById('su-form'),em=document.getElementById('su-email'),er=document.getElementById('su-err'),go=document.getElementById('su-go');
+  var DEST='https://remsplugins.github.io/lucky-beats-download.html';
+  if(!dlg||typeof dlg.showModal!=='function') return;
+  document.querySelectorAll('.js-get').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();er.textContent='';dlg.showModal();em.focus();});});
+  document.getElementById('su-close').addEventListener('click',function(){dlg.close();});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+  fm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=em.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){er.textContent='Please enter a valid email address.';em.focus();return;}
+    go.disabled=true;go.textContent='Spinning…';er.textContent='';
+    var done=false;function next(){if(!done){done=true;location.href=DEST;}}
+    try{
+      fetch(fm.action,{method:'POST',body:new FormData(fm),mode:'no-cors'}).then(next,function(){
+        done=true;clearTimeout(t);go.disabled=false;go.textContent='Get the download links';er.textContent='Something went wrong. Please check your connection and try again.';});
+      var t=setTimeout(next,8000);   // slow network: go on anyway
+    }catch(x){fm.submit();}
+  });
+})();
+
+// commentaires (giscus) : chargés seulement quand la catégorie Discussions est renseignée
+(function(){
+  const box=document.getElementById('giscus'); if(!box||!box.dataset.categoryId) return;
+  document.getElementById('comments-soon').hidden=true;
+  const s=document.createElement('script'); s.src='https://giscus.app/client.js'; s.async=true; s.crossOrigin='anonymous';
+  const cfg={repo:box.dataset.repo,repoId:box.dataset.repoId,category:box.dataset.category,categoryId:box.dataset.categoryId,mapping:'specific',term:'Lucky Beats',strict:'1',reactionsEnabled:'1',emitMetadata:'0',inputPosition:'top',theme:'dark',lang:'en',loading:'lazy'};
+  Object.keys(cfg).forEach(k=>s.setAttribute('data-'+k.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()),cfg[k]));
+  box.appendChild(s);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Download Lucky Beats · Rems Plugins</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat:wght@400;600;700&display=swap">
+<style>
+/* Download page reached after the email form, dressed like lucky-beats.html. */
+:root{
+  --night:#080505; --lacquer:#120c09; --lacquer-2:#1b130e; --trim:#3d2c17;
+  --gold:#e8b04a; --gold-hi:#ffd98a; --gold-lo:#8a5a1c; --red:#c8161d; --fg:#f2e9da; --muted:#b4a58f;
+  --slab:"Alfa Slab One",Georgia,serif; --body:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(232,176,74,.16),transparent 70%),var(--night);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+p{margin:0}
+h1{margin:0;font-weight:400;line-height:1.1}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.wrap{max-width:900px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.gold{background:linear-gradient(180deg,#fff0c2 0%,var(--gold-hi) 25%,var(--gold) 55%,#a8701f 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ribbon{background:linear-gradient(90deg,#8e0d12,var(--red),#8e0d12);color:#fff3e0;font-weight:600;font-size:14px}
+.ribbon .wrap{display:flex;gap:6px 20px;flex-wrap:wrap;justify-content:space-between;padding-block:8px}
+.ribbon a{text-decoration:none}
+.bulbs{height:14px;background:radial-gradient(circle at 7px 7px,var(--gold-hi) 0 3px,rgba(255,217,138,.35) 4px,transparent 6px) 0 0/22px 14px repeat-x;animation:chase 1.2s steps(2) infinite}
+@keyframes chase{to{background-position:11px 0}}
+header .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-block:10px;font-size:14px;font-weight:600}
+header a{text-decoration:none;color:var(--muted)} header a:hover{color:var(--gold-hi)}
+main{padding-block:10px 60px}
+.machine{width:min(520px,100%);height:auto;margin:0 auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,.7)) drop-shadow(0 0 30px rgba(232,176,74,.2))}
+h1{font-family:var(--slab);font-size:clamp(32px,6vw,54px);text-align:center;margin-top:18px;filter:drop-shadow(0 2px 0 #5b3a12)}
+.lead{font-size:18px;color:#ddd0bc;text-align:center;margin:12px auto 0;max-width:34em}
+.os{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+@media (max-width:760px){.os{grid-template-columns:1fr}}
+.btn{display:grid;place-items:center;gap:2px;text-align:center;text-decoration:none;border-radius:18px;padding:18px 20px;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn b{font-family:var(--slab);font-weight:400;font-size:28px;letter-spacing:.03em}
+.btn small{font-size:13px;opacity:.85}
+.btn-spin{background:radial-gradient(circle at 50% 20%,#ff5a4e,var(--red) 55%,#7c0a0f);color:#fff3e0;box-shadow:0 0 0 3px var(--gold),0 0 0 5px #5b3a12,0 0 30px rgba(200,22,29,.5)}
+.btn-lacquer{background:linear-gradient(var(--lacquer-2),var(--lacquer));color:var(--fg);border:1px solid var(--trim);box-shadow:inset 0 1px 0 rgba(255,217,138,.12)}
+.btn-coffee{display:inline-flex;background:#ffdd00;color:#141317;font-weight:700;padding:13px 22px;border-radius:8px}
+.next{margin-top:40px;border:1px solid var(--trim);background:linear-gradient(180deg,var(--lacquer-2),var(--lacquer));border-radius:18px;padding:24px;display:grid;gap:14px}
+.next p{color:#ddd0bc}
+.next b{color:var(--fg)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;background:#0c0806;border:1px solid var(--trim);border-radius:4px;padding:1px 5px}
+.privacy{font-size:12px;color:var(--muted);margin-top:26px;text-align:center}
+footer{border-top:1px solid var(--trim);color:#857762;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-block:22px}
+/* thanks after a download click */
+.thanks{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:0 max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;justify-content:center;pointer-events:none}
+.thanks[hidden]{display:none}
+.thanks-card{pointer-events:auto;max-width:640px;width:100%;background:var(--lacquer);border:2px solid var(--gold-lo);border-radius:18px;padding:18px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;box-shadow:0 0 30px rgba(232,176,74,.25),0 18px 50px rgba(0,0,0,.6);animation:up .35s ease-out}
+.thanks-card p{flex:1 1 260px;font-size:15px;color:#ddd0bc}
+.thanks-card p b{display:block;font-family:var(--slab);font-weight:400;font-size:21px;color:var(--gold-hi);margin-bottom:2px}
+.thanks-card .x{background:none;border:0;color:var(--muted);font-size:22px;cursor:pointer;padding:0 4px}
+@keyframes up{from{transform:translateY(20px);opacity:.4}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="ribbon"><div class="wrap">
+  <span>🎰 Jackpot · free, pay what you want</span>
+  <a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Support the next plugin ☕</a>
+</div></div>
+<div class="bulbs" aria-hidden="true"></div>
+<header><div class="wrap"><a href="lucky-beats.html">← Lucky Beats</a><a href="./">Rems Plugins</a></div></header>
+<main class="wrap">
+  <img class="machine" src="img/luckybeats-machine.webp" alt="Lucky Beats" width="1240" height="807">
+  <h1 class="gold">Jackpot. It's yours.</h1>
+  <p class="lead">Pick your system. Bookmark this page if you like: it always has the latest version.</p>
+  <div class="os">
+    <a class="btn btn-spin" data-os="mac" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/luckybeats-1.4.1/LuckyBeats-1.4.1-macOS.zip"><b>macOS</b><small>VST3 + AU + Standalone · Apple Silicon + Intel</small></a>
+    <a class="btn btn-lacquer" data-os="win" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/luckybeats-1.4.1/LuckyBeats-1.4.1-Windows.zip"><b>Windows</b><small>VST3 + Standalone · Windows 10/11 64-bit</small></a>
+    <a class="btn btn-lacquer" data-os="linux" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/luckybeats-1.4.1/LuckyBeats-1.4.1-Linux.zip"><b>Linux</b><small>VST3 + LV2 + Standalone · x86_64</small></a>
+  </div>
+  <div class="next">
+    <p><b>Next step:</b> unzip, then follow the <a href="lucky-beats.html#install">install guide</a>. On a Mac, double-click <code>fix_mac_plugins.command</code>. On Linux, copy the plug-ins to <code>~/.vst3</code> and <code>~/.lv2</code>.</p>
+    <p>Got a lucky spin? <a href="lucky-beats.html#comments">Show us your winnings</a>. And if one of its loops ends up in your tracks, a coffee helps ship the next one.</p>
+    <div><a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Support the next plugin</a></div>
+  </div>
+  <p class="privacy">Your email is used to send you this page and, only if you ticked the box, news about updates and new plug-ins. You can unsubscribe at any time from any email. Emails are sent with Brevo.</p>
+</main>
+<div class="thanks" id="thanks" hidden>
+  <div class="thanks-card" role="status">
+    <p><b>Your download is on its way.</b>These plug-ins are free and built in my spare time. If Lucky Beats ends up in your tracks, a coffee helps ship the next one.</p>
+    <a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Support the next plugin</a>
+    <button class="x" type="button" id="close" aria-label="Close">×</button>
+  </div>
+</div>
+<footer><div class="wrap"><span>© 2026 Rems · Lucky Beats</span><span>VST is a trademark of Steinberg Media Technologies GmbH.</span></div></footer>
+<script>
+// put the visitor's system first
+try{var ua=navigator.userAgent,os=/Windows/i.test(ua)?'win':(/Linux|X11/i.test(ua)&&!/Android/i.test(ua))?'linux':null;if(os){var m=document.querySelector('[data-os=mac]'),f=document.querySelector('[data-os='+os+']');m.className='btn btn-lacquer';f.className='btn btn-spin';f.parentNode.insertBefore(f,m);}}catch(e){}
+// after a download click: thank the visitor and offer the support link again
+(function(){
+  var th=document.getElementById('thanks');
+  document.querySelectorAll('.os a').forEach(function(a){a.addEventListener('click',function(){th.hidden=false;});});
+  document.getElementById('close').addEventListener('click',function(){th.hidden=true;});
+})();
+</script>
+</body>
+</html>
