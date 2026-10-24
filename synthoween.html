@@ -226,6 +226,11 @@ dialog.pact::backdrop{background:rgba(5,2,2,.82)}
 footer{border-top:1px solid var(--crack);color:#7d6f68;font-family:var(--type);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-block:22px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.bat{display:none}}
+.dl-count{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:var(--type);font-size:15px;color:var(--ash);border:1px solid var(--crack);border-radius:2px;padding:6px 14px;background:rgba(0,0,0,.45)}
+.dl-count b{font-family:var(--creep);font-weight:400;font-size:22px;letter-spacing:.04em;color:var(--blood-hi);text-shadow:0 0 12px rgba(196,19,12,.5);font-variant-numeric:tabular-nums}
+.dl-count svg{width:15px;height:15px;flex:none;color:var(--ember)}
+.dl-count[hidden]{display:none}
+.altar .dl-count{margin-top:14px}
 </style>
 </head>
 <body>
@@ -258,6 +263,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
       <a class="btn btn-blood" href="#listen">Hear them scream</a>
       <a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Support the next plugin</a>
     </div>
+    <p class="dl-count" data-plugin="SynthOWeen" hidden><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10"/></svg><span><b>0</b> downloads</span></p>
     <div class="tags"><span>VST3</span><span>AU</span><span>macOS Apple Silicon + Intel</span><span>Windows 10/11</span><span>Linux</span><span>$0 · pay what you want</span><span>No DRM</span></div>
   </div>
 </section>
@@ -370,6 +376,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
     <div>
       <p>Free for macOS (VST3 + AU, Apple Silicon + Intel), Windows 10/11 (VST3 64-bit) and Linux (VST3 + LV2). It crawls out of its grave just in time for Halloween.</p>
       <small>Enter your email and the macOS and Windows downloads open right away. No license to activate.</small>
+      <p class="dl-count" data-plugin="SynthOWeen" hidden><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10"/></svg><span><b>0</b> downloads</span></p>
     </div>
     <div class="acts">
       <a class="btn btn-blood js-get" href="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==">Get it free · Mac &amp; Windows</a>
@@ -524,6 +531,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
     stop(); cur=b; a.src=b.dataset.src; a.play().catch(stop);
     b.setAttribute('aria-pressed','true'); b.querySelector('.flame').innerHTML=ic.stop; tick();
   }));
+})();
+
+// compteur de téléchargements : GitHub compte chaque téléchargement d'un fichier de release (voir .github/workflows/releases.yml)
+(function(){
+  var KEY='rems-dl-counts', API='https://api.github.com/repos/remsplugins/remsplugins.github.io/releases?per_page=100';
+  function show(c){document.querySelectorAll('.dl-count').forEach(function(el){var n=c[el.dataset.plugin]||0;if(n>=1){el.querySelector('b').textContent=n.toLocaleString('en-US');el.querySelector('span').lastChild.textContent=n===1?' download':' downloads';el.hidden=false;}});}
+  try{var s=JSON.parse(sessionStorage.getItem(KEY)||'null');if(s&&Date.now()-s.t<6e5){show(s.c);return;}}catch(e){}
+  fetch(API,{headers:{'Accept':'application/vnd.github+json'}}).then(function(r){return r.ok?r.json():Promise.reject(r.status);}).then(function(rel){
+    var c={};rel.forEach(function(r){(r.assets||[]).forEach(function(a){var p=a.name.split('-')[0];c[p]=(c[p]||0)+a.download_count;});});
+    try{sessionStorage.setItem(KEY,JSON.stringify({t:Date.now(),c:c}));}catch(e){}
+    show(c);
+  }).catch(function(){});
 })();
 </script>
 </body>
