@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Download Revolution · Rems Plugins</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Download page for Revolution buyers and trial users, in the plug-in's Neon Blue colours. */
+:root{
+  --bg:#0a1020; --panel:#0f1729; --line:#1e2a44; --fg:#dfe7f5; --muted:#8e9bb5;
+  --accent:#31c6f5; --accent-2:#9b5cff; --ink:#06101c;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:radial-gradient(ellipse 80% 45% at 50% 0%,rgba(49,198,245,.14),transparent 70%),var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+p{margin:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:900px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-block:16px;font-size:14px;font-weight:600}
+header a{text-decoration:none;color:var(--muted)} header a:hover{color:var(--fg)}
+main{padding-block:10px 60px}
+.hero{border-radius:16px;border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.55),0 0 40px rgba(49,198,245,.12)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,6vw,46px);letter-spacing:.05em;text-align:center;margin:28px 0 0;line-height:1.15;
+   background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:18px;color:#c4cfe3;text-align:center;margin:12px auto 0;max-width:34em}
+.os{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+@media (max-width:760px){.os{grid-template-columns:1fr}}
+.btn{display:grid;place-items:center;gap:2px;text-align:center;text-decoration:none;border-radius:14px;padding:18px 20px;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn b{font-family:var(--display);font-weight:500;font-size:22px;letter-spacing:.03em}
+.btn small{font-size:13px;opacity:.85}
+.btn-main{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--ink);box-shadow:0 0 30px rgba(49,198,245,.3)}
+.btn-alt{background:var(--panel);color:var(--fg);border:1px solid var(--line)}
+.steps{margin:40px 0 0;padding:24px;list-style:none;display:grid;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:16px}
+.steps li{display:flex;gap:14px;align-items:flex-start;color:#c4cfe3}
+.steps b{color:var(--fg)}
+.steps span{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:600 13px var(--mono);border:1px solid var(--line);color:var(--accent)}
+code{font-family:var(--mono);font-size:13px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:1px 5px}
+.trial{margin-top:20px;text-align:center;color:var(--muted);font-size:15px}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-block:22px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="./">← Rems Plugins</a><a href="mailto:remsplugins@gmail.com">Help: remsplugins@gmail.com</a></div></header>
+<main class="wrap">
+  <img class="hero" src="img/revolution-skins.webp" alt="Revolution in its different skins" width="1400" height="630">
+  <h1>Download Revolution</h1>
+  <p class="lead">Pick your system. The same download works for the free trial and the full version: your key decides.</p>
+  <div class="os">
+    <a class="btn btn-main" data-os="mac" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/revolution-1.4.0/Revolution-1.4.0-macOS.zip"><b>macOS</b><small>VST3 + AU + Standalone · Apple Silicon + Intel</small></a>
+    <a class="btn btn-alt" data-os="win" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/revolution-1.4.0/Revolution-1.4.0-Windows.zip"><b>Windows</b><small>VST3 + Standalone · Windows 10/11 64-bit</small></a>
+    <a class="btn btn-alt" data-os="linux" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/revolution-1.4.0/Revolution-1.4.0-Linux.zip"><b>Linux</b><small>VST3 + LV2 + Standalone · x86_64</small></a>
+  </div>
+
+  <ol class="steps">
+    <li><span>1</span><div><b>Install.</b> Unzip the file. On a Mac, copy the plug-ins to <code>Library/Audio/Plug-Ins</code> (VST3 and Components), then double-click <code>fix_mac_plugins.command</code> so your DAW accepts them. On Windows, copy <code>Revolution.vst3</code> to <code>C:\Program Files\Common Files\VST3</code>. On Linux, copy the plug-ins to <code>~/.vst3</code> and <code>~/.lv2</code>.</div></li>
+    <li><span>2</span><div><b>Open Revolution</b> in your DAW (rescan your plug-ins if needed) and click <b>TRIAL / ACTIVATE</b> at the top left.</div></li>
+    <li><span>3</span><div><b>Paste your key</b> and click <b>Activate</b>. Bought Revolution? Your licence key is in your receipt e-mail. Trying it? Your trial key is in the e-mail we sent you.</div></li>
+  </ol>
+  <p class="trial">No key yet? <a href="revolution-trial.html">Get a free 14-day trial</a>, everything unlocked.</p>
+</main>
+<footer><div class="wrap"><span>© 2026 Rems · Revolution</span><span>VST is a trademark of Steinberg Media Technologies GmbH.</span></div></footer>
+<script>
+// put the visitor's system first
+try{var ua=navigator.userAgent,os=/Windows/i.test(ua)?'win':(/Linux|X11/i.test(ua)&&!/Android/i.test(ua))?'linux':null;if(os){var m=document.querySelector('[data-os=mac]'),f=document.querySelector('[data-os='+os+']');m.className='btn btn-alt';f.className='btn btn-main';f.parentNode.insertBefore(f,m);}}catch(e){}
+</script>
+</body>
+</html>
