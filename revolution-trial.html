@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<title>Revolution free trial</title>
+<meta name="description" content="Try Revolution, the wavetable synth by Rems Plugins, free for 14 days with everything unlocked.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#0a1020; --panel:#0f1729; --line:#1e2a44; --fg:#dfe7f5; --muted:#8e9bb5;
+  --accent:#31c6f5; --accent-2:#9b5cff; --ink:#06101c; --bad:#ff4f8b; --good:#31e0d0;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+a{color:var(--accent)}
+.wrap{max-width:640px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-left,0px)) 64px max(16px,env(safe-area-inset-right,0px))}
+.home{color:var(--muted);text-decoration:none;font-size:14px}
+.home:hover{color:var(--fg)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,7vw,44px);letter-spacing:.06em;margin:28px 0 4px;
+   background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);margin:0 0 28px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
+label.field{display:block;font-size:14px;color:var(--muted);margin-bottom:6px}
+input[type=email]{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--fg);font:16px var(--body);padding:13px 14px}
+input[type=email]:focus{outline:none;border-color:var(--accent)}
+.check{display:flex;gap:10px;align-items:flex-start;margin:16px 0 4px;font-size:14px;color:var(--muted);cursor:pointer}
+.check input{margin-top:4px;accent-color:var(--accent)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+button{margin-top:18px;width:100%;border:0;border-radius:10px;padding:14px 18px;font:600 16px var(--body);cursor:pointer;
+       background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--ink)}
+button[disabled]{opacity:.6;cursor:wait}
+.small{font-size:13px;color:var(--muted);margin:14px 0 0}
+.result{margin-top:18px;padding:14px 16px;border-radius:10px;border:1px solid var(--line);font-size:15px}
+.result.good{border-color:var(--good)}
+.result.bad{border-color:var(--bad)}
+.steps{margin:28px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.steps li{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:15px}
+.steps b{color:var(--fg)}
+.steps span{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:600 13px var(--mono);
+            border:1px solid var(--line);color:var(--accent)}
+.after{margin-top:28px;font-size:15px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="home" href="/">&larr; Rems Plugins</a>
+  <h1>REVOLUTION</h1>
+  <p class="lead">Try the full synth free for 14 days: every feature, every preset, nothing locked.</p>
+
+  <form class="card" id="trial" novalidate>
+    <label class="field" for="email">Your e-mail address (the trial key is sent there)</label>
+    <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+    <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+    <label class="check"><input type="checkbox" id="newsletter"> <span>Also send me the Rems Plugins newsletter: new plug-ins and updates, about once a month. Unsubscribe in one click.</span></label>
+    <button id="go">Send me a trial key</button>
+    <p class="small">One trial per e-mail address. We keep your address to know it has had a trial; it is never shared.</p>
+    <div class="result" id="result" role="status" hidden></div>
+  </form>
+
+  <ol class="steps">
+    <li><span>1</span><div><b>Download Revolution</b> from the <a href="/download.html">download page</a> and install it.</div></li>
+    <li><span>2</span><div><b>Open it in your DAW</b> and click <b>TRIAL / ACTIVATE</b> at the top left.</div></li>
+    <li><span>3</span><div><b>Paste the key</b> from the e-mail and click <b>Activate</b>. Everything is unlocked for 14 days.</div></li>
+  </ol>
+  <p class="after">After the trial, Revolution keeps working and your projects still open, with a short silence every minute and preset saving turned off until you <a id="buy" href="/revolution.html">buy the full version</a>.</p>
+</main>
+<script>
+(function(){
+  // licence server (Cloudflare Worker, see the revolution repository, worker/)
+  var API = 'https://revolution-license.remsplugins.workers.dev';
+  var form = document.getElementById('trial'), out = document.getElementById('result'), btn = document.getElementById('go');
+  function show(text, good, link){
+    out.hidden = false; out.className = 'result ' + (good ? 'good' : 'bad'); out.textContent = text;
+    if (link) { var a = document.createElement('a'); a.href = link; a.textContent = 'Get the full version'; out.appendChild(document.createTextNode(' ')); out.appendChild(a); out.appendChild(document.createTextNode('.')); }
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = form.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { show('Please enter a valid e-mail address.', false); form.email.focus(); return; }
+    btn.disabled = true; btn.textContent = 'Sending...';
+    fetch(API + '/trial', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, newsletter: document.getElementById('newsletter').checked, website: form.website.value }) })
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if (d.ok) show(d.status === 'resent' ? 'Your trial is still running: we sent your key again. Check your inbox (and the spam folder).'
+                                             : 'Done! Your trial key is on its way to ' + email + '. Check your inbox (and the spam folder).', true);
+        else if (d.status === 'used') show('This address has already had a Revolution trial.', false, /^https:\/\//.test(d.buy_url || '') ? d.buy_url : document.getElementById('buy').href);
+        else show(d.error || 'Something went wrong. Please try again.', false);
+      })
+      .catch(function(){ show('The trial server could not be reached. Please try again in a moment.', false); })
+      .then(function(){ btn.disabled = false; btn.textContent = 'Send me a trial key'; });
+  });
+})();
+</script>
+</body>
+</html>
