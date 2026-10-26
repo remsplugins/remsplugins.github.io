@@ -79,6 +79,9 @@ button[disabled]{opacity:.6;cursor:wait}
 (function(){
   // licence server (Cloudflare Worker, see the revolution repository, worker/)
   var API = 'https://revolution-license.remsplugins.workers.dev';
+  // local test: ?api=http://127.0.0.1:8787 (only when the page itself is served from this computer)
+  var local = new URLSearchParams(location.search).get('api');
+  if (local && /^(localhost|127\.0\.0\.1)$/.test(location.hostname) && /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(local)) API = local;
   var form = document.getElementById('trial'), out = document.getElementById('result'), btn = document.getElementById('go');
   function show(text, good, link){
     out.hidden = false; out.className = 'result ' + (good ? 'good' : 'bad'); out.textContent = text;
