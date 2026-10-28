@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/site.css?v=1">
+<title>Halcyon · Rems Plugins</title>
+<meta name="description" content="Halcyon: a free wavetable synth with 2,342 presets, Classics, Breed, Time Machine, MPE and Vital / Serum 2 import. VST3, AU, LV2 and Standalone for Mac, Windows and Linux.">
+<meta property="og:title" content="Halcyon · free wavetable synth">
+<meta property="og:image" content="https://remsplugins.github.io/img/halcyon-skins.jpg">
+<style>
+.hc-hero{background:#fff;border-bottom:1px solid var(--line)}
+.hc-hero .split{padding-top:40px;padding-bottom:72px}
+.hc-hero h1{font-size:clamp(44px,7vw,72px);line-height:1}
+.hc-hero .copy{display:flex;flex-direction:column;gap:20px}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="./" aria-label="Rems Plugins, home"><span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>REMS</a>
+  <nav class="nav" aria-label="Main"><a href="revolution.html" class="hot">Revolution</a><a href="plugins.html">All plugins</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html" aria-current="page">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="help.html">Install</a><a href="help.html#changelog">What's new</a></nav>
+  <div class="head-cta"><a class="btn btn-coffee btn-sm" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a></div>
+</div></header>
+
+<main>
+<section class="hc-hero">
+  <nav class="wrap crumbs" aria-label="Breadcrumb"><a href="./">Home</a> / <a href="plugins.html#inst">Instruments</a> / <span>Halcyon</span></nav>
+  <div class="wrap split">
+    <div class="copy">
+      <div class="choices"><span class="pill">Free · 1.3</span><span class="meta" style="letter-spacing:.12em">WAVETABLE SYNTHESIZER</span></div>
+      <h1>Halcyon</h1>
+      <p class="lead">A polyphonic synth in the spirit of Serum, Vital and Diva, with wooden end cheeks, a needle VU meter and over 2,000 ready-to-play sounds.</p>
+      <div class="ctas">
+        <a class="btn btn-ink js-get" data-plugin="Halcyon" href="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==">Download free</a>
+        <a class="btn btn-line" href="#listen"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>Hear the Classics</a>
+      </div>
+      <p class="dl-count" data-plugin="Halcyon" hidden><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10"/></svg><span><b>0</b> downloads</span></p>
+      <p class="meta">$0, pay what you want · v1.3.0 · VST3 · AU · LV2 · Standalone · Mac, Windows, Linux</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <img class="ui" id="hc-shot" src="img/halcyon-synth.jpg" alt="Halcyon interface, Synth page" width="1240" height="830">
+      <div class="choices" role="tablist" aria-label="Halcyon screenshots" data-switch="hc-shot" data-caption="hc-cap">
+        <button class="choice" type="button" role="tab" aria-selected="true" data-src="img/halcyon-synth.jpg" data-alt="Halcyon interface, Synth page" data-cap="3 wavetable oscillators, 2 filters, 4 envelopes, 4 LFOs. The Time Machine is set to 1985.">Synth</button>
+        <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/halcyon-breed.jpg" data-alt="Halcyon Breed page" data-cap="Breed: two parent presets, eight offspring. The DNA bar shows where each gene came from.">Breed</button>
+        <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/halcyon-modes.jpg" data-alt="Halcyon oscillator engines" data-cap="One engine per oscillator: spectral (64 partials), granular on a choir, wavetable.">Modes</button>
+        <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/halcyon-presets.jpg" data-alt="Halcyon preset browser" data-cap="The browser: 2,342 presets, favorites, tags, instant search, audition while you scroll.">Presets</button>
+        <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/halcyon-import.jpg" data-alt="A Vital preset imported in Halcyon" data-cap="A Vital preset imported with its wavetables and macro names.">Import</button>
+        <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/halcyon-skins.jpg" data-alt="Halcyon in its six skins" data-cap="Six skins: Vintage, Midnight, Synthwave (top), Olive Drab, Studio Light, Graphite (bottom).">Skins</button>
+      </div>
+      <p class="meta" id="hc-cap" style="font-family:var(--body);font-size:14px">3 wavetable oscillators, 2 filters, 4 envelopes, 4 LFOs. The Time Machine is set to 1985.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:72px">
+  <div class="stats">
+    <div><b>2,342</b><span>factory presets</span></div>
+    <div><b>31</b><span>categories</span></div>
+    <div><b>16</b><span>unison voices per oscillator</span></div>
+    <div><b>5</b><span>Time Machine eras</span></div>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <div class="sec-head"><div><p class="kicker">Demo</p><h2>Halcyon in action</h2></div><span class="meta">1:34 · sound on</span></div>
+  <div class="video"><video controls playsinline preload="none" poster="video/halcyon-demo.jpg" width="1920" height="1080"><source src="video/halcyon-demo.mp4" type="video/mp4"></video></div>
+</section>
+
+<section class="wrap sec">
+  <p class="kicker">Features</p>
+  <h2 class="h2" style="margin-bottom:32px">Everything inside</h2>
+  <div class="grid g3">
+    <div class="box"><b>Vital &amp; Serum 2 import</b><p>Drop a .vital or .SerumPreset file on Halcyon and play your sounds, wavetables and macros included. Load your own .wav wavetables too.</p></div>
+    <div class="box"><b>3 oscillators, 3 engines</b><p>Wavetable, granular (load your own samples) or spectral with up to 96 partials, plus a sampler mode.</p></div>
+    <div class="box"><b>Time Machine</b><p>One slider sends the whole sound from the 70s to today: tape, 12-bit DACs, rave samplers…</p></div>
+    <div class="box"><b>Breed</b><p>Cross two presets, set the mutation, and 8 new sounds are born, already test-played and level-matched.</p></div>
+    <div class="box"><b>Analog-style filters</b><p>Ladder, "acid" diode, SVF, comb and formant, in series or parallel.</p></div>
+    <div class="box"><b>Arp, mod matrix, effects</b><p>16-step arpeggiator, 16-slot mod matrix, 10 effects including Juno chorus and tape.</p></div>
+    <div class="box"><b>Classics</b><p>10 categories in the spirit of the synths that made history, from the 70s mono ladder synth to 80s FM keys and the 8-bit sampler.</p></div>
+    <div class="box"><b>MPE</b><p>Play it from an MPE controller with per-note bend, pressure and slide.</p></div>
+    <div class="box"><b>Six skins</b><p>From the wooden Vintage to Midnight, Synthwave or the light Studio skin.</p></div>
+  </div>
+</section>
+
+<section class="white sec" id="listen" style="padding-bottom:96px;margin-top:96px">
+  <div class="wrap">
+    <p class="kicker">Listen</p>
+    <h2 class="h2" style="margin-bottom:32px">Classics presets, straight out of Halcyon</h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px">
+      <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-mug.mp3"><span class="ic"></span><span><b>Mug</b><small>70s mono ladder: fat bass, Holy Ladder, Crimson Low</small></span><span class="bar"></span></button>
+      <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-dz8.mp3"><span class="ic"></span><span><b>Dz8</b><small>80s FM keys: Warm Ballad EP, Salty Tine Piano</small></span><span class="bar"></span></button>
+      <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-jiputer.mp3"><span class="ic"></span><span><b>Jiputer</b><small>Early-80s poly: Hidden Wide, Giant Lush, Eternal pads</small></span><span class="bar"></span></button>
+      <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-profet5.mp3"><span class="ic"></span><span><b>Profet 5</b><small>Late-70s poly brass: Gentle, Hyper, Rusty stacks</small></span><span class="bar"></span></button>
+      <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-krogn1.mp3"><span class="ic"></span><span><b>Krog N1</b><small>Late-80s workstation: house stab and club pianos</small></span><span class="bar"></span></button>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec" id="download">
+  <div class="split r" style="align-items:start">
+    <div>
+      <p class="kicker">Specs</p>
+      <h2 class="h2" style="margin-bottom:28px">System requirements</h2>
+      <dl class="specs">
+        <dt>Version</dt><dd>1.3.0 · October 19, 2026</dd>
+        <dt>macOS</dt><dd>VST3, AU, Standalone · Apple Silicon + Intel, 10.13+</dd>
+        <dt>Windows</dt><dd>VST3, Standalone · Windows 10/11, 64-bit</dd>
+        <dt>Linux</dt><dd>VST3, LV2, Standalone · x86_64, glibc 2.35+</dd>
+        <dt>Price</dt><dd>Free, pay what you want</dd>
+      </dl>
+      <p style="margin-top:20px"><a href="help.html" style="font-weight:600">Install guide and macOS fix →</a> · <a href="help.html#changelog" style="font-weight:600">Changelog →</a></p>
+    </div>
+    <div class="panel">
+      <div class="stripe" style="width:70px;height:3px"></div>
+      <h2>Get Halcyon</h2>
+      <p style="color:var(--text)">Enter your email and the Mac, Windows and Linux downloads open right away.</p>
+      <a class="btn btn-ink js-get" data-plugin="Halcyon" href="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==">Download free</a>
+      <p class="dl-count" data-plugin="Halcyon" hidden><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10"/></svg><span><b>0</b> downloads</span></p>
+      <a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="cols">
+    <div><b style="font-family:var(--display);letter-spacing:.12em">REMS PLUGINS</b><span style="color:var(--muted);line-height:1.55">Independent plug-ins, made by one producer.</span></div>
+    <div><h4>Plug-ins</h4><a href="revolution.html">Revolution</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="plugins.html">All plug-ins</a></div>
+    <div><h4>Help</h4><a href="help.html">Install guide</a><a href="help.html#macos">If macOS blocks a plug-in</a><a href="help.html#changelog">What's new</a></div>
+    <div><h4>Community</h4><a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee</a><a href="./#newsletter">Newsletter</a></div>
+  </div>
+  <div class="fine"><span>© 2026 Rems Plugins. VST is a trademark of Steinberg Media Technologies GmbH.</span><span>Your email is used to send you the download links and, only if you tick the box, news about updates and new plug-ins. Unsubscribe anytime. Emails are sent with Brevo.</span></div>
+</div></footer>
+<dialog class="signup" id="signup" aria-labelledby="su-title">
+  <form method="POST" action="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==" novalidate>
+    <button class="close" type="button" aria-label="Close">×</button>
+    <h2 id="su-title">Get <span class="su-name">Rems Plugins</span>, free</h2>
+    <p class="sub">Enter your email and the Mac, Windows and Linux downloads open right away.</p>
+    <label class="field">Email address<input class="input" type="email" name="EMAIL" autocomplete="email" placeholder="you@example.com" required></label>
+    <label class="consent"><input type="checkbox" name="NEWSLETTER" value="1"><span>I agree to receive emails from Rems Plugins about new products and updates<small>Optional, not needed for the download. Unsubscribe anytime with one click.</small></span></label>
+    <input type="text" name="email_address_check" value="" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="locale" value="en">
+    <p class="err" role="alert"></p>
+    <button class="btn btn-ink" type="submit">Get the download links</button>
+    <p class="legal">We use your email to give you the downloads and, only if you tick the box, to send news. Emails are sent with Brevo. No spam, ever.</p>
+  </form>
+</dialog>
+<script src="js/site.js?v=1"></script>
+</body>
+</html>
