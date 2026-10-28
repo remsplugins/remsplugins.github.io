@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/site.css?v=1">
+<title>MixPilot · Rems Plugins</title>
+<meta name="description" content="MixPilot: two free plug-ins, Track and Master, that listen to each other and mix for you. Editable EQ, 12 free EQ bands, reference track, mix review. VST3 / AU for Mac, Windows and Linux.">
+<meta property="og:title" content="MixPilot · assisted mixing and mastering, free">
+<meta property="og:image" content="https://remsplugins.github.io/img/mixpilot-111-promo.jpg">
+<style>
+.mp-hero{background:#fff;border-bottom:1px solid var(--line)}
+.mp-hero .split{padding-top:40px;padding-bottom:72px}
+.mp-hero h1{font-size:clamp(44px,7vw,72px);line-height:1}
+.mp-hero .copy{display:flex;flex-direction:column;gap:20px}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:20px}
+.num{counter-reset:s;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.num li{counter-increment:s;display:flex;gap:14px;align-items:flex-start;line-height:1.55;color:var(--text)}
+.num li::before{content:counter(s);flex:none;width:30px;height:30px;border-radius:999px;background:var(--ink);color:#fff;display:grid;place-items:center;font:600 14px var(--mono)}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="./" aria-label="Rems Plugins, home"><span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>REMS</a>
+  <nav class="nav" aria-label="Main"><a href="revolution.html" class="hot">Revolution</a><a href="plugins.html">All plugins</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html" aria-current="page">MixPilot</a><a href="synthoween.html">Synth'O'Ween</a><a href="help.html">Install</a><a href="help.html#changelog">What's new</a></nav>
+  <div class="head-cta"><a class="btn btn-coffee btn-sm" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a></div>
+</div></header>
+
+<main>
+<section class="mp-hero">
+  <nav class="wrap crumbs" aria-label="Breadcrumb"><a href="./">Home</a> / <a href="plugins.html#mix">Mix &amp; Master</a> / <span>MixPilot</span></nav>
+  <div class="wrap split">
+    <div class="copy">
+      <div class="choices"><span class="pill" style="background:#e5eaf7;color:#3550a8">Updated · 1.2.1</span><span class="meta" style="letter-spacing:.12em">ASSISTED MIXING &amp; MASTERING</span></div>
+      <h1>MixPilot</h1>
+      <p class="lead">Two plug-ins that listen to each other. Press ASSISTANT and in about 30 seconds every track identifies itself, cleans up, sits at the right level and makes room for the others.</p>
+      <div class="ctas">
+        <a class="btn btn-ink js-get" data-plugin="MixPilot" href="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==">Download free</a>
+        <a class="btn btn-line" href="#listen"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>Hear before / after</a>
+      </div>
+      <p class="dl-count" data-plugin="MixPilot" hidden><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10"/></svg><span><b>0</b> downloads</span></p>
+      <p class="meta">$0, pay what you want · v1.2.1 · VST3 · AU · LV2 · Mac, Windows, Linux</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <img class="ui" id="mp-shot" src="img/mixpilot-master.jpg?v=2" alt="MixPilot Master interface" width="1240" height="911">
+      <div class="choices" role="tablist" aria-label="MixPilot screenshots" data-switch="mp-shot" data-caption="mp-cap">
+        <button class="choice" type="button" role="tab" aria-selected="true" data-src="img/mixpilot-master.jpg?v=2" data-alt="MixPilot Master interface" data-cap="MixPilot Master after ASSISTANT: -14.0 LUFS on target, no clipping, 6 linked tracks.">Master</button>
+        <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/mixpilot-track.jpg?v=2" data-alt="MixPilot Track interface on a vocal" data-cap="MixPilot Track on a vocal, detected at 99% confidence. The orange EQ points were dragged by hand on top of the analysis.">Track</button>
+        <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/mixpilot-eq-edit.jpg" data-alt="Editing the EQ points on the spectrum" data-cap="Editable EQ: drag the points on the spectrum to fine-tune what the analysis did.">Editable EQ</button>
+        <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/mixpilot-guide.jpg?v=2" data-alt="The built-in guide in MixPilot" data-cap="Every section has its own guide inside the plug-in: click ? on any panel.">Built-in guide</button>
+      </div>
+      <p class="meta" id="mp-cap" style="font-family:var(--body);font-size:14px">MixPilot Master after ASSISTANT: -14.0 LUFS on target, no clipping, 6 linked tracks.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:72px">
+  <div class="stats">
+    <div><b>±0.3</b><span>LUFS from target, tested</span></div>
+    <div><b>5</b><span>styles</span></div>
+    <div><b>6</b><span>outputs</span></div>
+    <div><b>12</b><span>free EQ bands, new in 1.2</span></div>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <p class="kicker">How it works</p>
+  <h2 class="h2" style="margin-bottom:32px">Track on every track, Master on the master</h2>
+  <div class="split">
+    <div class="pair">
+      <div class="box"><b>TRACK</b><p>On every track. Detects the instrument, then applies low cut, EQ, compression, anti-masking and kick/bass ducking with no sidechain routing.</p></div>
+      <div class="box"><b>MASTER</b><p>On the master. Style, output, multiband glue, stereo image, 4x clipper and true-peak limiter.</p></div>
+    </div>
+    <ol class="num">
+      <li><span><b>MixPilot Track</b> last on every track.</span></li>
+      <li><span><b>MixPilot Master</b> last on the master. Pick a style and an output.</span></li>
+      <li><span>Play the loudest section and press <b>ASSISTANT</b>.</span></li>
+      <li><span>Fine-tune by ear. <b>A/B</b> compares before and after at matched loudness.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <div class="sec-head"><div><p class="kicker">Demo</p><h2>One minute with MixPilot</h2></div><span class="meta">1:06 · sound on</span></div>
+  <div class="video"><video controls playsinline preload="none" poster="video/mixpilot-demo.jpg" width="1920" height="1080"><source src="video/mixpilot-demo.mp4?v=3" type="video/mp4"></video></div>
+</section>
+
+<section class="white sec" id="listen" style="padding-bottom:96px;margin-top:96px">
+  <div class="wrap split r" style="align-items:start">
+    <div>
+      <p class="kicker">Listen</p>
+      <h2 class="h2" style="margin-bottom:24px">Before / after</h2>
+      <div class="ab" data-a="audio/mixpilot-house-before.mp3" data-b="audio/mixpilot-house-after.mp3">
+        <button class="ic" type="button" aria-label="Play"></button>
+        <div class="ab-top"><b>House loop</b>
+          <div class="ab-sw" role="group" aria-label="Compare"><button type="button" aria-pressed="true" data-k="a">Without</button><button type="button" aria-pressed="false" data-k="b">With MixPilot</button></div></div>
+        <div class="ab-track"><span></span></div>
+        <p class="ab-note">Same 15 s of a house track. Switch while it plays: both versions run in sync and are loudness-matched, so you hear the mix, not the volume.</p>
+      </div>
+    </div>
+    <div class="target" aria-live="polite">
+      <p class="kicker">Master loudness target</p>
+      <div class="selects">
+        <label>Style<select id="style"><option value="0">Electronic (House / Techno)</option><option value="1">Trap</option><option value="2">Rap / Hip-hop</option><option value="3" selected>Pop</option><option value="4">Rock / Acoustic</option></select></label>
+        <label>Output<select id="out"><option value="0">Streaming (Spotify / Apple)</option><option value="1">YouTube</option><option value="2" selected>SoundCloud</option><option value="3">Club / DJ</option><option value="4">CD</option><option value="5">Vinyl</option></select></label>
+      </div>
+      <div class="readout">
+        <div class="meter" aria-hidden="true"><span class="tick" style="bottom:25%"></span><span class="tick" style="bottom:50%"></span><span class="tick" style="bottom:75%"></span><div class="fill" id="fill"></div></div>
+        <div><div class="lufs" id="lufs">-9<small>LUFS</small></div><dl><dt>Ceiling</dt><dd id="ceil">-1 dBTP</dd><dt>Note</dt><dd id="note">—</dd></dl></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <p class="kicker">Features</p>
+  <h2 class="h2" style="margin-bottom:32px">More than a preset</h2>
+  <div class="grid g4">
+    <div class="box"><b>Free EQ bands</b><p>Up to 12 of your own, bell, shelf, notch or cut, static or dynamic, on Stereo, Mid, Side, Left or Right, with solo.</p></div>
+    <div class="box"><b>Editable EQ</b><p>Drag the EQ points on the spectrum to fine-tune what the analysis did.</p></div>
+    <div class="box"><b>Reference track</b><p>Drop in a WAV or MP3 and MixPilot targets its balance and loudness.</p></div>
+    <div class="box"><b>Mashups</b><p>The instrumental dips its mids only while the acapella sings.</p></div>
+    <div class="box"><b>Mix review</b><p>A score out of 100, frequency clashes and live tips.</p></div>
+    <div class="box"><b>Resizable</b><p>60 to 200 %, remembered for every new window.</p></div>
+  </div>
+</section>
+
+<section class="wrap sec" id="download">
+  <div class="split r" style="align-items:start">
+    <div>
+      <p class="kicker">Specs</p>
+      <h2 class="h2" style="margin-bottom:28px">System requirements</h2>
+      <dl class="specs">
+        <dt>Version</dt><dd>1.2.1 · October 27, 2026</dd>
+        <dt>macOS</dt><dd>VST3, AU · Apple Silicon + Intel</dd>
+        <dt>Windows</dt><dd>VST3 · Windows 10/11, 64-bit</dd>
+        <dt>Linux</dt><dd>VST3, LV2 · x86_64, glibc 2.35+</dd>
+        <dt>Price</dt><dd>Free, pay what you want</dd>
+      </dl>
+      <p style="margin-top:20px"><a href="help.html" style="font-weight:600">Install guide and macOS fix →</a> · <a href="help.html#changelog" style="font-weight:600">Changelog →</a></p>
+    </div>
+    <div class="panel">
+      <div class="stripe" style="width:70px;height:3px"></div>
+      <h2>Get MixPilot</h2>
+      <p style="color:var(--text)">Track + Master in one download. Enter your email and the Mac, Windows and Linux downloads open right away.</p>
+      <a class="btn btn-ink js-get" data-plugin="MixPilot" href="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==">Download free</a>
+      <p class="dl-count" data-plugin="MixPilot" hidden><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10"/></svg><span><b>0</b> downloads</span></p>
+      <a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="cols">
+    <div><b style="font-family:var(--display);letter-spacing:.12em">REMS PLUGINS</b><span style="color:var(--muted);line-height:1.55">Independent plug-ins, made by one producer. Free, pay what you want.</span></div>
+    <div><h4>Plug-ins</h4><a href="revolution.html">Revolution</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="synthoween.html">Synth'O'Ween</a><a href="plugins.html">All plug-ins</a></div>
+    <div><h4>Help</h4><a href="help.html">Install guide</a><a href="help.html#macos">If macOS blocks a plug-in</a><a href="help.html#changelog">What's new</a></div>
+    <div><h4>Community</h4><a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee</a><a href="./#newsletter">Newsletter</a></div>
+  </div>
+  <div class="fine"><span>© 2026 Rems Plugins. VST is a trademark of Steinberg Media Technologies GmbH.</span><span>Your email is used to send you the download links and, only if you tick the box, news about updates and new plug-ins. Unsubscribe anytime. Emails are sent with Brevo.</span></div>
+</div></footer>
+<dialog class="signup" id="signup" aria-labelledby="su-title">
+  <form method="POST" action="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==" novalidate>
+    <button class="close" type="button" aria-label="Close">×</button>
+    <h2 id="su-title">Get <span class="su-name">Rems Plugins</span>, free</h2>
+    <p class="sub">Enter your email and the Mac, Windows and Linux downloads open right away.</p>
+    <label class="field">Email address<input class="input" type="email" name="EMAIL" autocomplete="email" placeholder="you@example.com" required></label>
+    <label class="consent"><input type="checkbox" name="NEWSLETTER" value="1"><span>I agree to receive emails from Rems Plugins about new products and updates<small>Optional, not needed for the download. Unsubscribe anytime with one click.</small></span></label>
+    <input type="text" name="email_address_check" value="" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="locale" value="en">
+    <p class="err" role="alert"></p>
+    <button class="btn btn-ink" type="submit">Get the download links</button>
+    <p class="legal">We use your email to give you the downloads and, only if you tick the box, to send news. Emails are sent with Brevo. No spam, ever.</p>
+  </form>
+</dialog>
+<script src="js/site.js?v=1"></script>
+<script>
+// LUFS targets from the MixPilot manual: [Electronic, Trap, Rap, Pop, Rock]
+(function(){
+  var OUT=[
+    {v:[-14,-14,-14,-14,-14],c:"-1 dBTP",n:"Normalized by the platform"},
+    {v:[-13,-13,-13,-13,-13],c:"-1 dBTP",n:"Normalized by the platform"},
+    {v:[-8,-8,-8.5,-9,-10],c:"-1 dBTP",n:"Loud, no normalization"},
+    {v:[-7,-7,-7.5,-8,-8.5],c:"-0.3 dBTP",n:"Mono bass below 120 Hz"},
+    {v:[-8,-8,-8.5,-9,-10],c:"-0.3 dBTP",n:"CD master"},
+    {v:[-10,-10,-10.5,-11,-12],c:"-1 dBTP",n:"Mono bass below 150 Hz, softened top end"}
+  ];
+  var st=document.getElementById('style'),ou=document.getElementById('out');
+  function upd(){
+    var o=OUT[+ou.value],v=o.v[+st.value];
+    document.getElementById('lufs').innerHTML=v+'<small>LUFS</small>';
+    document.getElementById('ceil').textContent=o.c;
+    document.getElementById('note').textContent=o.n;
+    document.getElementById('fill').style.height=Math.round((v+18)/12*100)+'%';
+  }
+  st.addEventListener('change',upd);ou.addEventListener('change',upd);upd();
+})();
+</script>
+</body>
+</html>
