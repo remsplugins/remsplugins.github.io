@@ -3,7 +3,7 @@
 (function(){
   var BREVO='https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==';
   var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  function post(form){return fetch(BREVO,{method:'POST',body:new FormData(form),mode:'no-cors'});}
+  function post(form){return fetch(form.getAttribute('action')||BREVO,{method:'POST',body:new FormData(form),mode:'no-cors'});}
 
   // email signup before download: any .js-get opens the dialog, then goes to its data-dest
   var dlg=document.getElementById('signup');
@@ -27,7 +27,7 @@
 
   // "notify me" / newsletter forms: subscribing is the point, so the consent box is required
   document.querySelectorAll('form.js-notify').forEach(function(fm){
-    var em=fm.querySelector('[name=EMAIL]'),ok=fm.querySelector('[name=NEWSLETTER]'),er=fm.querySelector('.err'),go=fm.querySelector('[type=submit]'),done=fm.parentNode.querySelector('.ok'),label=go.textContent;
+    var em=fm.querySelector('[name=EMAIL]'),ok=fm.querySelector('[name=NEWSLETTER],[name=OPT_IN]'),er=fm.querySelector('.err'),go=fm.querySelector('[type=submit]'),done=fm.parentNode.querySelector('.ok'),label=go.textContent;
     fm.addEventListener('submit',function(e){
       e.preventDefault();
       if(!EMAIL.test(em.value.trim())){er.textContent='Please enter a valid email address.';em.focus();return;}
