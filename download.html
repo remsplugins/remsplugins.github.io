@@ -7,268 +7,76 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-<meta name="robots" content="noindex">
-<title>Download · Rems Plugins</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/site.css?v=1">
+<title>Download · Rems Plugins</title>
+<meta name="robots" content="noindex">
 <style>
-/* Layout: a studio console. Launch ribbon, two product "racks" with wooden cheeks, install, support. Deliberately dark, like the plug-in UIs. */
-:root{
-  --bg:#141317; --panel:#1d1c21; --panel-2:#25242a; --line:#36343c;
-  --fg:#ece6da; --muted:#9d978d; --amber:#f5a03a; --amber-ink:#1a1206; --teal:#4fd6c8; --wood:#6e4024; --wood-2:#8a5530;
-  --display:"Unbounded","Arial Black",system-ui,sans-serif;
-  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
-  color-scheme:dark;
-}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0}
-img{max-width:100%}
-[hidden]{display:none!important}
-body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
-a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
-p{margin:0}
-.label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
-
-/* bandeau */
-.ribbon{background:var(--amber);color:var(--amber-ink);font-family:var(--mono);font-size:13px;font-weight:600}
-.ribbon .wrap{display:flex;gap:8px 20px;flex-wrap:wrap;justify-content:space-between;align-items:center;padding-block:9px}
-.ribbon a{font-weight:600}
-
-/* en-tête */
-header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo{display:grid;gap:2px;width:28px}
-.logo i{display:block;height:5px;border-radius:1px}
-.logo i:nth-child(1){background:#f7b85a}.logo i:nth-child(2){background:#f5a03a}.logo i:nth-child(3){background:#e2702e}.logo i:nth-child(4){background:#8a5530}
-.brand b{font-family:var(--display);font-size:18px;letter-spacing:.18em}
-nav{display:flex;gap:18px;flex-wrap:wrap;font-size:15px}
-nav a{text-decoration:none;color:var(--muted)} nav a:hover{color:var(--fg)}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--body);font-weight:600;font-size:16px;padding:13px 22px;border-radius:6px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .15s}
-.btn:hover{transform:translateY(-1px)}
-.btn-amber{background:var(--amber);color:var(--amber-ink)}
-.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line)}
-.btn-ghost:hover{border-color:var(--muted)}
-.btn-coffee{background:#ffdd00;color:#141317}
-.btn small{font-family:var(--mono);font-weight:400;font-size:12px;opacity:.75}
-
-/* hero */
-.hero{padding-block:48px 56px}
-.hero h1{font-size:clamp(34px,6.2vw,64px);font-weight:700;letter-spacing:-.01em;max-width:15ch}
-.hero h1 em{font-style:normal;color:var(--amber)}
-.hero p.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:56ch;margin-top:20px}
-.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.specs{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
-.chip{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:99px;padding:5px 12px;color:var(--muted)}
-
-/* rack produit */
-.rack{display:grid;grid-template-columns:14px 1fr 14px;margin-block:0 56px}
-.cheek{background:linear-gradient(90deg,var(--wood),var(--wood-2) 45%,var(--wood));border-radius:4px}
-.rack-body{background:var(--panel);border-block:1px solid var(--line);min-width:0}
-.rack-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;padding:28px 28px 0}
-.rack-head h2{font-size:clamp(30px,5vw,46px);letter-spacing:.12em}
-.rack-head .tag{color:var(--amber);font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-top:8px}
-.rack-head .teal{color:var(--teal)}
-.version{font-family:var(--mono);font-size:13px;color:var(--muted);text-align:right}
-.rack-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px;padding:24px 28px 28px}
-@media (max-width:860px){.rack-grid{grid-template-columns:1fr}.rack-head{padding:22px 18px 0}.rack-grid{padding:20px 18px 22px}.rack{grid-template-columns:8px 1fr 8px}}
-
-/* galerie */
-.shots{min-width:0}
-.screen{background:#000;border:1px solid var(--line);border-radius:6px;overflow:hidden;aspect-ratio:1240/830;max-width:100%}
-.screen img{display:block;width:100%;height:100%;object-fit:cover}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.tab{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:var(--panel-2);color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:7px 11px;cursor:pointer}
-.tab[aria-selected="true"]{background:var(--amber);color:var(--amber-ink);border-color:var(--amber)}
-.caption{font-size:14px;color:var(--muted);margin-top:10px;min-height:2.8em}
-
-.mp-shots{padding:24px 28px 0;min-width:0}
-.mp-screen{aspect-ratio:1240/911}
-.mp-screen img{object-fit:contain;background:#151920}
-@media (max-width:860px){.mp-shots{padding:20px 18px 0}}
-.demo{padding:24px 28px 0}
-.demo video{display:block;width:100%;height:auto;max-width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:6px;background:#000}
-.demo p{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:10px}
-@media (max-width:860px){.demo{padding:20px 18px 0}}
-.copy{min-width:0;display:flex;flex-direction:column;gap:18px}
-.copy .pitch{font-size:18px}
-.copy ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
-.copy ul li{padding-left:18px;position:relative;font-size:15px;color:#d6d0c4}
-.copy ul li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;background:var(--amber);border-radius:1px}
-.copy li b{color:var(--fg)}
-.dl{display:grid;gap:10px;margin-top:auto;padding-top:6px}
-.dl .btn{width:100%}
-.dl-title{font-family:var(--display);font-size:15px;letter-spacing:.06em;text-align:center}
-.dl-os{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-@media (max-width:420px){.dl-os{grid-template-columns:1fr}}
-.dl-os .btn{width:100%;padding-inline:12px}
-.btn-ghost[data-os]{border-color:var(--amber);color:var(--amber)}
-.dl-os .btn-amber{color:var(--amber-ink)}
-.dl .note{font-size:13px;color:var(--muted);text-align:center}
-
-/* chiffres */
-.figures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
-.figures div{padding:18px 20px;border-right:1px solid var(--line)}
-.figures div:last-child{border-right:0}
-.figures b{display:block;font-family:var(--display);font-size:26px;color:var(--fg);font-variant-numeric:tabular-nums}
-.figures span{font-size:13px;color:var(--muted)}
-@media (max-width:640px){.figures{grid-template-columns:repeat(2,minmax(0,1fr))}.figures div:nth-child(2){border-right:0}.figures div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
-
-/* mixpilot : simulateur de cible */
-.target{background:var(--panel-2);border:1px solid var(--line);border-radius:6px;padding:20px;display:grid;gap:16px}
-.selects{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.selects label{display:grid;gap:6px}
-select{font:inherit;font-size:15px;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:4px;padding:9px 10px;width:100%}
-.readout{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
-.meter{width:44px;height:150px;background:#0c0b0e;border:1px solid var(--line);border-radius:3px;position:relative;overflow:hidden}
-.meter .fill{position:absolute;left:5px;right:5px;bottom:4px;background:linear-gradient(to top,var(--teal),var(--amber) 80%,#e2552e);border-radius:2px;transition:height .45s cubic-bezier(.2,.8,.2,1)}
-.meter .tick{position:absolute;left:0;right:0;height:1px;background:rgba(236,230,218,.12)}
-.lufs{font-family:var(--display);font-size:clamp(34px,5vw,48px);font-variant-numeric:tabular-nums;line-height:1}
-.lufs small{font-family:var(--mono);font-size:14px;color:var(--muted);margin-left:6px}
-.readout dl{margin:10px 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14px}
-.readout dt{color:var(--muted)} .readout dd{margin:0;font-family:var(--mono)}
-.steps{counter-reset:s;display:grid;gap:12px;margin:0;padding:0;list-style:none}
-.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;font-size:15px;color:#d6d0c4}
-.steps li::before{content:counter(s);font-family:var(--mono);font-weight:600;color:var(--amber);border:1px solid var(--line);border-radius:4px;height:30px;display:grid;place-items:center}
-.steps b{color:var(--fg)}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.pair div{border:1px solid var(--line);border-radius:6px;padding:14px}
-.pair h3{font-size:14px;letter-spacing:.1em;margin-bottom:6px}
-.pair p{font-size:14px;color:var(--muted)}
-@media (max-width:520px){.pair,.selects{grid-template-columns:1fr}}
-
-/* installation */
-section.block{padding-block:8px 56px}
-.block h2{font-size:clamp(24px,3.4vw,32px);margin-bottom:22px}
-.install{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
-.install article{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px;display:grid;gap:12px;align-content:start;min-width:0}
-.install h3{font-size:16px;letter-spacing:.08em}
-.install p,.install li{font-size:15px;color:#d6d0c4}
-.install ol{margin:0;padding-left:20px;display:grid;gap:6px}
-code{font-family:var(--mono);font-size:13px;background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:1px 5px;word-break:break-all}
-.cmd{display:flex;gap:8px;align-items:stretch;min-width:0}
-.cmd pre{flex:1;min-width:0;margin:0;overflow-x:auto;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:10px 12px;font-family:var(--mono);font-size:13px;color:var(--teal)}
-.cmd button{font-family:var(--mono);font-size:12px;background:var(--panel-2);color:var(--fg);border:1px solid var(--line);border-radius:4px;padding:0 12px;cursor:pointer}
-@media (max-width:760px){.install{grid-template-columns:1fr}}
-
-/* soutien */
-/* changelog */
-.log{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
-.log>article{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px;min-width:0}
-.log h3{font-size:18px;letter-spacing:.12em;margin-bottom:6px}
-.log .sub{font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:18px}
-.rel{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:16px 0;border-top:1px solid var(--line)}
-.rel:first-of-type{border-top:0;padding-top:0}
-.rel .v{font-family:var(--mono);font-weight:600;font-size:14px;color:var(--fg);white-space:nowrap}
-.rel .d{font-family:var(--mono);font-size:12px;color:var(--muted);align-self:center}
-.rel .latest{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--amber-ink);background:var(--amber);border-radius:3px;padding:2px 6px;margin-left:8px;vertical-align:2px}
-.rel ul{grid-column:1/-1;margin:8px 0 0;padding:0;list-style:none;display:grid;gap:8px}
-.rel li{display:grid;grid-template-columns:76px 1fr;gap:10px;font-size:14.5px;color:#d6d0c4;line-height:1.5}
-.rel li code{font-size:12px}
-.k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;padding:2px 0;text-align:center;align-self:start;margin-top:2px;border:1px solid}
-.k-new{color:var(--amber);border-color:var(--amber)}
-.k-imp{color:var(--teal);border-color:var(--teal)}
-.k-fix{color:#e7e1d6;border-color:var(--muted)}
-@media (max-width:480px){.rel li{grid-template-columns:1fr;gap:4px}.k{justify-self:start;padding:2px 8px}}
-.support{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:minmax(0,1.4fr) auto;gap:24px;align-items:center}
-.support h2{font-size:clamp(24px,3.6vw,34px);margin-bottom:12px}
-.support p{color:var(--muted);max-width:52ch}
-@media (max-width:720px){.support{grid-template-columns:1fr}}
-
-/* merci après téléchargement */
-.thanks{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:0 max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;justify-content:center;pointer-events:none}
-.thanks[hidden]{display:none}
-.thanks-card{pointer-events:auto;max-width:640px;width:100%;background:var(--panel-2);border:1px solid var(--amber);border-radius:8px;padding:18px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;box-shadow:0 18px 50px rgba(0,0,0,.55);animation:up .35s ease-out}
-.thanks-card p{flex:1 1 260px;font-size:15px}
-.thanks-card p b{display:block;font-family:var(--display);font-size:16px;margin-bottom:2px}
-.thanks-card .x{background:none;border:0;color:var(--muted);font-size:22px;cursor:pointer;padding:0 4px}
-@keyframes up{from{transform:translateY(20px);opacity:.4}to{transform:none;opacity:1}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-
-footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:22px}
-
-/* download page */
-.dlp{padding-block:40px 56px}
-.dlp h1{font-size:clamp(30px,5vw,48px);font-weight:700}
-.dlp .lead{color:var(--muted);font-size:18px;max-width:60ch;margin-top:14px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px;margin-top:32px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:24px;display:grid;gap:14px;align-content:start;min-width:0}
-.card h2{font-size:26px;letter-spacing:.12em}
-.card .tag{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
-.card .tag.teal{color:var(--teal)}
-.card .ver{font-family:var(--mono);font-size:13px;color:var(--muted)}
-.next{margin-top:28px;background:var(--panel-2);border:1px solid var(--line);border-radius:6px;padding:20px 22px;display:grid;gap:8px}
-.next p{color:#d6d0c4;font-size:15px}
-.privacy{font-size:13px;color:var(--muted);margin-top:8px;max-width:70ch}
+.dl-os{display:flex;gap:10px;flex-wrap:wrap}
+.dl-os .btn{flex:1 1 120px}
 </style>
 </head>
 <body>
-<div class="ribbon"><div class="wrap">
-  <span>Thanks for signing up · Free, pay what you want</span>
-  <a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a>
-</div></div>
-<header><div class="wrap">
-  <a class="brand" href="./"><span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b>REMS PLUGINS</b></a>
-  <nav><a href="./#halcyon">Halcyon</a><a href="./#mixpilot">MixPilot</a><a href="./#install">Install</a></nav>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="./" aria-label="Rems Plugins, home"><span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>REMS</a>
+  <nav class="nav" aria-label="Main"><a href="revolution.html" class="hot">Revolution</a><a href="plugins.html">All plugins</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="help.html">Install</a><a href="help.html#changelog">What's new</a></nav>
+  <div class="head-cta"><a class="btn btn-coffee btn-sm" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a></div>
 </div></header>
-<main class="wrap dlp">
-  <p class="label">You're in</p>
-  <h1>Your downloads are ready.</h1>
-  <p class="lead">Pick your plug-in and your system. Bookmark this page if you like: it always has the latest versions.</p>
-  <div class="cards">
-    <article class="card">
-      <div><h2>HALCYON</h2><p class="tag">Wavetable synthesizer</p></div>
-      <p class="ver">v1.3.0 · VST3 · AU · LV2 · Standalone</p>
+
+<main class="wrap" style="padding-top:56px">
+  <p class="kicker">You're in</p>
+  <h1 style="font-size:clamp(34px,5vw,52px);margin-top:10px">Your downloads are ready.</h1>
+  <p class="lead" style="margin-top:14px">Pick your plug-in and your system. Bookmark this page if you like: it always has the latest versions.</p>
+
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));margin-top:40px">
+    <article class="panel">
+      <div class="choices"><span class="pill">Halcyon 1.3</span><span class="meta">Wavetable synthesizer</span></div>
+      <p class="meta">v1.3.0 · VST3 · AU · LV2 · Standalone</p>
       <div class="dl-os">
-        <a class="btn btn-amber js-dl" data-os="mac" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/halcyon-1.3.0/Halcyon-1.3.0-macOS.zip">macOS</a>
-        <a class="btn btn-ghost js-dl" data-os="win" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/halcyon-1.3.0/Halcyon-1.3.0-Windows.zip">Windows</a>
-        <a class="btn btn-ghost js-dl" data-os="linux" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/halcyon-1.3.0/Halcyon-1.3.0-Linux.zip">Linux</a>
+        <a class="btn btn-ink js-dl" data-os="mac" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/halcyon-1.3.0/Halcyon-1.3.0-macOS.zip">macOS</a>
+        <a class="btn btn-line js-dl" data-os="win" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/halcyon-1.3.0/Halcyon-1.3.0-Windows.zip">Windows</a>
+        <a class="btn btn-line js-dl" data-os="linux" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/halcyon-1.3.0/Halcyon-1.3.0-Linux.zip">Linux</a>
       </div>
-      <p class="privacy">Mac: Apple Silicon + Intel, macOS 10.13+ · Windows: 10/11 64-bit · Linux: x86_64, VST3 + LV2</p>
+      <p class="legal">Mac: Apple Silicon + Intel, macOS 10.13+ · Windows: 10/11 64-bit · Linux: x86_64, VST3 + LV2</p>
     </article>
-    <article class="card">
-      <div><h2>MIXPILOT</h2><p class="tag teal">Assisted mixing &amp; mastering</p></div>
-      <p class="ver">v1.2.1 · Track + Master · VST3 · AU · LV2</p>
+    <article class="panel">
+      <div class="choices"><span class="pill" style="background:#e5eaf7;color:#3550a8">MixPilot 1.2.1</span><span class="meta">Assisted mixing &amp; mastering</span></div>
+      <p class="meta">v1.2.1 · Track + Master · VST3 · AU · LV2</p>
       <div class="dl-os">
-        <a class="btn btn-amber js-dl" data-os="mac" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/mixpilot-1.2.1/MixPilot-1.2.1-macOS.zip">macOS</a>
-        <a class="btn btn-ghost js-dl" data-os="win" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/mixpilot-1.2.1/MixPilot-1.2.1-Windows.zip">Windows</a>
-        <a class="btn btn-ghost js-dl" data-os="linux" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/mixpilot-1.2.1/MixPilot-1.2.1-Linux.zip">Linux</a>
+        <a class="btn btn-ink js-dl" data-os="mac" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/mixpilot-1.2.1/MixPilot-1.2.1-macOS.zip">macOS</a>
+        <a class="btn btn-line js-dl" data-os="win" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/mixpilot-1.2.1/MixPilot-1.2.1-Windows.zip">Windows</a>
+        <a class="btn btn-line js-dl" data-os="linux" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/mixpilot-1.2.1/MixPilot-1.2.1-Linux.zip">Linux</a>
       </div>
-      <p class="privacy">Mac: VST3 + AU · Windows: VST3 64-bit · Linux: VST3 + LV2, x86_64</p>
+      <p class="legal">Mac: VST3 + AU · Windows: VST3 64-bit · Linux: VST3 + LV2, x86_64</p>
     </article>
   </div>
-  <div class="next">
-    <p><b>Next step:</b> unzip, then follow the <a href="./#install">install guide</a>. On a Mac, double-click <code>fix_mac_plugins.command</code> if your DAW doesn't see the plug-in. On Linux, copy the plug-ins to <code>~/.vst3</code> and <code>~/.lv2</code>.</p>
-    <p>If Halcyon or MixPilot end up in your tracks, a coffee helps ship the next one.</p>
-    <div><a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Buy me a coffee</a></div>
+
+  <div class="box" style="margin-top:24px;display:flex;flex-direction:column;gap:12px">
+    <p style="color:var(--text)"><b style="display:inline;color:var(--ink);font-size:16px">Next step:</b> unzip, then follow the <a href="help.html">install guide</a>. On a Mac, double-click <code>fix_mac_plugins.command</code> if your DAW doesn't see the plug-in. On Linux, copy the plug-ins to <code>~/.vst3</code> and <code>~/.lv2</code>.</p>
+    <p style="color:var(--text)">If Halcyon or MixPilot end up in your tracks, a coffee helps ship the next one.</p>
+    <div><a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a></div>
   </div>
-  <p class="privacy">Your email is used to send you this page and, only if you ticked the box, news about updates and new plug-ins. You can unsubscribe at any time from any email. Emails are sent with Brevo.</p>
+  <p class="legal" style="margin-top:20px">Your email is used to send you this page and, only if you ticked the box, news about updates and new plug-ins. You can unsubscribe at any time from any email. Emails are sent with Brevo.</p>
 </main>
+
 <div class="thanks" id="thanks" hidden>
   <div class="thanks-card" role="status">
     <p><b>Thanks, your download is starting.</b>These plug-ins are free and built in my spare time. If this one ends up in your tracks, a coffee helps ship the next one.</p>
-    <a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Buy me a coffee</a>
-    <button class="x" type="button" id="close" aria-label="Close">×</button>
+    <a class="btn btn-coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a>
+    <button class="x" type="button" aria-label="Close">×</button>
   </div>
 </div>
-<footer><div class="wrap"><span>© 2026 Rems · Halcyon &amp; MixPilot</span><span>VST is a trademark of Steinberg Media Technologies GmbH.</span></div></footer>
-<script>
-// put the visitor's system first
-try{ var ua=navigator.userAgent, os=/Windows/i.test(ua)?'win':(/Linux|X11/i.test(ua)&&!/Android/i.test(ua))?'linux':null;
-  if(os){ document.querySelectorAll('.dl-os').forEach(function(r){var m=r.querySelector('[data-os=mac]'),f=r.querySelector('[data-os='+os+']');m.classList.replace('btn-amber','btn-ghost');f.classList.replace('btn-ghost','btn-amber');r.insertBefore(f,m);}); } }catch(e){}
-// after a download click: thank the visitor and offer the support link again
-(function(){
-  var th=document.getElementById('thanks');
-  document.querySelectorAll('.js-dl').forEach(function(a){a.addEventListener('click',function(){th.hidden=false;});});
-  document.getElementById('close').addEventListener('click',function(){th.hidden=true;});
-})();
-</script>
+<footer class="site-foot"><div class="wrap">
+  <div class="cols">
+    <div><b style="font-family:var(--display);letter-spacing:.12em">REMS PLUGINS</b><span style="color:var(--muted);line-height:1.55">Independent plug-ins, made by one producer.</span></div>
+    <div><h4>Plug-ins</h4><a href="revolution.html">Revolution</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="plugins.html">All plug-ins</a></div>
+    <div><h4>Help</h4><a href="help.html">Install guide</a><a href="help.html#macos">If macOS blocks a plug-in</a><a href="help.html#changelog">What's new</a></div>
+    <div><h4>Community</h4><a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee</a><a href="./#newsletter">Newsletter</a></div>
+  </div>
+  <div class="fine"><span>© 2026 Rems Plugins. VST is a trademark of Steinberg Media Technologies GmbH.</span><span>Your email is used to send you the download links and, only if you tick the box, news about updates and new plug-ins. Unsubscribe anytime. Emails are sent with Brevo.</span></div>
+</div></footer>
+<script src="js/site.js?v=2"></script>
 </body>
 </html>

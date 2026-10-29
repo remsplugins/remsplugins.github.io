@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/site.css?v=1">
+<title>Revolution · Coming soon · Rems Plugins</title>
+<meta name="description" content="Revolution, a new wavetable synth with 3,000 presets, eight skins, visualizers and The Touch scenes, SHATTER, Breed, Pump and the Time Machine. Coming soon for Mac, Windows and Linux, with a 14-day free trial.">
+<meta property="og:title" content="Revolution · coming soon">
+<meta property="og:description" content="A new wavetable synth with 3,000 presets, eight skins, SHATTER, Breed and the Time Machine. Try it free for 14 days.">
+<meta property="og:image" content="https://remsplugins.github.io/img/revolution/revolution-og.jpg">
+<meta property="og:url" content="https://remsplugins.github.io/revolution.html">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+.rv-hero{background:#fff}
+.rv-hero .top{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding-top:48px}
+.rv-hero h1{font-size:clamp(36px,10vw,96px);line-height:1;letter-spacing:.04em}
+.rv-hero .stripe{width:160px}
+.rv-hero .lead{max-width:36em;font-size:clamp(17px,2vw,20px)}
+.rv-hero .ctas{justify-content:center}
+.rv-hero .shot{max-width:1180px;margin:0 auto;padding-top:48px}
+.rv-hero .shot img{border-radius:18px 18px 0 0;box-shadow:0 -10px 60px rgba(21,23,28,.12),0 0 0 1px rgba(21,23,28,.06);width:100%;height:auto}
+.scenes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(480px,100%),1fr));gap:20px}
+.scenes figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.scenes figure img{width:100%;height:auto}
+.scenes figcaption{padding:18px 22px;display:flex;flex-direction:column;gap:4px}
+.scenes figcaption b{font-family:var(--display);font-weight:600;font-size:18px}
+.scenes figcaption span{color:var(--text);line-height:1.5}
+.skin-list{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.skin-list .choice{border-radius:14px;justify-content:flex-start;min-height:48px;font-size:15px}
+.skin-list .choice[aria-pressed=true]{background:var(--accent-bg);border-color:var(--accent);color:var(--ink)}
+.skin-list .dot{width:22px;height:22px}
+.skin-list small{margin-left:auto;font:500 11px var(--mono);color:var(--muted)}
+.lfo .card img{width:100%;height:auto}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips span{font:500 12px var(--mono);padding:5px 9px;border-radius:6px;border:1px solid var(--line-2);color:var(--ink-2)}
+.filt{background:#e9eef4;border-radius:24px;padding:40px;display:grid;place-items:center}
+.filt img{width:100%;max-width:300px;height:auto;border-radius:12px;box-shadow:0 20px 40px rgba(21,23,28,.14)}
+.touch{background:#0b0b0d;color:#f3ead8;padding:96px 0;margin-top:96px}
+.touch .h2{color:#fff}
+.touch .lead{color:#c9bfae}
+.pill.gold{background:#e9b54a;color:#1a1306}
+.touch .scenes figure{background:#16161a;border-color:#2a2620}
+.touch .scenes figcaption b{color:#f1c76b}
+.touch .scenes figcaption span{color:#c9bfae}
+.touch-wide{margin:20px 0 0;border-radius:20px;overflow:hidden;border:1px solid #2a2620;background:#16161a}
+.touch-wide figcaption{padding:16px 22px;color:#c9bfae}
+.minis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:28px}
+.minis figure{margin:0}
+.minis img{border-radius:12px;box-shadow:0 0 0 1px rgba(21,23,28,.08)}
+.minis figcaption{font:500 12px var(--mono);color:var(--muted);margin-top:8px}
+.detail{background:#0b0b0d;border-radius:16px;padding:14px;display:grid;place-items:center}
+.detail img{border-radius:8px}
+.fx8{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:10px;margin-top:20px}
+.fx8 div{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.fx8 b{font:600 13px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.fx8 span{color:var(--text);font-size:14px}
+.tm{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:32px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(24px,4vw,48px)}
+.notify{max-width:760px;margin:0 auto;text-align:center;align-items:center}
+.notify form{width:100%;text-align:left}
+.halcyon{max-width:760px;margin-left:auto;margin-right:auto;display:flex;gap:16px 24px;align-items:center;flex-wrap:wrap;justify-content:space-between;padding:22px 24px;border-radius:18px;border:1px dashed var(--line-3);background:#fff}
+.halcyon p{color:var(--text);flex:1 1 380px}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="./" aria-label="Rems Plugins, home"><span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>REMS</a>
+  <nav class="nav" aria-label="Main"><a href="revolution.html" class="hot" aria-current="page">Revolution</a><a href="plugins.html">All plugins</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="help.html">Install</a><a href="help.html#changelog">What's new</a></nav>
+  <div class="head-cta"><a class="btn btn-coffee btn-sm" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a></div>
+</div></header>
+
+<main>
+<section class="rv-hero">
+  <nav class="wrap crumbs" aria-label="Breadcrumb"><a href="./">Home</a> / <a href="plugins.html">Instruments</a> / <span>Revolution</span></nav>
+  <div class="wrap top">
+    <div class="choices" style="justify-content:center"><span class="pill soon">Coming soon</span><span class="meta" style="letter-spacing:.12em">NEW WAVETABLE SYNTH</span></div>
+    <h1>REVOLUTION</h1>
+    <div class="stripe"></div>
+    <p class="lead">A polyphonic synth in the spirit of Serum, Vital and Diva, with 3,000 ready-to-play sounds, eight skins and scenes that move with your music. Try it free for 14 days.</p>
+    <div class="ctas">
+      <a class="btn btn-ink" href="#notify">Notify me at launch</a>
+      <a class="btn btn-line" href="#watch"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>Watch the teaser</a>
+    </div>
+    <p class="meta">14-day free trial · VST3 · AU · LV2 · Standalone · Mac, Windows, Linux</p>
+  </div>
+  <div class="wrap"><div class="shot"><img src="img/revolution/scene-legendary.jpg" alt="Revolution in Normal mode with The Touch skin: the Legendary scene, a festival stage of lasers and LED screens around a glowing pyramid" width="1248" height="829" fetchpriority="high"></div></div>
+</section>
+
+<div class="subnav"><div class="wrap">
+  <span class="name">REVOLUTION</span>
+  <a href="#modes">Normal &amp; Advanced</a><a href="#presets">Presets</a><a href="#visualizers">Visualizers</a><a href="#the-touch">The Touch</a><a href="#skins">Skins</a><a href="#shatter">SHATTER</a><a href="#breed">Breed</a><a href="#pump">Pump</a><a href="#time-machine">Time Machine</a><a href="#listen">Listen</a>
+  <a class="btn btn-ink btn-sm" href="#notify">Notify me</a>
+</div></div>
+
+<!-- numbers -->
+<section class="wrap" style="padding-top:72px">
+  <div class="stats">
+    <div><b>3,000</b><span>factory presets</span></div>
+    <div><b>8</b><span>skins</span></div>
+    <div><b>11</b><span>visualizers and scenes</span></div>
+    <div><b>8</b><span>SHATTER effects</span></div>
+  </div>
+</section>
+
+<!-- teaser -->
+<section class="wrap sec" id="watch">
+  <div class="sec-head"><div><p class="kicker">Teaser</p><h2>See it, hear it</h2></div><span class="meta">2:42 · sound on</span></div>
+  <div class="video"><video controls playsinline preload="none" poster="video/revolution-teaser.jpg" width="1280" height="720"><source src="video/revolution-teaser.mp4" type="video/mp4">Your browser can't play this video. <a href="video/revolution-teaser.mp4">Download it</a>.</video></div>
+</section>
+
+<!-- normal & advanced -->
+<section class="wrap sec" id="modes">
+  <div class="sec-head">
+    <div><p class="kicker">Normal &amp; Advanced</p><h2>Two ways to play, one click apart</h2></div>
+    <div class="seg" role="tablist" aria-label="Interface mode" data-switch="mode-shot">
+      <button class="choice" type="button" role="tab" aria-selected="true" aria-controls="mode-normal" data-show="mode-normal" data-src="img/revolution/normal-neon-blue.jpg" data-alt="Revolution in Normal mode, Spectrum visualizer">Normal</button>
+      <button class="choice" type="button" role="tab" aria-selected="false" aria-controls="mode-adv" data-show="mode-adv" data-src="img/revolution/page-synth.jpg" data-alt="Revolution in Advanced mode, Synth page">Advanced</button>
+    </div>
+  </div>
+  <div class="split r">
+    <img class="ui" id="mode-shot" src="img/revolution/normal-neon-blue.jpg" alt="Revolution in Normal mode, Spectrum visualizer" width="1248" height="829" loading="lazy">
+    <div>
+      <div id="mode-normal" role="tabpanel" style="display:flex;flex-direction:column;gap:18px">
+        <h3 style="font-size:26px">Normal: pick a sound and play</h3>
+        <p style="color:var(--text);font-size:17px;line-height:1.65">The panels step aside. A visualizer moves with your track, a big preset selector sits under your hands, and RANDOM deals a new sound in one click. Perfect when you want to write, not program.</p>
+        <ul class="checks">
+          <li>Browse by Type, Style or Vibe without opening a menu</li>
+          <li>Lock a category and the arrows and RANDOM stay in it</li>
+          <li>Seven visualizers, plus four scenes with The Touch skin</li>
+          <li>Favorites, the 4 macros and the master always within reach</li>
+        </ul>
+      </div>
+      <div id="mode-adv" role="tabpanel" hidden style="flex-direction:column;gap:18px">
+        <h3 style="font-size:26px;margin-bottom:18px">Advanced: the whole synth, page by page</h3>
+        <p style="color:var(--text);font-size:17px;line-height:1.65;margin-bottom:18px">Click ADVANCED and the full engine slides open. Six pages sit along the top: Synth, Mod Matrix, Effects, Arp, SHATTER and Breed. The Time Machine stays in view on every one of them.</p>
+        <ul class="checks">
+          <li>3 oscillators, sub and noise, 2 filters</li>
+          <li>4 envelopes and 4 LFOs, with live modulation shown on every knob</li>
+          <li>Drag a macro, envelope or LFO onto any knob to modulate it</li>
+          <li>Click NORMAL to fold it all away again</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- presets: random, lock, type / style / vibe -->
+<section class="white sec" id="presets" style="margin-top:96px;padding-bottom:96px">
+  <div class="wrap">
+    <p class="kicker">3,000 presets</p>
+    <h2 class="h2" style="margin-bottom:12px">Find the sound by what it is, where it goes, or how it feels</h2>
+    <p class="lead" style="margin-bottom:36px;max-width:48em">Every preset is filed three ways. Pick a tab, pick a category, then flip through with the arrows or let RANDOM choose for you.</p>
+    <div class="grid g3" style="margin-bottom:28px">
+      <div class="box"><b>Type</b><p>What the sound is: Bass, Lead, Pad, Pluck, Keys, Acoustic, Chord, Arp, Seq, Bell, Brass, Strings, Vox, Atmosphere, FX, Drums, Granular, Spectral…</p></div>
+      <div class="box"><b>Style</b><p>The music it was made for: House, Techno, Trance, EDM, Synthwave, Disco &amp; Funk, Hip-Hop &amp; Trap, Drum &amp; Bass, Dubstep, Ambient, Cinematic, Pop, Lo-Fi, Acid, Electro.</p></div>
+      <div class="box"><b>Vibe</b><p>The mood or the record it recalls: Acid Squelch, Big Room Drop, Cold Wave, Cosmic Laser, Detroit Machine, Disco Strut, Future Noir, Night Drive and many more.</p></div>
+    </div>
+    <div class="split r" style="align-items:start">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <img class="ui" id="browse-shot" src="img/revolution/browser-type.jpg" alt="Preset browser sorted by Type, Pad selected" width="1248" height="658" loading="lazy">
+        <div class="choices" role="tablist" aria-label="Preset browser tabs" data-switch="browse-shot" data-caption="browse-cap">
+          <button class="choice" type="button" role="tab" aria-selected="true" data-src="img/revolution/browser-type.jpg" data-alt="Preset browser sorted by Type, Pad selected" data-cap="Type › Pad: every pad in the library, with its tags.">Type</button>
+          <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/revolution/browser-style.jpg" data-alt="Preset browser sorted by Style, Ambient selected" data-cap="Style › Ambient: pads, bells, textures and keys made for ambient tracks.">Style</button>
+          <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/revolution/browser-vibe.jpg" data-alt="Preset browser sorted by Vibe, Cosmic Laser selected" data-cap="Vibe › Cosmic Laser: the sounds that share that feeling, whatever their type.">Vibe</button>
+        </div>
+        <p class="meta" id="browse-cap" style="font-family:var(--body);font-size:14px">Type › Pad: every pad in the library, with its tags.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="detail"><img src="img/revolution/detail-browse.jpg" alt="Normal mode preset bar: Type, Style and Vibe tabs, the lock, the preset arrows and the RANDOM button" width="780" height="155" loading="lazy"></div>
+        <div><h3 style="font-size:22px;margin-bottom:8px">RANDOM, one click, a new sound</h3><p style="color:var(--text);line-height:1.65">Stuck? Press RANDOM and Revolution deals a preset. Don't like it, press again. It's the fastest way to stumble on the sound your track was missing.</p></div>
+        <div><h3 style="font-size:22px;margin-bottom:8px">Lock it to a category</h3><p style="color:var(--text);line-height:1.65">Click the padlock and RANDOM and the arrows stay inside the category you chose. Lock Pad and you only get pads, lock Synthwave and every throw of the dice stays in the 80s.</p></div>
+        <div><h3 style="font-size:22px;margin-bottom:8px">A browser built for speed</h3><p style="color:var(--text);line-height:1.65">Search by name or tag, filter with tags like Mono, Unison, Slow Attack or Wide, star your favorites, and audition with the arrow keys while you scroll.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- visualizers -->
+<section class="wrap sec" id="visualizers">
+  <div class="sec-head"><div><p class="kicker">Visualizers</p><h2>Seven ways to watch your sound</h2></div></div>
+  <p class="lead" style="margin:-12px 0 32px;max-width:48em">In Normal mode the screen is a visualizer that listens to what you play. Step through them with the arrows in the top corner. Each one takes the colours of your skin.</p>
+  <img class="ui" id="viz-shot" src="img/revolution/viz-spectrum.jpg" alt="Spectrum visualizer" width="1248" height="829" loading="lazy">
+  <div class="choices" role="tablist" aria-label="Visualizers" data-switch="viz-shot" data-caption="viz-cap" style="margin-top:16px">
+    <button class="choice" type="button" role="tab" aria-selected="true" data-src="img/revolution/viz-spectrum.jpg" data-alt="Spectrum visualizer" data-cap="Spectrum: the frequency bars of your sound, with the waveform running through them.">Spectrum</button>
+    <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/revolution/viz-waves.jpg" data-alt="Waves visualizer" data-cap="Waves: layers of waveforms that swell and shimmer with each note.">Waves</button>
+    <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/revolution/viz-halo.jpg" data-alt="Halo visualizer" data-cap="Halo: a ring of light that bursts outwards with the spectrum.">Halo</button>
+    <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/revolution/viz-terrain.jpg" data-alt="Terrain visualizer" data-cap="Terrain: your sound drawn as a landscape of light.">Terrain</button>
+    <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/revolution/viz-pulse.jpg" data-alt="Pulse visualizer" data-cap="Pulse: a beating core in an orbit that breathes with the level.">Pulse</button>
+    <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/revolution/viz-space-tour.jpg" data-alt="Space Tour visualizer" data-cap="Space Tour: a flight through the stars, in time with your music.">Space Tour</button>
+    <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/revolution/viz-aurora.jpg" data-alt="Aurora visualizer" data-cap="Aurora: northern lights that ripple with the sound.">Aurora</button>
+  </div>
+  <p class="meta" id="viz-cap" style="font-family:var(--body);font-size:14px;margin-top:12px">Spectrum: the frequency bars of your sound, with the waveform running through them.</p>
+</section>
+
+<!-- The Touch -->
+<section class="touch" id="the-touch">
+  <div class="wrap">
+    <div class="choices"><span class="pill gold">The Touch special</span><span class="meta" style="color:#b8a27a;letter-spacing:.12em">SKIN + SCENES</span></div>
+    <h2 class="h2" style="margin:16px 0 12px">The Touch: four stages instead of a visualizer</h2>
+    <p class="lead" style="margin-bottom:40px;max-width:48em">Choose The Touch skin and Revolution turns black and gold. In Normal mode the visualizers make way for four hand-made scenes that play along with you.</p>
+    <div class="scenes">
+      <figure><img src="img/revolution/scene-legendary.jpg" alt="Legendary scene: lasers and LED screens around a glowing pyramid" width="1248" height="829" loading="lazy"><figcaption><b>Legendary</b><span>A festival stage of lasers and LED screens around a glowing pyramid. New colours light up on every fifth note and on each new chord.</span></figcaption></figure>
+      <figure><img src="img/revolution/touch-duo.jpg" alt="Duo scene: a white T-shirt with a skull, light rays behind it" width="1248" height="829" loading="lazy"><figcaption><b>Duo</b><span>A white T-shirt in the dark. Figures play on it at rest, and what you hold is printed on the shirt.</span></figcaption></figure>
+      <figure><img src="img/revolution/touch-city-lights.jpg" alt="City Lights scene: a red convertible drives towards a synthwave sunset" width="1248" height="829" loading="lazy"><figcaption><b>City Lights</b><span>A red convertible heads into a synthwave sunset over the grid, and speeds up as your music gets louder.</span></figcaption></figure>
+      <figure><img src="img/revolution/touch-awakening.jpg" alt="Awakening scene: a glowing glass figure waving" width="1248" height="829" loading="lazy"><figcaption><b>Awakening</b><span>A figure of glass and light that comes to life as you play.</span></figcaption></figure>
+    </div>
+    <figure class="touch-wide"><img src="img/revolution/touch-synth.jpg" alt="Revolution in Advanced mode with The Touch skin, Synth page" width="1248" height="829" loading="lazy"><figcaption>And in Advanced mode, every page gets the same black and gold finish.</figcaption></figure>
+  </div>
+</section>
+
+<!-- skins -->
+<section class="wrap sec" id="skins">
+  <div class="split n">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p class="kicker">Eight skins, one sound</p>
+      <h2 class="h2">Pick the studio you want to sit in</h2>
+      <p style="color:var(--text);font-size:17px;line-height:1.6">Choose a skin from the menu next to SAVE, your choice is remembered. Try them here.</p>
+      <div class="skin-list" data-switch="skin-shot" aria-label="Skins">
+        <button class="choice" type="button" aria-pressed="true" data-src="img/revolution/skin-the-touch.jpg" data-alt="Revolution in Advanced mode, The Touch skin"><span class="dot" style="background:#0b0b0d;border-color:#e9b54a"></span>The Touch<small>NEW</small></button>
+        <button class="choice" type="button" aria-pressed="false" data-src="img/revolution/skin-wood-alu.jpg" data-alt="Revolution in Advanced mode, Wood &amp; Alu skin"><span class="dot" style="background:#7a4a2a"></span>Wood &amp; Alu<small>NEW</small></button>
+        <button class="choice" type="button" aria-pressed="false" data-src="img/revolution/skin-neon-blue.jpg" data-alt="Revolution in Advanced mode, Neon Blue skin"><span class="dot" style="background:#1d2b4a"></span>Neon Blue</button>
+        <button class="choice" type="button" aria-pressed="false" data-src="img/revolution/skin-organic.jpg" data-alt="Revolution in Advanced mode, Organic skin"><span class="dot" style="background:#16382b"></span>Organic</button>
+        <button class="choice" type="button" aria-pressed="false" data-src="img/revolution/skin-synthwave.jpg" data-alt="Revolution in Advanced mode, Synthwave skin"><span class="dot" style="background:#7a3d8f"></span>Synthwave</button>
+        <button class="choice" type="button" aria-pressed="false" data-src="img/revolution/skin-neon-night.jpg" data-alt="Revolution in Advanced mode, Neon Night skin"><span class="dot" style="background:#141a2e"></span>Neon Night</button>
+        <button class="choice" type="button" aria-pressed="false" data-src="img/revolution/skin-amber.jpg" data-alt="Revolution in Advanced mode, Amber skin"><span class="dot" style="background:#c98a2e"></span>Amber</button>
+        <button class="choice" type="button" aria-pressed="false" data-src="img/revolution/skin-light.jpg" data-alt="Revolution in Advanced mode, Light skin"><span class="dot" style="background:#f4f6fa"></span>Light</button>
+      </div>
+    </div>
+    <img class="ui" id="skin-shot" src="img/revolution/skin-the-touch.jpg" alt="Revolution in Advanced mode, The Touch skin" width="1248" height="832" loading="lazy">
+  </div>
+  <div class="minis">
+    <figure><img src="img/revolution/normal-organic.jpg" alt="Normal mode, Organic skin" width="1248" height="829" loading="lazy"><figcaption>Organic</figcaption></figure>
+    <figure><img src="img/revolution/normal-light.jpg" alt="Normal mode, Light skin" width="1248" height="829" loading="lazy"><figcaption>Light</figcaption></figure>
+    <figure><img src="img/revolution/normal-wood-alu.jpg" alt="Normal mode, Wood &amp; Alu skin" width="1248" height="829" loading="lazy"><figcaption>Wood &amp; Alu</figcaption></figure>
+    <figure><img src="img/revolution/normal-amber.jpg" alt="Normal mode, Amber skin" width="1248" height="829" loading="lazy"><figcaption>Amber</figcaption></figure>
+  </div>
+</section>
+
+<!-- shatter -->
+<section class="white sec" id="shatter" style="padding-bottom:96px">
+  <div class="wrap">
+    <div class="choices"><span class="pill">New</span><p class="kicker" style="margin:0">SHATTER</p></div>
+    <h2 class="h2" style="margin:12px 0 12px">Break your sound into rhythm</h2>
+    <p class="lead" style="margin-bottom:36px;max-width:48em">SHATTER slices what you play in time with the track and throws glitch effects at it, step by step. Draw on the rings, hit DICE, and a held pad turns into a beat.</p>
+    <img class="ui" src="img/revolution/page-shatter.jpg" alt="SHATTER page: a circular step sequencer with eight coloured rings and the eight effects on the right" width="1248" height="850" loading="lazy">
+    <div class="fx8">
+      <div><b style="color:#1aa5d6">Stutter</b><span>Repeats a slice, faster and faster</span></div>
+      <div><b style="color:#e0457b">Rewind</b><span>Plays the sound backwards</span></div>
+      <div><b style="color:#8f5be8">Scramble</b><span>Swaps slices around, some reversed</span></div>
+      <div><b style="color:#e8822a">Brake</b><span>Slows down to a stop, like a tape</span></div>
+      <div><b style="color:#16a587">Smear</b><span>Freezes and stretches the sound</span></div>
+      <div><b style="color:#c99a10">Chop</b><span>Rhythmic volume cuts</span></div>
+      <div><b style="color:#b8423a">Grit</b><span>Bit and sample-rate reduction</span></div>
+      <div><b style="color:#3f6fd8">Sweep</b><span>Resonant filter sweep</span></div>
+    </div>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="box"><b>One ring per effect</b><p>Draw on a ring to light steps, right-click to clear it. Up to 16 steps on a 1/16 grid, or any other division. The centre pad switches SHATTER on.</p></div>
+      <div class="box"><b>Dice, Evolve, Wipe, Hold</b><p>DICE writes a new pattern, EVOLVE changes it a little at a time, WIPE clears it, HOLD freezes it while you play. Eight pattern slots to switch between.</p></div>
+      <div class="box"><b>Five knobs to tame it</b><p>Slice, Chaos, Backwards and Mix shape the effect, Shatter Mix blends it with the dry sound.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- breed -->
+<section class="wrap sec" id="breed">
+  <div class="split r">
+    <img class="ui" src="img/revolution/page-breed.jpg" alt="Breed page: parents A and B on the left, eight offspring on the right" width="1248" height="850" loading="lazy">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="kicker">Breed</p>
+      <h2 class="h2">Two presets in, eight new sounds out</h2>
+      <p style="color:var(--text);font-size:17px;line-height:1.65">Pick two parents, set the mutation and press BREED. Eight children are born, each one test-played and level-matched, with a DNA bar that shows which genes came from A, which from B, and which mutated.</p>
+      <ul class="checks">
+        <li>Choose parents from the current sound, the browser, or at random</li>
+        <li>Lock oscillators, envelopes, effects, filters, modulation or arp so they always come from A</li>
+        <li>Auto preview plays each child as you click it</li>
+        <li>Save a child, or send it back as a new parent for the next generation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- pump -->
+<section class="wrap sec" id="pump">
+  <div class="split n">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="kicker">Pump</p>
+      <h2 class="h2">The sidechain pump, built in</h2>
+      <p style="color:var(--text);font-size:17px;line-height:1.65">That breathing, ducking movement of dance music, without routing a kick to a compressor. Pump sits with the effects and moves your sound in time with the host.</p>
+      <div class="detail" style="max-width:420px"><img src="img/revolution/detail-pump.jpg" alt="Pump module: Pump, Soft, Tri, Saw and Gate shapes, Flip, Sync at 1/4, and Depth, Curve, Smooth, Sens, Mix and Out knobs" width="517" height="315" loading="lazy"></div>
+      <ul class="checks">
+        <li>Five shapes: Pump, Soft, Tri, Saw, Gate, plus Flip to turn them over</li>
+        <li>Synced to the host tempo, from long swells to fast 1/16 chops</li>
+        <li>Depth, Curve, Smooth, Sens, Mix and Out to dial it in</li>
+      </ul>
+    </div>
+    <img class="ui" src="img/revolution/page-effects.jpg" alt="Effects page with distortion, compressor, chorus, phaser, delay, reverb, tape, EQ and Pump" width="1248" height="850" loading="lazy">
+  </div>
+</section>
+
+<!-- time machine -->
+<section class="wrap sec" id="time-machine">
+  <div class="tm">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p class="kicker">Time Machine</p>
+      <h2 class="h2">One slider, fifty years of sound</h2>
+      <p style="color:var(--text);font-size:17px;line-height:1.65">Slide it back and the whole synth ages with it: tape, 12-bit converters, rave samplers, the colour of the gear of each era. Press NOW to come straight back to today. It sits at the top of every page, so you can try it on any sound.</p>
+    </div>
+    <div class="detail"><img src="img/revolution/detail-time-machine.jpg" alt="Time Machine slider with the NOW button" width="460" height="62" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- custom LFO -->
+<section class="wrap sec lfo" id="lfo">
+  <p class="kicker">Custom LFO</p>
+  <h2 class="h2" style="margin-bottom:12px">Draw the movement you hear in your head</h2>
+  <p class="lead" style="margin-bottom:36px;max-width:48em">Each of the four LFOs can play a shape you draw yourself. Open the editor, sketch it, and the sound follows the line. Then drag the cross onto any knob to modulate it.</p>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:24px">
+    <article class="card"><img src="img/revolution/lfo-curve.jpg" alt="LFO shape editor in Curve mode" width="1248" height="832" loading="lazy">
+      <div class="body" style="padding:28px;gap:12px">
+        <div class="choices"><span class="pill">Curve</span><h3>Shape it point by point</h3></div>
+        <p>Click to add a point, drag to move it, double-click to remove it. Bend any segment into a curve, or hold Shift and draw freehand. The grid snaps to the beat for rhythmic shapes.</p>
+        <div class="chips"><span>Sine</span><span>Triangle</span><span>Saw Up</span><span>Saw Down</span><span>Square</span><span>Steps</span><span>Pump</span><span>Bounce</span><span>Random</span></div>
+        <p class="meta">Nine starting shapes, plus clear, undo and redo.</p>
+      </div></article>
+    <article class="card"><img src="img/revolution/lfo-orbit.jpg" alt="LFO shape editor in Orbit mode" width="1248" height="832" loading="lazy">
+      <div class="body" style="padding:28px;gap:12px">
+        <div class="choices"><span class="pill" style="background:#eeeafd;color:#5340c4">Orbit</span><h3>One loop, two movements</h3></div>
+        <p>Draw a closed shape and a dot runs round it. Its height drives the LFO, its left-right position drives a second source, LFO X. Send them to cutoff and pan, and a single orbit moves both in a way no classic LFO can.</p>
+        <div class="chips"><span>Circle</span><span>Figure 8</span><span>Triangle</span><span>Square</span><span>Star</span></div>
+        <p class="meta">Five starting orbits to bend into your own.</p>
+      </div></article>
+  </div>
+</section>
+
+<!-- filters -->
+<section class="wrap sec" id="filters">
+  <div class="split n">
+    <div class="filt"><img src="img/revolution/filter.jpg" alt="Filter 1 panel with the Ladder LP24 type" width="250" height="358" loading="lazy"></div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p class="kicker">Filters</p>
+      <h2 class="h2">Two filters with an analog soul</h2>
+      <p style="color:var(--text);font-size:17px;line-height:1.65">Two filters, each with 12 types modelled on the circuits behind the classic sounds. Run them in series to sculpt, or in parallel to blend two characters. Push the drive and they growl, open the resonance and the acid diode screams.</p>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px">
+        <div class="box"><b>Ladder</b><p>LP24, LP12, BP, HP. Warm 70s mono bass and leads.</p></div>
+        <div class="box"><b>Diode LP</b><p>The squelchy acid line sound.</p></div>
+        <div class="box"><b>SVF</b><p>LP, BP, HP, Notch. Clean and precise for pads and keys.</p></div>
+        <div class="box"><b>Comb + / −</b><p>Metallic, flanged and plucked tones.</p></div>
+        <div class="box"><b>Formant</b><p>Vowel sounds that make a synth talk.</p></div>
+        <div class="box"><b>Per filter</b><p>Cutoff, resonance, drive, envelope, keytrack, mix.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- features -->
+<section class="wrap sec" id="features">
+  <p class="kicker">And more</p>
+  <h2 class="h2" style="margin-bottom:36px">Everything else inside</h2>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:24px;margin-bottom:20px">
+    <article class="card"><img class="shot" src="img/revolution/page-modmatrix.jpg" alt="Mod Matrix page with LFO routings and four macros" width="1248" height="850" loading="lazy"><div class="body"><h3>Mod Matrix</h3><p>16 slots, each with source, amount and destination, next to the four macros.</p></div></article>
+    <article class="card"><img class="shot" src="img/revolution/page-arp.jpg" alt="Arp page with a 16-step coloured pattern" width="1248" height="850" loading="lazy"><div class="body"><h3>Arpeggiator</h3><p>A 16-step pattern with gate and accent per step, swing, octaves and latch.</p></div></article>
+  </div>
+  <div class="grid g3">
+    <div class="box"><b>Effects</b><p>Distortion, compressor, Juno-style chorus, phaser, delay, reverb, tape, EQ and Pump, all on one page.</p></div>
+    <div class="box"><b>Vital &amp; Serum 2 import</b><p>Drop a .vital or .SerumPreset file and play it, wavetables and macros included.</p></div>
+    <div class="box"><b>4 engines</b><p>Wavetable, granular with your own samples, spectral with up to 96 partials, sampler.</p></div>
+    <div class="box"><b>16 unison voices</b><p>Per oscillator, with detune and spread for huge supersaws.</p></div>
+    <div class="box"><b>MPE</b><p>Per-note bend, pressure and slide from an MPE controller.</p></div>
+    <div class="box"><b>Everywhere</b><p>VST3, AU, LV2 and Standalone on Mac (Apple Silicon and Intel), Windows and Linux.</p></div>
+  </div>
+  <p class="legal" style="margin-top:20px">Piano presets use the <a href="https://sfzinstruments.github.io/pianos/salamander/" target="_blank" rel="noopener">Salamander Grand Piano</a> by Alexander Holm, licensed under <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>.</p>
+</section>
+
+<!-- listen -->
+<section class="white sec" id="listen" style="padding-bottom:96px;margin-top:96px">
+  <div class="wrap">
+    <p class="kicker">Listen</p>
+    <h2 class="h2" style="margin-bottom:32px">Keys and Classics</h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px">
+      <button class="snd" type="button" aria-pressed="false" data-src="audio/revolution-keys.mp3"><span class="ic"></span><span><b>Disco, house &amp; funk keys</b><small>New Keys presets</small></span><span class="bar"></span></button>
+      <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-mug.mp3"><span class="ic"></span><span><b>Mug</b><small>70s mono ladder: fat bass, Holy Ladder, Crimson Low</small></span><span class="bar"></span></button>
+      <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-dz8.mp3"><span class="ic"></span><span><b>Dz8</b><small>80s FM keys: Warm Ballad EP, Salty Tine Piano</small></span><span class="bar"></span></button>
+      <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-jiputer.mp3"><span class="ic"></span><span><b>Jiputer</b><small>Early-80s poly: Hidden Wide, Giant Lush, Eternal pads</small></span><span class="bar"></span></button>
+      <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-profet5.mp3"><span class="ic"></span><span><b>Profet 5</b><small>Late-70s poly brass: Gentle, Hyper, Rusty stacks</small></span><span class="bar"></span></button>
+      <button class="snd" type="button" aria-pressed="false" data-src="audio/halcyon-krogn1.mp3"><span class="ic"></span><span><b>Krog N1</b><small>Late-80s workstation: house stab and club pianos</small></span><span class="bar"></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- notify -->
+<section class="wrap sec" id="notify">
+  <div class="panel notify">
+    <div class="stripe" style="width:70px;height:3px"></div>
+    <h2>Be there on launch day</h2>
+    <p style="color:var(--text);max-width:34em">Leave your email and you'll get one message when Revolution is out, with the Mac, Windows and Linux downloads. You can try it free for 14 days.</p>
+    <form class="js-notify" method="POST" action="https://83624506.sibforms.com/serve/MUIFAMzx2abJjBqRsamMcubBiDZxFcJLDmUik0r9G3wdK1sZh9qF9QDQAUaLByT6A52WcxRKI5kIFcPD5emzKHDcJIJluS3n2_TrZ4XCF5x4FvmpAkJNyPCXeVbgIVc1TeZASyyD97h2LmqSiO3FammbzeqRFYCBEh9pIyKJOfVgMfezwQMLQFq6jMq4uIFtT4yWtFP1wdy1Gamz3g==" novalidate>
+  <div class="row"><label class="sr" for="rv-email">Email address</label><input class="input" id="rv-email" type="email" name="EMAIL" autocomplete="email" placeholder="you@example.com" required>
+  <button class="btn btn-ink" type="submit">Notify me</button></div>
+  <label class="consent"><input type="checkbox" name="OPT_IN" value="1"><span>I agree to receive emails from Rems Plugins about new products and updates<small>Unsubscribe anytime with one click.</small></span></label>
+  <input type="text" name="email_address_check" value="" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <input type="hidden" name="locale" value="en">
+  <p class="err" role="alert"></p>
+</form>
+    <p class="ok" hidden>Almost there: check your inbox and click the link in our email to confirm. Then you'll hear from us as soon as Revolution is out.</p>
+  </div>
+  <div class="halcyon" style="margin-top:20px">
+    <p><b style="color:var(--ink)">Looking for a free synth today?</b> Halcyon, our wavetable synth with 2,342 presets, Breed and the Time Machine, is free and available now.</p>
+    <a class="btn btn-line" href="halcyon.html">Discover Halcyon</a>
+  </div>
+</section>
+
+<!-- related -->
+<section class="wrap sec">
+  <h2 class="h2" style="margin-bottom:28px">You may also like</h2>
+  <div class="grid g3">
+    <a class="card prod" href="lucky-beats.html"><div class="stage" style="background:#f6ecd8"><img src="img/luckybeats-machine.webp" alt="Lucky Beats interface" width="1240" height="807" loading="lazy"></div><div class="body"><span class="type" style="color:#8a5a00">BEATS &amp; MIDI</span><h3>Lucky Beats</h3></div></a>
+    <a class="card prod" href="mixpilot.html"><div class="stage" style="background:#e5eaf7"><img src="img/mixpilot-master.jpg" alt="MixPilot interface" width="1240" height="911" loading="lazy"></div><div class="body"><span class="type" style="color:#3550a8">MIX &amp; MASTER</span><h3>MixPilot</h3></div></a>
+    <a class="card prod" href="halcyon.html"><div class="stage" style="background:#e2f4f2"><img src="img/halcyon-skins.jpg" alt="Halcyon in its six skins" width="1892" height="854" loading="lazy"></div><div class="body"><span class="type" style="color:#0a7a74">INSTRUMENT · SYNTH · FREE</span><h3>Halcyon</h3></div></a>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="cols">
+    <div><b style="font-family:var(--display);letter-spacing:.12em">REMS PLUGINS</b><span style="color:var(--muted);line-height:1.55">Independent plug-ins, made by one producer.</span></div>
+    <div><h4>Plug-ins</h4><a href="revolution.html">Revolution</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="plugins.html">All plug-ins</a></div>
+    <div><h4>Help</h4><a href="help.html">Install guide</a><a href="help.html#macos">If macOS blocks a plug-in</a><a href="help.html#changelog">What's new</a></div>
+    <div><h4>Community</h4><a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee</a><a href="./#newsletter">Newsletter</a></div>
+  </div>
+  <div class="fine"><span>© 2026 Rems Plugins. VST is a trademark of Steinberg Media Technologies GmbH.</span><span>Your email is used to send you the download links and, only if you tick the box, news about updates and new plug-ins. Unsubscribe anytime. Emails are sent with Brevo.</span></div>
+</div></footer>
+<dialog class="signup" id="signup" aria-labelledby="su-title">
+  <form method="POST" action="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==" novalidate>
+    <button class="close" type="button" aria-label="Close">×</button>
+    <h2 id="su-title">Get <span class="su-name">Rems Plugins</span>, free</h2>
+    <p class="sub">Enter your email and the Mac, Windows and Linux downloads open right away.</p>
+    <label class="field">Email address<input class="input" type="email" name="EMAIL" autocomplete="email" placeholder="you@example.com" required></label>
+    <label class="consent"><input type="checkbox" name="NEWSLETTER" value="1"><span>I agree to receive emails from Rems Plugins about new products and updates<small>Optional, not needed for the download. Unsubscribe anytime with one click.</small></span></label>
+    <input type="text" name="email_address_check" value="" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="locale" value="en">
+    <p class="err" role="alert"></p>
+    <button class="btn btn-ink" type="submit">Get the download links</button>
+    <p class="legal">We use your email to give you the downloads and, only if you tick the box, to send news. Emails are sent with Brevo. No spam, ever.</p>
+  </form>
+</dialog>
+<script src="js/site.js?v=2"></script>
+</body>
+</html>

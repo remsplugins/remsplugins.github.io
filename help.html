@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/site.css?v=1">
+<title>Install guide and what's new · Rems Plugins</title>
+<meta name="description" content="How to install Rems plug-ins on macOS, Windows and Linux, what to do if macOS blocks a plug-in, and the release notes.">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="./" aria-label="Rems Plugins, home"><span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>REMS</a>
+  <nav class="nav" aria-label="Main"><a href="revolution.html" class="hot">Revolution</a><a href="plugins.html">All plugins</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="help.html" aria-current="page">Install</a><a href="help.html#changelog">What's new</a></nav>
+  <div class="head-cta"><a class="btn btn-coffee btn-sm" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a></div>
+</div></header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="./">Home</a> / <span>Help</span></nav>
+  <h1 style="font-size:clamp(36px,5vw,52px);margin-top:18px">Install guide</h1>
+  <p class="lead" style="margin-top:14px">Every plug-in installs the same way. Lucky Beats and Synth'O'Ween have their own step-by-step on their pages.</p>
+
+  <div class="grid g3" style="margin-top:40px" id="install">
+    <article class="panel"><h3>macOS</h3><ol class="steps-list">
+      <li>Unzip the download.</li>
+      <li>Double-click <code>fix_mac_plugins.command</code> when it's in the zip: it installs, unblocks and rescans the plug-in for you.</li>
+      <li>Or copy the <code>.vst3</code> files to <code>~/Library/Audio/Plug-Ins/VST3</code> and the <code>.component</code> files (AU) to <code>~/Library/Audio/Plug-Ins/Components</code>.</li>
+      <li>Restart your DAW and rescan plug-ins. In Ableton Live: Settings → Plug-Ins → Rescan.</li></ol></article>
+    <article class="panel"><h3>Windows</h3><ol class="steps-list">
+      <li>Unzip the download.</li>
+      <li>Copy the <code>.vst3</code> folders to <code>C:\Program Files\Common Files\VST3</code>.</li>
+      <li>Restart your DAW and rescan plug-ins. In Ableton Live: Options → Preferences → Plug-Ins → Rescan.</li>
+      <li>If SmartScreen warns about a standalone app, click More info → Run anyway (the apps are not code-signed yet).</li></ol></article>
+    <article class="panel"><h3>Linux</h3><ol class="steps-list">
+      <li>Unzip the download.</li>
+      <li>Copy the <code>.vst3</code> folders to <code>~/.vst3</code> (Bitwig, Reaper, Renoise, Ardour) and the <code>.lv2</code> folders to <code>~/.lv2</code> (Ardour, Carla, Qtractor).</li>
+      <li>Restart your DAW and rescan plug-ins. Builds are for x86_64 with glibc 2.35 or newer (Ubuntu 22.04, Debian 12, Fedora 36 and later).</li></ol></article>
+  </div>
+  <article class="panel" id="macos" style="margin-top:20px">
+    <h3>If macOS blocks a plug-in</h3>
+    <p style="color:var(--text)">The plug-ins are not notarized by Apple yet, so macOS may quarantine them. Paste this into Terminal, then restart your DAW:</p>
+    <div class="cmd"><pre>xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/Halcyon.vst3 ~/Library/Audio/Plug-Ins/VST3/MixPilot*.vst3 ~/Library/Audio/Plug-Ins/Components/Halcyon.component ~/Library/Audio/Plug-Ins/Components/MixPilot*.component</pre><button type="button">Copy</button></div>
+  </article>
+
+  <section class="sec" id="changelog">
+    <p class="kicker">What's new</p>
+    <h2 class="h2" style="margin-bottom:32px">Release notes</h2>
+    <div class="log">
+    <article class="panel">
+      <h3>Halcyon</h3>
+      <p class="meta" style="margin-top:-8px">Wavetable synthesizer</p>
+      <div class="rel">
+        <span class="v">v1.3.0<span class="latest">LATEST</span></span><span class="d">Oct 19, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>Classics: 10 categories and 301 presets in the spirit of famous instruments, from the 70s mono ladder synth and the 80s polysynths to FM keys, the acid bass line box, the analog drum machine, the late 80s workstation, the semi-modular and the 8-bit sampling computer.</span></li>
+          <li><span class="k k-new">New</span><span>Sampler oscillator mode: play one of the built-in sources or your own WAV, AIFF, FLAC or OGG file from its root note, one shot, looped with a crossfade or ping-pong.</span></li>
+          <li><span class="k k-new">New</span><span>MPE: turn it on in the Voice panel and each note gets its own pitch bend, pressure and slide (CC74). Slide is also a new modulation source.</span></li>
+          <li><span class="k k-new">New</span><span>Favorites and tags in the preset browser: star a preset, filter by automatic tags (Mono, Arp, Sampler, Bright, Wide…) or add your own.</span></li>
+          <li><span class="k k-new">New</span><span>Vital import brings the embedded sample along and plays it in Sampler mode.</span></li>
+          <li><span class="k k-new">New</span><span>Update notice: a small UPDATE badge under the logo when a new version is out (can be switched off in the SKIN menu).</span></li>
+          <li><span class="k k-imp">Improved</span><span>2,342 presets, now identical on Mac and Windows, and neighbouring presets in a category no longer sound alike.</span></li>
+        </ul>
+      </div>
+      <div class="rel">
+        <span class="v">v1.2.0</span><span class="d">Oct 17, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>Skins: the SKIN button switches between six looks (Vintage, Midnight, Synthwave, Olive Drab, Studio Light, Graphite). Your choice is remembered.</span></li>
+          <li><span class="k k-new">New</span><span>Envelope attack, decay, sustain and release are now modulation destinations: velocity to decay, LFO to sustain, macro to release…</span></li>
+          <li><span class="k k-imp">Improved</span><span>Drums rebuilt: 70 sounds in 16 families (808, punchy and rumble kicks, snares, claps, hats, cymbals, toms, congas, rims, cowbells, shakers, metal, zaps), each named after what it is. Macros: tune, decay, tone, tail.</span></li>
+          <li><span class="k k-imp">Improved</span><span>The version number is shown under the logo.</span></li>
+        </ul>
+      </div>
+      <div class="rel">
+        <span class="v">v1.1.1</span><span class="d">Oct 16, 2026</span>
+        <ul>
+          <li><span class="k k-imp">Improved</span><span>Breed: hover parent A or B to hear it (with Auto preview on). Your previous sound comes back as soon as you leave the card.</span></li>
+          <li><span class="k k-fix">Fixed</span><span>The preset arrows now step through presets in the same order as the browser.</span></li>
+        </ul>
+      </div>
+      <div class="rel">
+        <span class="v">v1.1.0</span><span class="d">Oct 16, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>Import Vital (<code>.vital</code>) and Serum 2 (<code>.SerumPreset</code>) presets with the IMPORT button or by drag and drop: wavetables, macros and their names, modulations and effects come along. Halcyon lists anything it had to approximate.</span></li>
+          <li><span class="k k-new">New</span><span>Load your own <code>.wav</code> wavetables on any oscillator.</span></li>
+          <li><span class="k k-new">New</span><span>Windows version: VST3 and standalone app, 64-bit.</span></li>
+          <li><span class="k k-new">New</span><span>Mac: <code>fix_mac_plugins.command</code> installs, unblocks and rescans the plug-in in one double-click.</span></li>
+        </ul>
+      </div>
+      <div class="rel">
+        <span class="v">v1.0.0</span><span class="d">Oct 14, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>First release: 3 wavetable, granular or spectral oscillators, 2,041 presets, Time Machine, Breed, 16-step arpeggiator and 10 effects.</span></li>
+        </ul>
+      </div>
+    </article>
+    <article class="panel">
+      <h3>MixPilot</h3>
+      <p class="meta" style="margin-top:-8px">Assisted mixing &amp; mastering</p>
+      <div class="rel">
+        <span class="v">v1.2.1<span class="latest">LATEST</span></span><span class="d">Oct 27, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>Free EQ bands: add up to 12 bands of your own on top of the automatic EQ, each one bell, shelf, notch or cut, static or dynamic, on Stereo, Mid, Side, Left or Right, with solo to hear what it does.</span></li>
+          <li><span class="k k-new">New</span><span>Analyzer modes, freeze and a piano strip under the spectrum to see notes as well as frequencies.</span></li>
+          <li><span class="k k-new">New</span><span>Resizable window (60 to 200 %): drag the bottom-right corner. MixPilot remembers your size for every new window.</span></li>
+          <li><span class="k k-imp">Improved</span><span>A more open, airier master: the styles aim for a little less low end and more air on top, the Master compresses and clips less and lets transients and highs through, and stereo widening stays moderate so highs never turn harsh.</span></li>
+          <li><span class="k k-imp">Improved</span><span>AIR fader centred at 0 like the others: up for air and sparkle from 10 kHz, down to soften. Your current AIR settings are kept.</span></li>
+        </ul>
+      </div>
+      <div class="rel">
+        <span class="v">v1.1.1</span><span class="d">Oct 21, 2026</span>
+        <ul>
+          <li><span class="k k-imp">Improved</span><span>MixPilot Track and MixPilot Master are now listed under Rems Plugins in your DAW, next to Synth'O'Ween. Existing projects open unchanged.</span></li>
+        </ul>
+      </div>
+      <div class="rel">
+        <span class="v">v1.1.0</span><span class="d">Oct 21, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>Editable EQ: after the analysis, every EQ band has a point on the spectrum. Drag it up or down for gain, left or right for frequency (Shift for fine moves). Double-click returns a band to the analysis, right-click resets them all.</span></li>
+          <li><span class="k k-new">New</span><span>On MixPilot Track, your edits sit on top of the automatic correction and stay in place when it updates. On MixPilot Master, the points move the EQ sliders.</span></li>
+          <li><span class="k k-imp">Improved</span><span>Edits are saved with your project and can be automated. Existing projects open unchanged.</span></li>
+        </ul>
+      </div>
+      <div class="rel">
+        <span class="v">v1.0.2</span><span class="d">Oct 16, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>Windows version (VST3, 64-bit). MixPilot Track and MixPilot Master find each other on Windows too.</span></li>
+          <li><span class="k k-imp">Improved</span><span>Clearer English wording and wider labels across the interface.</span></li>
+        </ul>
+      </div>
+      <div class="rel">
+        <span class="v">v1.0.1</span><span class="d">Oct 16, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>Full English interface: controls, tooltips, tips, mix review and built-in guides. Existing projects open unchanged.</span></li>
+        </ul>
+      </div>
+      <div class="rel">
+        <span class="v">v1.0.0</span><span class="d">Oct 14, 2026</span>
+        <ul>
+          <li><span class="k k-new">New</span><span>First release: one-click ASSISTANT, 5 styles, 6 outputs, reference track, mashup mode and mix review.</span></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="cols">
+    <div><b style="font-family:var(--display);letter-spacing:.12em">REMS PLUGINS</b><span style="color:var(--muted);line-height:1.55">Independent plug-ins, made by one producer.</span></div>
+    <div><h4>Plug-ins</h4><a href="revolution.html">Revolution</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="plugins.html">All plug-ins</a></div>
+    <div><h4>Help</h4><a href="help.html">Install guide</a><a href="help.html#macos">If macOS blocks a plug-in</a><a href="help.html#changelog">What's new</a></div>
+    <div><h4>Community</h4><a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee</a><a href="./#newsletter">Newsletter</a></div>
+  </div>
+  <div class="fine"><span>© 2026 Rems Plugins. VST is a trademark of Steinberg Media Technologies GmbH.</span><span>Your email is used to send you the download links and, only if you tick the box, news about updates and new plug-ins. Unsubscribe anytime. Emails are sent with Brevo.</span></div>
+</div></footer>
+<script src="js/site.js?v=2"></script>
+</body>
+</html>

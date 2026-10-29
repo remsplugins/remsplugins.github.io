@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/site.css?v=1">
+<title>All plug-ins · Rems Plugins</title>
+<meta name="description" content="Every Rems plug-in: synths, beat tools, mixing and mastering. Filter by type, system and format.">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="./" aria-label="Rems Plugins, home"><span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>REMS</a>
+  <nav class="nav" aria-label="Main"><a href="revolution.html" class="hot">Revolution</a><a href="plugins.html" aria-current="page">All plugins</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="help.html">Install</a><a href="help.html#changelog">What's new</a></nav>
+  <div class="head-cta"><a class="btn btn-coffee btn-sm" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a></div>
+</div></header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="./">Home</a> / <span>All plug-ins</span></nav>
+  <div class="sec-head" style="margin:18px 0 0">
+    <div>
+      <h1 style="font-size:clamp(36px,5vw,52px);line-height:1.05">All plug-ins</h1>
+      <p class="lead" style="margin-top:14px;max-width:40em">Free plug-ins with no account and no license, and Revolution to try free for 14 days. Filter by what you need and the system you make music on.</p>
+    </div>
+    <div class="choices">
+      <label class="choice" style="cursor:text;min-width:min(260px,100%);font-weight:400"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5a6070" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span class="sr">Search plug-ins</span><input id="q" type="search" placeholder="Search a plug-in" style="border:0;outline:0;background:transparent;font:15px var(--body);width:100%;color:var(--ink)"></label>
+      <label class="choice" style="font-weight:400;color:var(--muted)">Sort <select id="sort" style="border:0;background:transparent;font:600 15px var(--body);color:var(--ink)"><option value="featured">Featured</option><option value="new">Newest</option><option value="az">A to Z</option></select></label>
+    </div>
+  </div>
+
+  <div class="cat-tabs" role="tablist" aria-label="Plug-in type" id="cats" style="margin-top:28px"></div>
+
+  <div class="cat-body">
+    <aside class="filters" aria-label="Filters">
+      <div style="display:flex;justify-content:space-between;align-items:center"><h3>Filters</h3><button type="button" class="reset" style="background:none;border:0;color:var(--accent);font:600 14px var(--body);cursor:pointer;min-height:44px">Reset</button></div>
+      <div class="grp" id="f-plat"><p class="kicker" style="color:var(--muted)">Your system</p>
+        <button class="opt" type="button" aria-pressed="false" data-v="Mac">macOS · Apple Silicon + Intel</button>
+        <button class="opt" type="button" aria-pressed="false" data-v="Windows">Windows 10/11</button>
+        <button class="opt" type="button" aria-pressed="false" data-v="Linux">Linux x86_64</button></div>
+      <div class="grp"><p class="kicker" style="color:var(--muted)">Format</p>
+        <div class="choices" id="f-fmt"><button class="fmt" type="button" aria-pressed="false" data-v="VST3">VST3</button><button class="fmt" type="button" aria-pressed="false" data-v="AU">AU</button><button class="fmt" type="button" aria-pressed="false" data-v="LV2">LV2</button><button class="fmt" type="button" aria-pressed="false" data-v="Standalone">Standalone</button></div></div>
+      <div class="grp" id="f-avail"><p class="kicker" style="color:var(--muted)">Availability</p>
+        <button class="opt round" type="button" aria-pressed="false" data-v="now">Available now</button>
+        <button class="opt round" type="button" aria-pressed="false" data-v="soon">Coming soon</button></div>
+      <div class="box" style="display:flex;flex-direction:column;gap:10px"><b style="margin:0">Free plug-ins</b><p style="font-size:14px">If a plug-in helps your music, a coffee pays for the next one.</p><a class="btn btn-coffee btn-sm" style="align-self:flex-start" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a></div>
+    </aside>
+
+    <div class="results">
+      <p style="color:var(--muted)" aria-live="polite"><b style="color:var(--ink)" id="count">0</b> plug-ins</p>
+      <a class="card feat-card" href="revolution.html" id="feat">
+        <div class="pic"><img src="img/revolution/scene-legendary.jpg" alt="Revolution in Normal mode, Legendary scene" width="1248" height="829"></div>
+        <div class="body">
+          <div class="choices"><span class="pill dark">Featured</span><span class="pill soon">Coming soon</span></div>
+          <span class="type kicker">Instrument · Wavetable synth</span>
+          <h2 style="font-size:34px">Revolution</h2>
+          <div class="stripe" style="width:90px;height:3px"></div>
+          <p>A new wavetable synth: wavetable, granular, spectral and sampler engines, 3,000 presets, eight skins, animated scenes and Vital / Serum 2 import. Try it free for 14 days.</p>
+          <div class="tags"><span>VST3</span><span>AU</span><span>LV2</span><span>Standalone</span></div>
+          <span class="btn btn-ink btn-sm" style="align-self:flex-start;margin-top:8px">Discover Revolution</span>
+        </div>
+      </a>
+      <div class="grid" id="grid" style="grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr))"></div>
+      <div class="empty" id="empty" hidden><b style="font-family:var(--display);font-size:20px">No plug-in matches these filters</b><p style="color:var(--muted)">Try another system or format.</p><button class="btn btn-ink reset" type="button">Reset filters</button></div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="cols">
+    <div><b style="font-family:var(--display);letter-spacing:.12em">REMS PLUGINS</b><span style="color:var(--muted);line-height:1.55">Independent plug-ins, made by one producer.</span></div>
+    <div><h4>Plug-ins</h4><a href="revolution.html">Revolution</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="plugins.html">All plug-ins</a></div>
+    <div><h4>Help</h4><a href="help.html">Install guide</a><a href="help.html#macos">If macOS blocks a plug-in</a><a href="help.html#changelog">What's new</a></div>
+    <div><h4>Community</h4><a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee</a><a href="./#newsletter">Newsletter</a></div>
+  </div>
+  <div class="fine"><span>© 2026 Rems Plugins. VST is a trademark of Steinberg Media Technologies GmbH.</span><span>Your email is used to send you the download links and, only if you tick the box, news about updates and new plug-ins. Unsubscribe anytime. Emails are sent with Brevo.</span></div>
+</div></footer>
+<script src="js/site.js?v=2"></script>
+<script>
+(function(){
+  // featured: Revolution is the card above the grid
+  var P=[
+    {name:'Revolution',cat:'inst',featured:true,order:0,date:'2026-11',plats:['Mac','Windows','Linux'],formats:['VST3','AU','LV2','Standalone'],soon:true},
+    {name:'Lucky Beats',cat:'beats',order:1,date:'2026-10-25',type:'BEATS & MIDI',line:'A slot machine that deals an instrument, a groove, a key and the chords, and plays your own synths.',accent:'#8a5a00',tint:'#f6ecd8',img:'img/luckybeats-machine.webp',badge:'NEW · 1.4.1',plats:['Mac','Windows','Linux'],formats:['VST3','AU','LV2','Standalone'],link:'lucky-beats.html'},
+    {name:'MixPilot',cat:'mix',order:2,date:'2026-10-27',type:'MIX & MASTER',line:'Track and Master plug-ins that listen to each other and mix for you, with an editable EQ.',accent:'#3550a8',tint:'#e5eaf7',img:'img/mixpilot-master.jpg',badge:'UPDATED · 1.2.1',plats:['Mac','Windows','Linux'],formats:['VST3','AU','LV2'],link:'mixpilot.html'},
+    {name:"Synth'O'Ween",cat:'inst',order:3,date:'2026-10-20',type:'INSTRUMENT · SYNTH',line:'A horror synth with 25 sounds from the other side.',accent:'#b03a1a',tint:'#f6e4dc',img:'img/synthoween-main.jpg',badge:'HALLOWEEN',plats:['Mac','Windows','Linux'],formats:['VST3','AU','LV2','Standalone'],link:'synthoween.html'},
+    {name:'Halcyon',cat:'inst',order:4,date:'2026-10-19',type:'INSTRUMENT · WAVETABLE SYNTH',line:'A wavetable synth with 2,342 presets, Classics, Breed, Time Machine and Vital / Serum 2 import.',accent:'#0a7a74',tint:'#e2f4f2',img:'img/halcyon-skins.jpg',badge:'1.3',plats:['Mac','Windows','Linux'],formats:['VST3','AU','LV2','Standalone'],link:'halcyon.html'},
+    {name:'Riftbeat',cat:'beats',order:5,date:'2026-12',type:'BEATS & MIDI · DRUMS',line:'A beatmaker played from the keyboard: phrases, fills and stops in 10 styles.',accent:'#b8460c',tint:'#f7e7da',img:'img/riftbeat.jpg',badge:'COMING SOON',plats:[],formats:[],soon:true},
+    {name:'ChordLane',cat:'beats',order:6,date:'2026-12',type:'BEATS & MIDI · CHORDS',line:'A chord sequencer lane for your DAW.',accent:'#6343b0',tint:'#ece6f7',img:'',badge:'COMING SOON',plats:['Mac','Windows','Linux'],formats:['VST3'],soon:true},
+    {name:'SampleTuned',cat:'util',order:7,date:'2026-12',type:'UTILITY · SAMPLES',line:'Maps your sample library by key and type on the circle of fifths.',accent:'#9a2f76',tint:'#f5e3ef',img:'',badge:'COMING SOON',plats:['Mac'],formats:['VST3','AU'],soon:true}
+  ];
+  var C=[['all','All'],['inst','Instruments'],['beats','Beats & MIDI'],['mix','Mix & Master'],['util','Utilities']];
+  var st={cat:'all',plats:[],fmts:[],avail:'any',q:'',sort:'featured'};
+  try{var h=location.hash.slice(1);if(C.some(function(c){return c[0]===h;}))st.cat=h;}catch(e){}
+  function el(t,a,k){var e=document.createElement(t);for(var x in a)e.setAttribute(x,a[x]);(k||[]).forEach(function(c){e.append(c);});return e;}
+  function others(p){
+    return (!st.plats.length||st.plats.some(function(x){return p.plats.indexOf(x)>=0;}))
+      &&(!st.fmts.length||st.fmts.some(function(x){return p.formats.indexOf(x)>=0;}))
+      &&(st.avail==='any'||(st.avail==='now'?!p.soon:!!p.soon))
+      &&(!st.q||p.name.toLowerCase().indexOf(st.q)>=0||(p.line||'').toLowerCase().indexOf(st.q)>=0);
+  }
+  function card(p){
+    var stage=el('div',{class:'stage',style:'background:'+p.tint});
+    if(p.img)stage.append(el('img',{src:p.img,alt:p.name+' interface',loading:'lazy'}));
+    else stage.append(el('div',{class:'ph',style:'color:'+p.accent},[p.name]));
+    if(p.badge)stage.append(el('span',{class:'badge',style:'color:'+p.accent},[p.badge]));
+    var tags=el('div',{class:'tags',style:'margin-top:6px'},p.formats.map(function(f){return el('span',{},[f]);}));
+    var foot=el('div',{class:'foot'},[el('span',{},[p.plats.length?p.plats.join(' · '):'Platforms to come']),el('span',{style:'color:'+(p.soon?'var(--muted)':'var(--accent)')},[p.soon?'Coming soon':'Free · Discover →'])]);
+    var body=el('div',{class:'body'},[el('span',{class:'type',style:'color:'+p.accent},[p.type]),el('h3',{},[p.name]),el('p',{style:'flex-grow:1'},[p.line]),tags,foot]);
+    return el(p.link?'a':'div',p.link?{class:'card prod',href:p.link}:{class:'card prod'},[stage,body]);
+  }
+  function render(){
+    var cats=document.getElementById('cats');cats.textContent='';
+    C.forEach(function(c){
+      var n=P.filter(function(p){return (c[0]==='all'||p.cat===c[0])&&others(p);}).length;
+      var b=el('button',{class:'choice',type:'button',role:'tab','aria-selected':String(st.cat===c[0])},[c[1]+' ',el('span',{class:'n'},[String(n)])]);
+      b.addEventListener('click',function(){st.cat=c[0];try{history.replaceState(null,'',c[0]==='all'?location.pathname:'#'+c[0]);}catch(e){}render();});
+      cats.append(b);
+    });
+    var m=P.filter(function(p){return (st.cat==='all'||p.cat===st.cat)&&others(p);});
+    var srt={featured:function(a,b){return a.order-b.order;},new:function(a,b){return a.date<b.date?1:-1;},az:function(a,b){return a.name.localeCompare(b.name);}}[st.sort];
+    var shown=m.filter(function(p){return !p.featured;}).sort(srt);
+    document.getElementById('feat').hidden=!m.some(function(p){return p.featured;});
+    var g=document.getElementById('grid');g.textContent='';shown.forEach(function(p){g.append(card(p));});
+    document.getElementById('count').textContent=m.length;
+    document.getElementById('empty').hidden=m.length>0;
+    document.querySelectorAll('#f-plat .opt').forEach(function(b){b.setAttribute('aria-pressed',String(st.plats.indexOf(b.dataset.v)>=0));});
+    document.querySelectorAll('#f-fmt .fmt').forEach(function(b){b.setAttribute('aria-pressed',String(st.fmts.indexOf(b.dataset.v)>=0));});
+    document.querySelectorAll('#f-avail .opt').forEach(function(b){b.setAttribute('aria-pressed',String(st.avail===b.dataset.v));});
+  }
+  function toggle(key){return function(e){var v=e.currentTarget.dataset.v,a=st[key],i=a.indexOf(v);if(i>=0)a.splice(i,1);else a.push(v);render();};}
+  document.querySelectorAll('#f-plat .opt').forEach(function(b){b.addEventListener('click',toggle('plats'));});
+  document.querySelectorAll('#f-fmt .fmt').forEach(function(b){b.addEventListener('click',toggle('fmts'));});
+  document.querySelectorAll('#f-avail .opt').forEach(function(b){b.addEventListener('click',function(){st.avail=st.avail===b.dataset.v?'any':b.dataset.v;render();});});
+  document.querySelectorAll('.reset').forEach(function(b){b.addEventListener('click',function(){st.cat='all';st.plats=[];st.fmts=[];st.avail='any';st.q='';document.getElementById('q').value='';render();});});
+  document.getElementById('q').addEventListener('input',function(e){st.q=e.target.value.trim().toLowerCase();render();});
+  document.getElementById('sort').addEventListener('change',function(e){st.sort=e.target.value;render();});
+  render();
+})();
+</script>
+</body>
+</html>
