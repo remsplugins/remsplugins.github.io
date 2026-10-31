@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/site.css?v=1">
+<style>
+dialog.pact{width:min(440px,calc(100% - 32px));border:1px solid #d9d4ca;border-radius:18px;padding:0;background:#fff;color:#16181d;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+dialog.pact::backdrop{background:rgba(20,22,28,.55)}
+.pact form{display:grid;gap:14px;padding:28px 26px 22px;position:relative}
+.pact .close{position:absolute;right:10px;top:8px;width:36px;height:36px;border:0;background:none;font-size:26px;cursor:pointer;color:#555}
+.pact h2{font:600 26px/1.2 Unbounded,system-ui,sans-serif;margin:0}
+.pact .sub{font-size:15px;color:#555;margin:0}
+.pact label.f{display:grid;gap:6px;font-size:14px;font-weight:600}
+.pact input[type=email]{font:inherit;font-size:16px;border:1px solid #cfc9bd;border-radius:10px;padding:11px 13px;width:100%}
+.pact .optin{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#444}
+.pact .optin input{margin-top:3px;width:16px;height:16px;flex:none}
+.pact .optin small{display:block;color:#777}
+.pact .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.pact .err{color:#b3261e;font-size:14px;min-height:0;margin:0}
+.pact button[type=submit]{font:600 16px Inter,system-ui,sans-serif;background:#16181d;color:#fff;border:0;border-radius:999px;padding:13px;cursor:pointer}
+.pact button[type=submit]:disabled{opacity:.6}
+.pact .legal{font-size:12px;color:#777;margin:0}
+.dl-count{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#555;border:1px solid #cfc9bd;border-radius:999px;padding:6px 14px;background:#fff}
+.dl-count[hidden]{display:none}
+.dl-count b{font-weight:700;color:#16181d;font-variant-numeric:tabular-nums}
+.dl-count svg{width:15px;height:15px;flex:none;color:#555}
+</style>
+<title>SampleTuned · Rems Plugins</title>
+<meta name="description" content="SampleTuned sorts your sample library by key and by type on a colour map. Hover to listen, drag into your DAW. Free, no account.">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="./" aria-label="Rems Plugins, home"><span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>REMS</a>
+  <nav class="nav" aria-label="Main"><a href="revolution.html" class="hot">Revolution</a><a href="plugins.html">All plugins</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a></nav>
+  <div class="head-cta"><a class="btn btn-coffee btn-sm" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee ☕</a></div>
+</div></header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="./">Home</a> / <a href="plugins.html">All plug-ins</a> / <span>SampleTuned</span></nav>
+
+  <div class="sec-head" style="margin:18px 0 0">
+    <div>
+      <span class="kicker" style="color:var(--accent)">Utility · Samples</span>
+      <h1 style="font-size:clamp(36px,5vw,56px);line-height:1.05;margin-top:10px">SampleTuned</h1>
+      <p class="lead" style="margin-top:14px;max-width:40em">Your sample library, sorted by key and by type on one colour map. Hover a sound to hear it, click to copy it, drag it straight into Ableton.</p>
+      <div class="tags" style="margin-top:18px"><span>VST3</span><span>Standalone</span><span>macOS</span><span>Windows 10/11</span><span>Linux</span><span>Free</span></div>
+      <div class="choices" style="margin-top:22px">
+        <a class="btn btn-ink" href="#download">Download</a>
+        <a class="btn btn-line" href="#features">See what it does</a>
+        <span class="dl-count" data-plugin="SampleTuned" hidden><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10"/></svg><span><b>0</b> downloads</span></span>
+      </div>
+    </div>
+  </div>
+
+  <section id="features" style="margin-top:56px">
+    <img class="shot" src="img/sampletuned/app-1-e-major-compatible.png" alt="SampleTuned: E major selected, compatible keys included, Loop filter on" width="966" height="685" style="width:100%;height:auto;border-radius:14px">
+    <p class="lead" style="margin-top:12px;font-size:14px;color:var(--muted)">Pick a key on the wheel or the grid. Compatible keys (relative and fifth) light up too.</p>
+  </section>
+
+  <section style="margin-top:48px;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+    <div class="card"><h2 style="font-size:20px">Key on the wheel</h2><p>Keys sit on the circle of fifths, Camelot style. Each key gets its own colour, with a smooth gradient between neighbours.</p></div>
+    <div class="card"><h2 style="font-size:20px">Type in rings</h2><p>Drums sit in the centre, then bass and 808, then synths, pads, keys, vocals and FX on the outside.</p></div>
+    <div class="card"><h2 style="font-size:20px">One-shot or loop</h2><p>A new filter tells hits from loops, from the file name or from the sound itself.</p></div>
+    <div class="card"><h2 style="font-size:20px">Keyless sounds too</h2><p>Hi-hats, claps and textures have no key. They stay in the centre, and you can show or hide them.</p></div>
+  </section>
+
+  <section style="margin-top:48px">
+    <img src="img/sampletuned/app-2-all-keys.png" alt="SampleTuned: all keys, every sound on the map" width="966" height="685" style="width:100%;height:auto;border-radius:14px">
+  </section>
+
+  <section style="margin-top:32px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+    <img src="img/sampletuned/app-3-a-major-keyless.png" alt="SampleTuned: A major with keyless sounds shown and the Loop filter on" width="966" height="685" style="width:100%;height:auto;border-radius:14px">
+    <img src="img/sampletuned/app-5-bass-loops.png" alt="SampleTuned: zoomed map showing bass loops" width="966" height="685" style="width:100%;height:auto;border-radius:14px">
+  </section>
+
+  <section id="download" style="margin-top:56px">
+    <h2 style="font-size:28px">Download</h2>
+    <p class="lead" style="margin-top:10px">Free, pay what you want. Pick your system.</p>
+    <div class="grid" style="margin-top:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+      <div class="card"><h3>macOS</h3><p>VST3 · Apple Silicon and Intel</p><span class="btn btn-ink" aria-disabled="true" style="opacity:.5;cursor:default">Mac: coming soon</span></div>
+      <div class="card"><h3>Windows</h3><p>VST3 · Windows 10/11, 64-bit</p><a class="btn btn-ink js-get" data-plugin="SampleTuned" data-dest="sampletuned-download.html" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/sampletuned-1.2.0/SampleTuned-Windows.zip">Download for Windows</a></div>
+      <div class="card"><h3>Linux</h3><p>VST3 · x86_64</p><a class="btn btn-ink js-get" data-plugin="SampleTuned" data-dest="sampletuned-download.html" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/sampletuned-1.2.0/SampleTuned-Linux.zip">Download for Linux</a></div>
+    </div>
+    <p class="lead" style="margin-top:14px;font-size:14px;color:var(--muted)">Mac install: run build_mac.sh from the folder, then Rescan in your DAW. Enter your email to get the download, the same as for Lucky Beats.</p>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="fine"><span>© 2026 Rems Plugins. VST is a trademark of Steinberg Media Technologies GmbH.</span><span><a href="plugins.html">All plug-ins</a></span></div>
+</div></footer>
+<dialog class="pact" id="signup" aria-labelledby="su-title">
+  <form id="su-form" method="POST" action="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==" novalidate>
+    <button class="close" type="button" id="su-close" aria-label="Close">×</button>
+    <h2 id="su-title" class="gold">Get SampleTuned</h2>
+    <p class="sub">Leave your email and SampleTuned opens right away, for macOS, Windows and Linux.</p>
+    <label class="f">Email address
+      <input type="email" name="EMAIL" id="su-email" autocomplete="email" placeholder="you@example.com" required>
+    </label>
+    <label class="optin"><input type="checkbox" name="NEWSLETTER" value="1">
+      <span>I agree to receive emails from Rems Plugins about new products and updates<small>Optional, not needed for the download. Unsubscribe anytime with one click.</small></span></label>
+    <input type="text" name="email_address_check" value="" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="locale" value="en">
+    <p class="err" id="su-err" role="alert"></p>
+    <button class="btn btn-spin" type="submit" id="su-go">Get the download</button>
+    <p class="legal">We use your email to give you the downloads and, only if you tick the box, to send news. Emails are sent with Brevo. No spam, ever.</p>
+  </form>
+</dialog>
+<script src="js/site.js?v=2"></script>
+</body>
+</html>
