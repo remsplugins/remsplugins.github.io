@@ -95,7 +95,7 @@
 
 <div class="subnav"><div class="wrap">
   <span class="name">REVOLUTION</span>
-  <a href="#modes">Normal &amp; Advanced</a><a href="#presets">Presets</a><a href="#visualizers">Visualizers</a><a href="#the-touch">The Touch</a><a href="#skins">Skins</a><a href="#shatter">SHATTER</a><a href="#breed">Breed</a><a href="#pump">Pump</a><a href="#time-machine">Time Machine</a><a href="#listen">Listen</a>
+  <a href="#modes">Normal &amp; Advanced</a><a href="#presets">Presets</a><a href="#visualizers">Visualizers</a><a href="#the-touch">The Touch</a><a href="#skins">Skins</a><a href="#shatter">SHATTER</a><a href="#breed">Breed</a><a href="#live">Live</a><a href="#pump">Pump</a><a href="#multiband">Multiband</a><a href="#time-machine">Time Machine</a><a href="#listen">Listen</a>
   <a class="btn btn-ink btn-sm" href="#notify">Notify me</a>
 </div></div>
 
@@ -197,6 +197,23 @@
     <button class="choice" type="button" role="tab" aria-selected="false" data-src="img/revolution/viz-aurora.jpg" data-alt="Aurora visualizer" data-cap="Aurora: northern lights that ripple with the sound.">Aurora</button>
   </div>
   <p class="meta" id="viz-cap" style="font-family:var(--body);font-size:14px;margin-top:12px">Spectrum: the frequency bars of your sound, with the waveform running through them.</p>
+
+  <!-- photo visualizer (coming soon) -->
+  <div id="photo" style="margin-top:72px">
+    <div class="choices"><span class="pill soon">Coming soon</span><p class="kicker" style="margin:0">Photo visualizer</p></div>
+    <h3 class="h2" style="margin:12px 0 12px">Your picture, played by your sound</h3>
+    <p class="lead" style="margin-bottom:32px;max-width:48em">Drop in any JPG, PNG or GIF and Revolution redraws it in time with what you play. Pick an effect, set how hard it reacts, and your cover art, logo or photo becomes the visualizer.</p>
+    <div class="split n" style="align-items:start">
+      <figure style="margin:0"><img class="ui" src="img/revolution/viz-photo-dots.jpg" alt="Photo visualizer, Dots effect: a panda picture redrawn as a grid of glowing dots" width="1248" height="831" loading="lazy"><figcaption class="meta" style="font-family:var(--body);font-size:14px;margin-top:10px">Dots: the picture becomes a grid of lights that pulse with the level.</figcaption></figure>
+      <figure style="margin:0"><img class="ui" src="img/revolution/viz-photo-ripple.jpg" alt="Photo visualizer, Ripple effect: a panda picture rippling with vertical lines" width="1248" height="831" loading="lazy"><figcaption class="meta" style="font-family:var(--body);font-size:14px;margin-top:10px">Ripple: waves of colour run through the picture on every note.</figcaption></figure>
+    </div>
+    <ul class="checks" style="margin-top:24px">
+      <li>Four effects: Ripple, Tunnel, Kaleido and Dots</li>
+      <li>Reactivity, Speed, Trails, Zoom, Symmetry and Vignette sliders</li>
+      <li>Rainbow colours, your skin's colours, or the original photo</li>
+      <li>Load, Remove or Random picture, and hide the controls to see the result full screen</li>
+    </ul>
+  </div>
 </section>
 
 <!-- The Touch -->
@@ -286,6 +303,24 @@
   </div>
 </section>
 
+<!-- live (coming soon) -->
+<section class="wrap sec" id="live">
+  <div class="split n">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div class="choices"><span class="pill soon">Coming soon</span><p class="kicker" style="margin:0">Live</p></div>
+      <h2 class="h2">Eight pads, eight sounds, one performance</h2>
+      <p style="color:var(--text);font-size:17px;line-height:1.65">The new LIVE page puts eight presets on eight pads. Switch between them from your computer keyboard or a MIDI note, without stopping the music. Turn on Complex and the pads change by themselves, right on the beat.</p>
+      <ul class="checks">
+        <li>Fill each pad from a list, at random, or with RANDOM BANK in one click</li>
+        <li>Map a key or a MIDI note to every pad</li>
+        <li>Complex: change every 2 bars down to 1/32, in order or at random</li>
+        <li>Restart held notes on each change, or let them ring</li>
+      </ul>
+    </div>
+    <img class="ui" src="img/revolution/page-live.jpg" alt="LIVE page: eight preset pads on the left, the Complex panel on the right, set to change every 1/8 in order" width="1248" height="831" loading="lazy">
+  </div>
+</section>
+
 <!-- pump -->
 <section class="wrap sec" id="pump">
   <div class="split n">
@@ -301,6 +336,24 @@
       </ul>
     </div>
     <img class="ui" src="img/revolution/page-effects.jpg" alt="Effects page with distortion, compressor, chorus, phaser, delay, reverb, tape, EQ and Pump" width="1248" height="850" loading="lazy">
+  </div>
+</section>
+
+<!-- multiband (coming soon) -->
+<section class="wrap sec" id="multiband">
+  <div class="split r">
+    <img class="ui" src="img/revolution/page-multiband.jpg" alt="MULTIBAND page: the spectrum split into Low, Mid and High bands, with a shaper, an effect and gain, width, pan and level for each band" width="1248" height="831" loading="lazy">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div class="choices"><span class="pill soon">Coming soon</span><p class="kicker" style="margin:0">Multiband</p></div>
+      <h2 class="h2">Low, mid and high, each with its own treatment</h2>
+      <p style="color:var(--text);font-size:17px;line-height:1.65">The new MULTIBAND page splits your sound into three bands. Drag the lines to set the crossovers, drag the bars to set each level, and give every band its own colour.</p>
+      <ul class="checks">
+        <li>Three bands with adjustable crossovers and a 12 or 24 dB slope</li>
+        <li>A shaper per band (Tube and more) with Depth, Curve, Knee and Mix</li>
+        <li>An effect per band, like a delay only on the mids</li>
+        <li>Gain, Width, Pan and Level for each band, with Solo and Mute</li>
+      </ul>
+    </div>
   </div>
 </section>
 
