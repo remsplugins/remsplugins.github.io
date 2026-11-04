@@ -27,6 +27,11 @@
 .hero .pics{display:flex;flex-direction:column;gap:16px}
 .hero .stats{border-top:1px solid var(--line);padding-top:32px;padding-bottom:56px}
 .nl h2{font-size:clamp(22px,3vw,28px);line-height:1.2}
+.supporters{padding-top:56px}
+.supporters .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.supporters .qcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0;margin:0}
+.supporters .qcard p{margin:0;overflow-wrap:anywhere}
+.supporters .qcard cite{font-style:normal;font-weight:600;font-size:14px;color:#0a7a74}
 </style>
 </head>
 <body>
@@ -156,6 +161,21 @@
       <div class="ab-track"><span></span></div>
       <p class="ab-note">Switch while it plays: both versions run in sync and are loudness-matched, so you hear the mix, not the volume.</p>
     </div>
+  </div>
+</section>
+
+<!-- supporters -->
+<section class="wrap sec supporters" aria-labelledby="sup-title">
+  <div class="sec-head">
+    <div><p class="kicker">Supporters</p><h2 id="sup-title">Supporters' words</h2></div>
+    <a class="more" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee →</a>
+  </div>
+  <div class="grid">
+    <blockquote class="qcard"><p>"I'm an old House Music DJ/fan (40+ years) and very new (x6 months) producer. Halcyon has become my \"Go-to\" synth for bass, leads, pads, plucks, and other chords!! There are sooooo many cool sounds!!!"</p><cite>Cel Shinn</cite></blockquote>
+    <blockquote class="qcard"><p>"thank you. all the best!"</p><cite>Tim</cite></blockquote>
+    <blockquote class="qcard"><p>"Great synth very impressive!"</p><cite>Paul</cite></blockquote>
+    <blockquote class="qcard"><p>"what you're doing is cool as fuck and i'm ALLLLL about it. ive 40 to my name right now, but love respects love, and i dont drink coffee so dunno how much it.costs. peace from northern ireland"</p><cite>Carlton Doom</cite></blockquote>
+    <blockquote class="qcard"><p>"Looks cool... hoping you can make Linux builds."</p><cite>Kevin Roll</cite></blockquote>
   </div>
 </section>
 
