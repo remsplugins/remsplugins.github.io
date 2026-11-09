@@ -6,7 +6,7 @@
   --bg:#f4f5f8; --card:#ffffff; --ink:#15171c; --ink-2:#3d4250; --text:#4a5060; --muted:#5a6070;
   --line:#e3e6ec; --line-2:#dde1e8; --line-3:#c9ced8;
   --accent:#0a7a74; --accent-ink:#065c57; --accent-bg:#e2f4f2; --accent-deep:#0a6b66;
-  --stripe:linear-gradient(90deg,#e86fb0,#8f7cf0,#4fc9d6);
+  --stripe:#e2702e;
   --coffee:#ffdd00; --coffee-ink:#1a1206;
   --display:"Unbounded","Arial Black",system-ui,sans-serif;
   --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -58,16 +58,16 @@ code{font-family:var(--mono);font-size:.9em;background:#eef0f4;padding:1px 6px;b
 .btn:hover{transform:translateY(-1px)}
 .btn-ink{background:var(--ink);color:#fff}.btn-ink:hover{color:#fff;background:#2a2d35}
 .btn-line{background:transparent;border-color:var(--line-3);color:var(--ink)}.btn-line:hover{color:var(--ink);border-color:var(--ink)}
-.btn-coffee{background:var(--coffee);color:var(--coffee-ink)}.btn-coffee:hover{color:var(--coffee-ink);background:#ffe633}
+.btn-coffee{background:transparent;border-color:var(--line-3);color:var(--ink)}.btn-coffee:hover{color:var(--ink);border-color:var(--ink)}
 .btn-sm{min-height:44px;padding:0 18px;font-size:14px}
 .btn svg{width:14px;height:14px;flex:none}
 .btn[disabled]{opacity:.6;cursor:default;transform:none}
 
 /* type helpers */
-.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
-.pill{display:inline-flex;align-items:center;font:600 12px/1 var(--mono);letter-spacing:.08em;padding:7px 12px;border-radius:999px;background:var(--accent-bg);color:var(--accent-deep);text-transform:uppercase}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--accent)}
+.pill{display:inline-flex;align-items:center;font:600 12px/1 var(--mono);letter-spacing:.02em;padding:7px 12px;border-radius:999px;background:var(--accent-bg);color:var(--accent-deep)}
 .pill.dark{background:var(--ink);color:#fff}
-.pill.soon{background:linear-gradient(90deg,#fbe3f0,#ebe6fd,#ddf5f8);color:#4a2f8a}
+.pill.soon{background:#fdeedf;color:#8a4a14}
 .meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .stripe{width:120px;height:4px;border-radius:2px;background:var(--stripe)}
 .lead{font-size:18px;line-height:1.6;color:var(--text);max-width:34em}
@@ -99,9 +99,9 @@ a.card:hover{color:var(--ink);transform:translateY(-4px);box-shadow:0 18px 40px 
 .prod .stage{aspect-ratio:16/10;display:grid;place-items:center;position:relative;overflow:hidden}
 .prod .stage img{width:86%;height:80%;object-fit:contain;filter:drop-shadow(0 14px 24px rgba(21,23,28,.25))}
 .prod .stage .ph{display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:28px}
-.prod .badge{position:absolute;top:14px;left:14px;background:#fff;font:600 11px var(--mono);letter-spacing:.08em;padding:6px 10px;border-radius:999px}
+.prod .badge{position:absolute;top:14px;left:14px;background:#fff;font:500 12px var(--mono);letter-spacing:.02em;padding:6px 10px;border-radius:999px}
 .prod .body{padding:20px 22px 22px}
-.prod .type{font-family:var(--mono);font-size:12px;letter-spacing:.1em}
+.prod .type{font-family:var(--mono);font-size:12px;letter-spacing:.02em}
 .prod .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;padding-top:14px;border-top:1px solid #eceef2;font-size:14px}
 .prod .foot span:first-child{color:var(--muted)}
 .prod .foot span:last-child{font-weight:600}
@@ -276,7 +276,7 @@ dialog.signup .close{position:absolute;top:16px;right:16px;width:44px;height:44p
 .site-foot{border-top:1px solid var(--line);background:#fff;margin-top:96px}
 .site-foot .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:32px;padding-top:56px;padding-bottom:32px;font-size:15px}
 .site-foot .cols div{display:flex;flex-direction:column;gap:10px}
-.site-foot h4{margin:0;font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.site-foot h4{margin:0;font:500 13px var(--mono);letter-spacing:.02em}
 .site-foot a{color:var(--muted)}.site-foot a:hover{color:var(--ink)}
 .site-foot .fine{border-top:1px solid var(--line);padding-top:20px;padding-bottom:28px;display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
 
