@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RADTUNE 95 · Rems Plugins</title>
+<meta name="description" content="RADTUNE 95: real-time vocal pitch correction with a Windows 95 look and Memphis neon. VST3 / AU by Rems Plugins.">
+<meta property="og:title" content="RADTUNE 95 · Pitch Correction Deluxe">
+<meta property="og:description" content="Vocal pitch correction, choir, doubler and voice FX in a Windows 95 interface.">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<style>
+/* Mockup: plug-in palette and layout (green LCD, candy buttons, Win95 windows) */
+:root{
+  --bg:#1d0638; --bg-2:#3b0a5e;
+  --pink:#ff2bd6; --cyan:#1ee3f0; --lime:#a6ff00; --yellow:#ffe600; --orange:#ff8a00; --purple:#9b5cff;
+  --win:#c0c0c0; --win-dark:#808080; --navy:#000080; --teal:#1084d0;
+  --lcd:#061806; --lcd-green:#5dff6a;
+  --ink:#111;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; min-height:100vh; color:#fff; font:16px/1.55 "Trebuchet MS",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(ellipse at 20% 0%,var(--bg-2),var(--bg) 60%) fixed; overflow-x:hidden;
+}
+body::before{ /* retro grid */
+  content:""; position:fixed; inset:0; pointer-events:none; opacity:.12;
+  background-image:linear-gradient(rgba(255,43,214,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(30,227,240,.5) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:0 16px; position:relative}
+a{color:var(--cyan)}
+h1,h2,h3{margin:0; line-height:1.05}
+
+/* top bar */
+.top{display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; padding:14px 0; font-size:14px}
+.top a{color:#fff; text-decoration:none; opacity:.85}
+.top a:hover{opacity:1; color:var(--yellow)}
+
+/* logo and title */
+.hero{padding:18px 0 40px; text-align:center}
+.logo{
+  font:900 clamp(56px,12vw,128px)/0.9 "Impact","Arial Black",sans-serif; letter-spacing:-.02em;
+  background:linear-gradient(90deg,var(--pink),var(--yellow),var(--lime),var(--cyan),var(--purple));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 0 18px rgba(255,43,214,.45));
+}
+.logo .star{display:inline-block; color:var(--yellow); -webkit-text-fill-color:var(--yellow); font-size:.5em; vertical-align:top; margin-left:.1em}
+.tag{margin-top:10px; font-size:clamp(16px,2.4vw,20px); color:var(--cyan); letter-spacing:.06em}
+.badges{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:14px}
+.badge{background:var(--lime); color:#0b1a00; font-weight:700; font-size:13px; padding:4px 10px; border-radius:3px; border:2px solid #0b1a00}
+
+/* Win95 window */
+.win{background:var(--win); color:#000; border:2px solid; border-color:#fff var(--win-dark) var(--win-dark) #fff; box-shadow:0 0 0 2px #000,0 12px 40px rgba(0,0,0,.5); margin:0 auto 36px}
+.win-title{background:linear-gradient(90deg,var(--navy),var(--teal)); color:#fff; padding:4px 6px; display:flex; justify-content:space-between; align-items:center; font:700 14px "Courier New",monospace}
+.win-btns{display:flex; gap:3px}
+.win-btns span{width:18px; height:16px; background:var(--win); color:#000; border:1px solid; border-color:#fff #000 #000 #fff; display:grid; place-items:center; font-size:11px; font-weight:700}
+.win-body{padding:16px}
+
+/* LCD screen */
+.lcd{background:var(--lcd); border:3px inset #333; border-radius:4px; color:var(--lcd-green); font:700 16px "Courier New",monospace; padding:14px; text-shadow:0 0 8px rgba(93,255,106,.7); position:relative; overflow:hidden}
+.lcd::after{content:""; position:absolute; inset:0; background:repeating-linear-gradient(0deg,rgba(0,0,0,.25) 0 1px,transparent 1px 3px); pointer-events:none}
+.lcd .note{font-size:clamp(44px,8vw,80px); font-family:Impact,sans-serif; text-align:center; letter-spacing:.04em}
+.lcd .meta{display:flex; justify-content:space-around; flex-wrap:wrap; gap:8px; font-size:14px; color:var(--yellow); text-shadow:0 0 6px rgba(255,230,0,.6)}
+.lcd .locked{text-align:center; color:var(--lime); font-size:14px; margin-top:6px}
+
+/* candy buttons */
+.btn{display:inline-block; font:700 17px "Trebuchet MS",sans-serif; color:#fff; text-decoration:none; padding:12px 22px; border-radius:999px; border:2px solid #fff; background:linear-gradient(#ff5ce6,var(--pink) 55%,#b0109a); box-shadow:0 0 18px rgba(255,43,214,.55),inset 0 -4px 0 rgba(0,0,0,.25); cursor:pointer}
+.btn:hover{transform:translateY(-2px); box-shadow:0 0 28px rgba(255,43,214,.8),inset 0 -4px 0 rgba(0,0,0,.25)}
+.btn.cyan{background:linear-gradient(#8ff6ff,var(--cyan) 55%,#0a9aa6); color:#00222a; box-shadow:0 0 18px rgba(30,227,240,.5),inset 0 -4px 0 rgba(0,0,0,.2)}
+.btn.lime{background:linear-gradient(#e0ff7a,var(--lime) 55%,#6aa600); color:#0b1a00; box-shadow:0 0 18px rgba(166,255,0,.5),inset 0 -4px 0 rgba(0,0,0,.2)}
+.btn.coffee{background:#ffdd00;color:#141317;border-color:#141317;box-shadow:0 0 18px rgba(255,221,0,.5),inset 0 -4px 0 rgba(0,0,0,.2)}
+.btn[disabled],.btn.soon{opacity:.55; cursor:default; transform:none; background:var(--win-dark); box-shadow:none; color:#fff; border-color:#000}
+.cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:26px}
+
+/* sections */
+section{margin:0 auto 36px}
+.sec-title{font:900 clamp(28px,4vw,40px) "Impact",sans-serif; color:var(--yellow); text-shadow:3px 3px 0 var(--pink); margin-bottom:14px; letter-spacing:.02em}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px}
+.card{background:var(--win); color:#000; border:2px solid; border-color:#fff var(--win-dark) var(--win-dark) #fff; padding:0; box-shadow:0 0 0 2px #000}
+.card .win-title{font-size:13px}
+.card .win-body{padding:12px 14px}
+.card h3{font:700 18px "Trebuchet MS",sans-serif; margin-bottom:6px; color:#000}
+.card p{font-size:15px; margin:0}
+
+/* presets */
+.presets{display:flex; gap:8px; flex-wrap:wrap}
+.presets span{background:#000; color:var(--lcd-green); font:700 13px "Courier New",monospace; padding:6px 10px; border:1px solid var(--lcd-green); border-radius:3px}
+
+/* fx */
+.fx{display:flex; gap:8px; flex-wrap:wrap}
+.fx span{background:var(--pink); color:#fff; font-weight:700; padding:6px 12px; border-radius:999px; border:2px solid #fff}
+
+/* downloads */
+.dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px}
+.dl .win-body{text-align:center; display:flex; flex-direction:column; gap:10px; align-items:center}
+.dl small{font-size:13px; color:#333}
+
+footer{text-align:center; font-size:13px; color:#c8b8e0; padding:20px 0 40px; border-top:1px dashed rgba(255,255,255,.25); margin-top:20px}
+footer a{color:var(--cyan)}
+
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  .btn{width:100%; text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <a href="/">← Rems Plugins</a>
+    <nav><a href="/#plugins">Plugins</a> · <a href="/download.html">Downloads</a></nav>
+  </header>
+
+  <section class="hero" aria-labelledby="titre">
+    <h1 id="titre" class="logo">RADTUNE 95<span class="star">★</span></h1>
+    <p class="tag">Pitch Correction Deluxe · by Rems Plugins</p>
+    <div class="badges">
+      <span class="badge">VST3</span><span class="badge">AU</span><span class="badge">Standalone</span><span class="badge">v1.1</span>
+    </div>
+
+    <div class="win" style="max-width:760px; margin-top:34px; text-align:left">
+      <div class="win-title"><span>RADTUNE95.EXE - Pitch Correction Deluxe</span><span class="win-btns"><span>_</span><span>□</span><span>×</span></span></div>
+      <div class="win-body">
+        <div class="lcd">
+          <div class="note">A4</div>
+          <div class="meta"><span>IN 438 Hz</span><span>OUT 440 Hz</span><span>CHOIR F4 A4</span></div>
+          <div class="locked">** LOCKED **</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="btn" href="#download">Download</a>
+      <a class="btn cyan" href="#features">Features</a>
+      <a class="btn coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+    </div>
+  </section>
+
+  <section id="features" aria-labelledby="f-titre">
+    <h2 id="f-titre" class="sec-title">What it does</h2>
+    <div class="grid">
+      <div class="card"><div class="win-title">Correction</div><div class="win-body"><h3>Real-time retune</h3><p>Pitch detection and correction across 8 scales. Adjustable retune speed, humanize and amount. Near-zero latency.</p></div></div>
+      <div class="card"><div class="win-title">Robot</div><div class="win-body"><h3>Robot Mode</h3><p>Hard-tune to the nearest note. The classic 2000s sound in one click.</p></div></div>
+      <div class="card"><div class="win-title">Doubler</div><div class="win-body"><h3>Doubler</h3><p>Two detuned, delayed and panned voices. A thicker vocal without smearing it.</p></div></div>
+      <div class="card"><div class="win-title">Choir</div><div class="win-body"><h3>Harmony voices</h3><p>Two diatonic harmony voices (thirds, fifths, octaves) that follow your scale.</p></div></div>
+      <div class="card"><div class="win-title">Voice FX</div><div class="win-body"><h3>Voice effects</h3><p>Telephone, Radio 95, Lo-Fi Crush, Metal Robot, Fuzz, Megaphone. With an amount control.</p></div></div>
+      <div class="card"><div class="win-title">Presets</div><div class="win-body"><h3>17 factory presets</h3><p>From Natural Pop to Gospel Choir, via Chipmunk 3000 and Demon Mode. They never change your key or scale.</p></div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="p-titre">
+    <h2 id="p-titre" class="sec-title">Included presets</h2>
+    <div class="win"><div class="win-title">Program list</div><div class="win-body">
+      <div class="presets">
+        <span>Init / Clean</span><span>Natural Pop</span><span>Hard Tune Robot</span><span>Trap Star</span><span>Chipmunk 3000</span><span>Demon Mode</span><span>Telephone Line</span><span>Radio 95 FM</span><span>Lo-Fi Crusher</span><span>Cyborg Metal</span><span>Megaphone Riot</span><span>Fat Doubler</span><span>Gospel Choir</span><span>Barbershop Trio</span><span>Power Fifths</span><span>Angel Octave</span><span>Robo Choir</span>
+      </div>
+    </div></div>
+  </section>
+
+  <section aria-labelledby="fx-titre">
+    <h2 id="fx-titre" class="sec-title">Voice FX</h2>
+    <div class="fx"><span>Telephone</span><span>Radio 95</span><span>Lo-Fi Crush</span><span>Metal Robot</span><span>Fuzz</span><span>Megaphone</span></div>
+  </section>
+
+  <section id="download" aria-labelledby="dl-titre">
+    <h2 id="dl-titre" class="sec-title">Download</h2>
+    <div class="dl">
+      <div class="win"><div class="win-title">macOS</div><div class="win-body"><h3>macOS 11+</h3><small>VST3 + AU · Apple Silicon + Intel</small><a class="btn lime" href="downloads/RADTUNE95-1.1.0-macOS.zip" download>Download</a></div></div>
+      <div class="win"><div class="win-title">Windows</div><div class="win-body"><h3>Windows 10/11</h3><small>VST3 · x64</small><a class="btn lime" href="downloads/RADTUNE95-1.1.0-Windows.zip" download>Download</a></div></div>
+      <div class="win"><div class="win-title">Linux</div><div class="win-body"><h3>Linux</h3><small>VST3 · x64</small><a class="btn lime" href="downloads/RADTUNE95-1.1.0-Linux.zip" download>Download</a></div></div>
+    </div>
+    <div class="cta"><a class="btn coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Buy Me a Coffee</a></div>
+  </section>
+
+  <footer>
+    <p>RADTUNE 95 is a <a href="/">Rems Plugins</a> plug-in. Enjoying it? Support the next one: <a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy Me a Coffee ☕</a></p>
+    <p>Version 1.1.0 · free</p>
+  </footer>
+
+</div>
+</body>
+</html>
