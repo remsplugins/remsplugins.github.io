@@ -287,3 +287,14 @@ form.js-notify{display:flex;flex-direction:column;gap:12px}
 .js-notify .row{display:flex;gap:10px;flex-wrap:wrap}
 .js-notify .input{flex:1 1 220px;border-radius:999px}
 .nl .js-notify .input{border-color:#b9dcd8}
+
+/* Plugins dropdown */
+.nav-dd{position:relative}
+.nav-dd-btn{color:var(--ink-2)}
+.nav-dd-btn[data-current],.nav-dd:hover .nav-dd-btn,.nav-dd:focus-within .nav-dd-btn{color:var(--accent)}
+.nav-menu{position:absolute;left:-14px;top:100%;z-index:60;min-width:200px;padding:8px;margin-top:8px;background:var(--bg,#fff);border:1px solid rgba(0,0,0,.12);border-radius:10px;box-shadow:0 12px 32px rgba(0,0,0,.14);display:none;flex-direction:column}
+.nav-menu::before{content:"";position:absolute;left:0;right:0;top:-10px;height:10px}
+.nav-menu a{padding:7px 10px;border-radius:6px;white-space:nowrap}
+.nav-menu a:hover,.nav-menu a[aria-current]{background:rgba(0,0,0,.05);color:var(--accent)}
+.nav-dd:hover .nav-menu,.nav-dd:focus-within .nav-menu{display:flex}
+@media (hover:none),(max-width:720px){.nav-dd:hover .nav-menu,.nav-dd:focus-within .nav-menu{display:none}}

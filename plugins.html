@@ -10,14 +10,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
-<link rel="stylesheet" href="css/site.css?v=1">
+<link rel="stylesheet" href="css/site.css?v=2">
 <title>All plug-ins · Rems Plugins</title>
 <meta name="description" content="Every Rems plug-in: synths, beat tools, mixing and mastering. Filter by type, system and format.">
 </head>
 <body>
 <header class="site-head"><div class="wrap">
   <a class="brand" href="./" aria-label="Rems Plugins, home"><span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>REMS</a>
-  <nav class="nav" aria-label="Main"><a href="revolution.html" class="hot">Revolution</a><a href="plugins.html" aria-current="page">All plugins</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="sampletuned.html">SampleTuned</a><a href="help.html">Install</a><a href="help.html#changelog">What's new</a></nav>
+  <nav class="nav" aria-label="Main"><div class="nav-dd"><a class="nav-dd-btn" href="plugins.html" aria-haspopup="true" data-current="1">Plugins <span aria-hidden="true">▾</span></a><div class="nav-menu"><a href="plugins.html" aria-current="page">All plugins</a><a href="revolution.html">Revolution</a><a href="radtune95.html">RADTUNE 95</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="sampletuned.html">SampleTuned</a></div></div><a href="revolution.html" class="hot">Revolution</a><a href="help.html">Install</a><a href="help.html#changelog">What's new</a></nav>
   <div class="head-cta"><a class="btn btn-coffee btn-sm" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee</a></div>
 </div></header>
 
@@ -74,7 +74,7 @@
 <footer class="site-foot"><div class="wrap">
   <div class="cols">
     <div><b style="font-family:var(--display);letter-spacing:.12em">REMS PLUGINS</b><span style="color:var(--muted);line-height:1.55">Independent plug-ins, made by one producer.</span></div>
-    <div><h4>Plug-ins</h4><a href="revolution.html">Revolution</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="plugins.html">All plug-ins</a></div>
+    <div><h4>Plug-ins</h4><a href="revolution.html">Revolution</a><a href="radtune95.html">RADTUNE 95</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="sampletuned.html">SampleTuned</a><a href="plugins.html">All plug-ins</a></div>
     <div><h4>Help</h4><a href="help.html">Install guide</a><a href="help.html#macos">If macOS blocks a plug-in</a><a href="help.html#changelog">What's new</a></div>
     <div><h4>Community</h4><a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee</a><a href="./#newsletter">Newsletter</a></div>
   </div>
@@ -86,6 +86,7 @@
   // featured: Revolution is the card above the grid
   var P=[
     {name:'Revolution',cat:'inst',featured:true,order:0,date:'2026-11',plats:['Mac','Windows','Linux'],formats:['VST3','AU','LV2','Standalone'],price:'19 €'},
+    {name:'RADTUNE 95',cat:'fx',order:1,date:'2026-11-15',type:'EFFECT · VOCAL PITCH',line:'Real-time vocal pitch correction with a Windows 95 look, robot mode, doubler and choir.',accent:'#9b2c9e',tint:'#ece3f7',img:'img/radtune95-main.jpg',badge:'NEW',plats:['Mac','Windows','Linux'],formats:['VST3','AU'],link:'radtune95.html'},
     {name:'Lucky Beats',cat:'beats',order:1,date:'2026-10-25',type:'BEATS & MIDI',line:'A slot machine that deals an instrument, a groove, a key and the chords, and plays your own synths.',accent:'#8a5a00',tint:'#f6ecd8',img:'img/luckybeats-machine.webp',badge:'NEW · 1.4.1',plats:['Mac','Windows','Linux'],formats:['VST3','AU','LV2','Standalone'],link:'lucky-beats.html'},
     {name:'MixPilot',cat:'mix',order:2,date:'2026-10-27',type:'MIX & MASTER',line:'Track and Master plug-ins that listen to each other and mix for you, with an editable EQ.',accent:'#3550a8',tint:'#e5eaf7',img:'img/mixpilot-master.jpg',badge:'UPDATED · 1.2.1',plats:['Mac','Windows','Linux'],formats:['VST3','AU','LV2'],link:'mixpilot.html'},
     {name:"Synth'O'Ween",cat:'inst',order:3,date:'2026-10-20',type:'INSTRUMENT · SYNTH',line:'A horror synth with 25 sounds from the other side.',accent:'#b03a1a',tint:'#f6e4dc',img:'img/synthoween-main.jpg',badge:'HALLOWEEN',plats:['Mac','Windows','Linux'],formats:['VST3','AU','LV2','Standalone'],link:'synthoween.html'},
@@ -94,7 +95,7 @@
     {name:'ChordLane',cat:'beats',order:6,date:'2026-12',type:'BEATS & MIDI · CHORDS',line:'A chord sequencer lane for your DAW.',accent:'#6343b0',tint:'#ece6f7',img:'',badge:'COMING SOON',plats:['Mac','Windows','Linux'],formats:['VST3'],soon:true},
     {name:'SampleTuned',cat:'util',order:7,price:'10 €',date:'2026-11',type:'UTILITY · SAMPLES',line:'Sorts your sample library by key and by type on one colour map. Hover to listen, drag into your DAW.',accent:'#9a2f76',tint:'#f5e3ef',img:'img/sampletuned/app-1-e-major-compatible.png',link:'sampletuned.html',plats:['Mac','Windows','Linux'],formats:['VST3','Standalone']}
   ];
-  var C=[['all','All'],['inst','Instruments'],['beats','Beats & MIDI'],['mix','Mix & Master'],['util','Utilities']];
+  var C=[['all','All'],['inst','Instruments'],['beats','Beats & MIDI'],['mix','Mix & Master'],['fx','Effects'],['util','Utilities']];
   var st={cat:'all',plats:[],fmts:[],avail:'any',q:'',sort:'featured'};
   try{var h=location.hash.slice(1);if(C.some(function(c){return c[0]===h;}))st.cat=h;}catch(e){}
   function el(t,a,k){var e=document.createElement(t);for(var x in a)e.setAttribute(x,a[x]);(k||[]).forEach(function(c){e.append(c);});return e;}
