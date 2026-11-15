@@ -102,6 +102,24 @@ footer a{color:var(--cyan)}
 
 .video{position:relative;aspect-ratio:16/9;background:#000}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* fenêtre email avant téléchargement (Brevo), style Win95 */
+dialog.signup{border:0;padding:0;background:var(--win);color:#000;max-width:min(460px,calc(100vw - 32px));width:100%;border:2px solid;border-color:#fff var(--win-dark) var(--win-dark) #fff;box-shadow:0 0 0 2px #000,0 30px 80px rgba(0,0,0,.6)}
+dialog.signup::backdrop{background:rgba(29,6,56,.75)}
+dialog.signup form{display:flex;flex-direction:column;gap:12px;padding:16px 18px 18px;position:relative}
+dialog.signup .win-title{margin:-16px -18px 4px}
+dialog.signup h2{font:700 22px/1.2 "Trebuchet MS",sans-serif;color:#000}
+dialog.signup .sub,dialog.signup .legal{font-size:14px;color:#222}
+dialog.signup .legal{font-size:12px;color:#444}
+dialog.signup .close{position:absolute;top:4px;right:6px;width:22px;height:20px;background:var(--win);border:1px solid;border-color:#fff #000 #000 #fff;font:700 13px/1 sans-serif;cursor:pointer;z-index:2}
+dialog.signup .field{display:flex;flex-direction:column;gap:4px;font:700 14px "Trebuchet MS",sans-serif}
+dialog.signup .input{font:16px "Courier New",monospace;padding:8px;border:2px solid;border-color:var(--win-dark) #fff #fff var(--win-dark);background:#fff;color:#000}
+dialog.signup .consent{display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer}
+dialog.signup .consent small{display:block;color:#444;margin-top:2px}
+dialog.signup .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+dialog.signup .err{color:#b3261e;font-size:14px}
+dialog.signup .err:empty{display:none}
+dialog.signup .btn{align-self:stretch;text-align:center}
 @media (max-width:600px){
   .wrap{padding:0 16px}
   .btn{width:100%; text-align:center}
@@ -135,7 +153,7 @@ footer a{color:var(--cyan)}
     </div>
 
     <div class="cta">
-      <a class="btn" href="https://remsplugin.gumroad.com/l/radtune95" target="_blank" rel="noopener">Download it now</a>
+      <a class="btn js-get" href="https://remsplugin.gumroad.com/l/radtune95" data-dest="https://remsplugin.gumroad.com/l/radtune95" data-plugin="RADTUNE 95">Download it now</a>
       <a class="btn coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
     </div>
   </section>
@@ -177,7 +195,7 @@ footer a{color:var(--cyan)}
     <h2 id="dl-titre" class="sec-title">Download</h2>
     <div class="win" style="margin-bottom:16px"><div class="win-title">Gumroad</div><div class="win-body" style="text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center">
       <h3>Pay what you want, from 0 €</h3><small>Mac · Windows · Linux, the install guide and future updates by email</small>
-      <a class="btn" href="https://remsplugin.gumroad.com/l/radtune95" target="_blank" rel="noopener">Download it now</a>
+      <a class="btn js-get" href="https://remsplugin.gumroad.com/l/radtune95" data-dest="https://remsplugin.gumroad.com/l/radtune95" data-plugin="RADTUNE 95">Download it now</a>
     </div></div>
     <div class="cta"><a class="btn coffee" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">☕ Buy Me a Coffee</a></div>
   </section>
@@ -188,5 +206,21 @@ footer a{color:var(--cyan)}
   </footer>
 
 </div>
+<dialog class="signup" id="signup" aria-labelledby="su-title">
+  <form method="POST" action="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==" novalidate>
+    <div class="win-title"><span>SETUP.EXE - <span class="su-name">RADTUNE 95</span></span></div>
+    <button class="close" type="button" aria-label="Close">×</button>
+    <h2 id="su-title">Get <span class="su-name">RADTUNE 95</span>, free</h2>
+    <p class="sub">Leave your email, then download it on Gumroad for macOS, Windows and Linux. Pay what you want, from 0 €.</p>
+    <label class="field">Email address<input class="input" type="email" name="EMAIL" autocomplete="email" placeholder="you@example.com" required></label>
+    <label class="consent"><input type="checkbox" name="NEWSLETTER" value="1"><span>I agree to receive emails from Rems Plugins about new products and updates<small>Optional, not needed for the download. Unsubscribe anytime with one click.</small></span></label>
+    <input type="text" name="email_address_check" value="" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="locale" value="en">
+    <p class="err" role="alert"></p>
+    <button class="btn" type="submit">Continue to download</button>
+    <p class="legal">We use your email to give you the download and, only if you tick the box, to send news. Emails are sent with Brevo. No spam, ever.</p>
+  </form>
+</dialog>
+<script src="js/site.js?v=2"></script>
 </body>
 </html>
