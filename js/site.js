@@ -117,3 +117,39 @@
     document.querySelectorAll('.snd').forEach(function(b){b.addEventListener('click',stop);});
   })();
 })();
+
+// plug-ins carousel: arrows, dots, gentle autoplay (paused on hover/focus, off with reduced motion)
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-carousel]').forEach(function(car){
+    var track=car.querySelector('.car-track');
+    if(!track)return;
+    var slides=Array.prototype.slice.call(track.querySelectorAll('.car-slide'));
+    var prev=car.querySelector('.car-prev'),next=car.querySelector('.car-next'),dots= car.querySelector('.car-dots');
+    if(!slides.length)return;
+    slides.forEach(function(s,i){
+      var d=document.createElement('button');
+      d.type='button';
+      d.setAttribute('aria-label','Go to plug-in '+(i+1)+' of '+slides.length);
+      d.addEventListener('click',function(){go(i);restart();});
+      dots.appendChild(d);
+    });
+    var dotEls=Array.prototype.slice.call(dots.children);
+    function step(){return slides[0].offsetWidth+16;}
+    function index(){var w=step(),x=track.scrollLeft;var best=0,bd=1e9;for(var i=0;i<slides.length;i++){var d=Math.abs(x-i*w);if(d<bd){bd=d;best=i;}}return best;}
+    function go(i){track.scrollTo({left:i*step(),behavior:reduce?'auto':'smooth'});}
+    function upd(){var i=index();dotEls.forEach(function(d,j){d.setAttribute('aria-selected',String(i===j));});}
+    if(prev)prev.addEventListener('click',function(){go(Math.max(0,index()-1));restart();});
+    if(next)next.addEventListener('click',function(){go(Math.min(slides.length-1,index()+1));restart();});
+    track.addEventListener('scroll',function(){window.requestAnimationFrame(upd);},{passive:true});
+    var timer=null,delay=parseInt(car.getAttribute('data-autoplay')||'0',10);
+    function stop(){if(timer){clearInterval(timer);timer=null;}}
+    function start(){if(!delay||reduce)return;stop();timer=setInterval(function(){var i=index();go(i>=slides.length-1?0:i+1);},delay);}
+    function restart(){stop();start();}
+    car.addEventListener('mouseenter',stop);
+    car.addEventListener('mouseleave',start);
+    car.addEventListener('focusin',stop);
+    car.addEventListener('focusout',start);
+    upd();start();
+  });
+})();
