@@ -67,6 +67,8 @@
 .notify form{width:100%;text-align:left}
 .halcyon{max-width:760px;margin-left:auto;margin-right:auto;display:flex;gap:16px 24px;align-items:center;flex-wrap:wrap;justify-content:space-between;padding:22px 24px;border-radius:18px;border:1px dashed var(--line-3);background:#fff}
 .halcyon p{color:var(--text);flex:1 1 380px}
+.yt-grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-top:22px}
+.yt-title{font-size:14px;font-weight:600;margin-top:8px;color:var(--ink)}
 </style>
 <link rel="canonical" href="https://remsplugins.com/revolution.html">
 <meta property="og:type" content="website">
@@ -89,9 +91,8 @@
     <div class="stripe"></div>
     <p class="lead">A polyphonic synth in the spirit of Serum, Vital and Diva, with 3,000 ready-to-play sounds, eight skins and scenes that move with your music. Try it free for 7 days.</p>
     <div class="ctas">
-      <a class="btn btn-ink" href="https://remsplugins.gumroad.com/l/jlens/LAUNCH" target="_blank" rel="noopener">Buy for 19 €</a>
-      <a class="btn btn-line" href="#get">Free trial</a>
-      <a class="btn btn-line" href="#watch"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>Watch the teaser</a>
+      <a class="btn btn-ink" href="#get">Try it for free</a>
+      <a class="btn btn-line" href="#launch-video"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>Watch the videos</a>
     </div>
     <p class="dl-count" data-plugin="Revolution" hidden><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10"/></svg><span><b>0</b> downloads</span></p>
     <p class="meta">7-day free trial · VST3 · AU · LV2 · Standalone · Mac, Windows, Linux</p>
@@ -102,7 +103,7 @@
 <div class="subnav"><div class="wrap">
   <span class="name">REVOLUTION</span>
   <a href="#modes">Normal &amp; Advanced</a><a href="#presets">Presets</a><a href="#visualizers">Visualizers</a><a href="#the-touch">The Touch</a><a href="#skins">Skins</a><a href="#shatter">SHATTER</a><a href="#breed">Breed</a><a href="#live">Live</a><a href="#pump">Pump</a><a href="#multiband">Multiband</a><a href="#time-machine">Time Machine</a><a href="#listen">Listen</a>
-  <a class="btn btn-ink btn-sm" href="https://remsplugins.gumroad.com/l/jlens/LAUNCH" target="_blank" rel="noopener">Buy · 19 €</a>
+  <a class="btn btn-ink btn-sm" href="#get">Try it free</a>
 </div></div>
 
 <!-- numbers -->
@@ -116,14 +117,9 @@
 </section>
 
 <!-- teaser -->
-<section class="wrap sec" id="watch">
-  <div class="sec-head"><div><p class="kicker">Teaser</p><h2>See it, hear it</h2></div><span class="meta">2:42 · sound on</span></div>
-  <div class="video"><video controls playsinline preload="none" poster="video/revolution-teaser.jpg" width="1280" height="720"><source src="video/revolution-teaser.mp4" type="video/mp4">Your browser can't play this video. <a href="video/revolution-teaser.mp4">Download it</a>.</video></div>
-</section>
-
 <!-- launch video -->
 <section class="wrap sec" id="launch-video">
-  <div class="sec-head"><div><p class="kicker">Launch video</p><h2>Revolution in action</h2></div><span class="meta">YouTube · sound on</span></div>
+  <div class="sec-head"><div><p class="kicker">Videos</p><h2>Revolution in action</h2></div><span class="meta">YouTube · sound on</span></div>
   <div class="video" style="aspect-ratio:16/9">
     <button type="button" class="yt-thumb" aria-label="Play the Revolution launch video" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer"
       onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/xd1cqAhFa54?autoplay=1&quot; title=&quot;Revolution launch video&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
@@ -131,6 +127,143 @@
         onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/xd1cqAhFa54/hqdefault.jpg'}">
       <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:84px;height:60px;border-radius:16px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:13px 0 13px 22px;border-color:transparent transparent transparent #fff"></span></span>
     </button>
+  </div>
+  <div class="yt-grid">
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution Bass Presets: 1 Minute of Bass Sounds" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/SXQAT5jpqf0?autoplay=1&quot; title=&quot;Revolution Bass Presets: 1 Minute of Bass Sounds&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/SXQAT5jpqf0/maxresdefault.jpg" alt="Revolution Bass Presets: 1 Minute of Bass Sounds" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/SXQAT5jpqf0/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution Bass Presets: 1 Minute of Bass Sounds</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution Keys Presets: 1 Minute of Keys" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/48geTOY5cXk?autoplay=1&quot; title=&quot;Revolution Keys Presets: 1 Minute of Keys&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/48geTOY5cXk/maxresdefault.jpg" alt="Revolution Keys Presets: 1 Minute of Keys" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/48geTOY5cXk/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution Keys Presets: 1 Minute of Keys</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution Lead Presets: 1 Minute of Leads" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/i3cnqzHONpk?autoplay=1&quot; title=&quot;Revolution Lead Presets: 1 Minute of Leads&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/i3cnqzHONpk/maxresdefault.jpg" alt="Revolution Lead Presets: 1 Minute of Leads" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/i3cnqzHONpk/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution Lead Presets: 1 Minute of Leads</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution Pad Presets: 1 Minute of Pads" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/Gm4-8xtlsaA?autoplay=1&quot; title=&quot;Revolution Pad Presets: 1 Minute of Pads&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/Gm4-8xtlsaA/maxresdefault.jpg" alt="Revolution Pad Presets: 1 Minute of Pads" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/Gm4-8xtlsaA/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution Pad Presets: 1 Minute of Pads</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution PATTERN: Play Chords Like a Guitarist or a Pianist" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/6gTLByl60F4?autoplay=1&quot; title=&quot;Revolution PATTERN: Play Chords Like a Guitarist or a Pianist&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/6gTLByl60F4/maxresdefault.jpg" alt="Revolution PATTERN: Play Chords Like a Guitarist or a Pianist" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/6gTLByl60F4/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution PATTERN: Play Chords Like a Guitarist or a Pianist</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution ARP: One Chord, a Moving Line" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/Qi3dgeguYmA?autoplay=1&quot; title=&quot;Revolution ARP: One Chord, a Moving Line&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/Qi3dgeguYmA/maxresdefault.jpg" alt="Revolution ARP: One Chord, a Moving Line" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/Qi3dgeguYmA/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution ARP: One Chord, a Moving Line</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution SHATTER: Turn Any Sound into Rhythm" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/MtsNVNd39zs?autoplay=1&quot; title=&quot;Revolution SHATTER: Turn Any Sound into Rhythm&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/MtsNVNd39zs/maxresdefault.jpg" alt="Revolution SHATTER: Turn Any Sound into Rhythm" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/MtsNVNd39zs/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution SHATTER: Turn Any Sound into Rhythm</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution Oscillators: 3 Wavetables, Sub, Noise and 2 Filters" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/DmKrNUtgca0?autoplay=1&quot; title=&quot;Revolution Oscillators: 3 Wavetables, Sub, Noise and 2 Filters&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/DmKrNUtgca0/maxresdefault.jpg" alt="Revolution Oscillators: 3 Wavetables, Sub, Noise and 2 Filters" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/DmKrNUtgca0/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution Oscillators: 3 Wavetables, Sub, Noise and 2 Filters</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution Visualizers: A Show for Every Sound" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/95xR_fzYHIw?autoplay=1&quot; title=&quot;Revolution Visualizers: A Show for Every Sound&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/95xR_fzYHIw/maxresdefault.jpg" alt="Revolution Visualizers: A Show for Every Sound" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/95xR_fzYHIw/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution Visualizers: A Show for Every Sound</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution BREED: Two Presets In, Eight New Sounds Out" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/xosv2pJPpb0?autoplay=1&quot; title=&quot;Revolution BREED: Two Presets In, Eight New Sounds Out&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/xosv2pJPpb0/maxresdefault.jpg" alt="Revolution BREED: Two Presets In, Eight New Sounds Out" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/xosv2pJPpb0/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution BREED: Two Presets In, Eight New Sounds Out</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution COMPLEX: Pads That Change on the Beat" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/3usLc5tU75U?autoplay=1&quot; title=&quot;Revolution COMPLEX: Pads That Change on the Beat&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/3usLc5tU75U/maxresdefault.jpg" alt="Revolution COMPLEX: Pads That Change on the Beat" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/3usLc5tU75U/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution COMPLEX: Pads That Change on the Beat</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution Modulation: Custom LFOs, Orbit and Mod Matrix" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/73nP0GzWIJU?autoplay=1&quot; title=&quot;Revolution Modulation: Custom LFOs, Orbit and Mod Matrix&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/73nP0GzWIJU/maxresdefault.jpg" alt="Revolution Modulation: Custom LFOs, Orbit and Mod Matrix" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/73nP0GzWIJU/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution Modulation: Custom LFOs, Orbit and Mod Matrix</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution Effects: Every Effect on One Page" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/uN5YpTd1ShY?autoplay=1&quot; title=&quot;Revolution Effects: Every Effect on One Page&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/uN5YpTd1ShY/maxresdefault.jpg" alt="Revolution Effects: Every Effect on One Page" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/uN5YpTd1ShY/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution Effects: Every Effect on One Page</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution MULTIBAND: Low, Mid and High, Each Its Own Way" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/Rf8i6xh1Noo?autoplay=1&quot; title=&quot;Revolution MULTIBAND: Low, Mid and High, Each Its Own Way&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/Rf8i6xh1Noo/maxresdefault.jpg" alt="Revolution MULTIBAND: Low, Mid and High, Each Its Own Way" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/Rf8i6xh1Noo/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution MULTIBAND: Low, Mid and High, Each Its Own Way</p>
+    </div>
+    <div class="yt-card">
+      <div class="video" style="aspect-ratio:16/9">
+        <button type="button" class="yt-thumb" aria-label="Play: Revolution LIVE: 8 Pads, 8 Sounds, One Performance" style="position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/LWrFTXzMxiw?autoplay=1&quot; title=&quot;Revolution LIVE: 8 Pads, 8 Sounds, One Performance&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;height:100%;border:0;display:block&quot;></iframe>'">
+          <img src="https://i.ytimg.com/vi/LWrFTXzMxiw/maxresdefault.jpg" alt="Revolution LIVE: 8 Pads, 8 Sounds, One Performance" loading="lazy" width="1280" height="720" style="width:100%;height:100%;object-fit:cover;display:block" onload="if(this.naturalWidth&lt;=120){this.onload=null;this.src='https://i.ytimg.com/vi/LWrFTXzMxiw/hqdefault.jpg'}">
+          <span aria-hidden="true" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:46px;border-radius:12px;background:#f00;box-shadow:0 6px 24px rgba(0,0,0,.45)"><span style="position:absolute;left:50%;top:50%;transform:translate(-38%,-50%);border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff"></span></span>
+        </button>
+      </div>
+      <p class="yt-title">Revolution LIVE: 8 Pads, 8 Sounds, One Performance</p>
+    </div>
   </div>
 </section>
 
@@ -473,7 +606,7 @@
     <h2>Get Revolution</h2>
     <p style="color:var(--text);max-width:34em">19 € at launch, then 29 €. Payment and licence key by Gumroad. Not sure yet? Download the free trial: everything unlocked for 7 days.</p>
     <div class="ctas" style="justify-content:center">
-      <a class="btn btn-ink" href="https://remsplugins.gumroad.com/l/jlens/LAUNCH" target="_blank" rel="noopener">Buy for 19 €</a>
+      <a class="btn btn-ink" href="#get">Try it for free</a>
       <a class="btn btn-line" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/revolution-1.4.4/Revolution-1.4.4-macOS.zip">Free trial · Mac</a>
       <a class="btn btn-line" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/revolution-1.4.4/Revolution-1.4.4-Windows.zip">Free trial · Windows</a>
       <a class="btn btn-line" href="https://github.com/remsplugins/remsplugins.github.io/releases/download/revolution-1.4.4/Revolution-1.4.4-Linux.zip">Free trial · Linux</a>
