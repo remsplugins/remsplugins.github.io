@@ -9,8 +9,10 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
 <link rel="stylesheet" href="css/site.css?v=4">
+<link rel="stylesheet" href="css/sunrise.css?v=1">
+<meta name="theme-color" content="#0b0b0d">
 <title>Rems Plugins · Free VST3 / AU plug-ins</title>
 <meta name="description" content="Rems Plugins: Revolution, a wavetable synth out now with a 7-day free trial, plus the free Halcyon, Lucky Beats, MixPilot and Synth'O'Ween. VST3, AU, LV2.">
 <meta property="og:title" content="Rems Plugins · VST3 / AU plug-ins">
@@ -19,13 +21,6 @@
 <meta property="og:url" content="https://remsplugins.com/">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-.hero{background:#fff;border-bottom:1px solid var(--line)}
-.hero .split{padding-top:72px;padding-bottom:40px}
-.hero h1{font-size:clamp(48px,7vw,76px);line-height:1;letter-spacing:-.01em}
-.hero .tagline{font-family:var(--display);font-weight:500;font-size:clamp(20px,2.4vw,24px);line-height:1.3}
-.hero .copy{display:flex;flex-direction:column;gap:22px}
-.hero .pics{display:flex;flex-direction:column;gap:16px}
-.hero .stats{border-top:1px solid var(--line);padding-top:32px;padding-bottom:56px}
 .nl h2{font-size:clamp(22px,3vw,28px);line-height:1.2}
 .supporters{padding-top:56px}
 .supporters .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
@@ -38,75 +33,43 @@
 <meta property="og:site_name" content="Rems Plugins">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://remsplugins.com/#org", "name": "Rems Plugins", "url": "https://remsplugins.com/", "logo": "https://remsplugins.com/img/brand/rems-plugins-logo-on-light.png", "email": "remsplugins@gmail.com"}, {"@type": "WebSite", "name": "Rems Plugins", "url": "https://remsplugins.com/", "publisher": {"@id": "https://remsplugins.com/#org"}}]}</script>
 </head>
-<body>
-<div class="promo"><div class="wrap">
-  <span><b>Out now</b> · Revolution, a new synth: eight skins, animated scenes, 3,000 presets. Free 7-day trial.</span>
-  <a href="revolution.html">Take a look</a>
-</div></div>
+<body class="sunrise">
 <header class="site-head"><div class="wrap">
-  <a class="brand" href="./" aria-label="Rems Plugins, home"><img src="img/brand/rems-plugins-logo-on-light.png" alt="Rems Plugins" width="227" height="38" style="display:block;height:38px;width:auto"></a>
+  <a class="brand" href="./" aria-label="Rems Plugins, home"><img src="img/brand/rems-mark-dark.png" alt="" width="52" height="34">REMS PLUGINS</a>
   <nav class="nav" aria-label="Main"><div class="nav-dd"><a class="nav-dd-btn" href="plugins.html" aria-haspopup="true">Plugins <span aria-hidden="true">▾</span></a><div class="nav-menu"><a href="plugins.html">All plugins</a><a href="revolution.html">Revolution</a><a href="radtune95.html">RADTUNE 95</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="sampletuned.html">SampleTuned</a></div></div><a href="revolution.html" class="hot">Revolution</a><a href="help.html">Install</a><a href="help.html#changelog">What's new</a></nav>
   <div class="head-cta"><a class="btn btn-coffee btn-sm" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee</a></div>
 </div></header>
 
 <main>
-<!-- all plug-ins carousel -->
-<section class="wrap sec" aria-labelledby="plugs-title">
-  <div class="sec-head">
-    <div><p class="kicker">Plug-ins</p><h2 id="plugs-title">Every Rems plug-in</h2></div>
-    <a class="more" href="plugins.html">All plug-ins →</a>
+<!-- hero: title, quote, plug-ins carousel over the orange arc -->
+<section class="sr-hero" aria-labelledby="sr-title">
+  <div class="sr-glow" aria-hidden="true"></div>
+  <div class="sr-arc" aria-hidden="true"></div>
+  <div class="wrap sr-intro">
+    <h1 id="sr-title">Rems Plugins</h1>
+    <figure class="sr-quote">
+      <blockquote>“I use today's new technologies to look for ways to make music production better… Use them, share them and be creative.”</blockquote>
+      <figcaption>Rems</figcaption>
+    </figure>
   </div>
-  <div class="carousel" data-carousel data-autoplay="5000">
-    <div class="car-track" tabindex="0" role="region" aria-label="Plug-ins carousel">
-      <a class="car-slide" href="revolution.html"><img src="img/revolution/revolution-og.jpg" alt="Revolution, wavetable synth" loading="eager"><span class="car-cap"><b>Revolution</b><small>Wavetable synth · free 7-day trial</small></span></a>
-      <a class="car-slide" href="halcyon.html"><img src="img/halcyon-synth.jpg" alt="Halcyon, free wavetable synth" loading="lazy"><span class="car-cap"><b>Halcyon</b><small>Free wavetable synth</small></span></a>
-      <a class="car-slide" href="lucky-beats.html"><img src="img/luckybeats-og.jpg" alt="Lucky Beats, beat generator" loading="lazy"><span class="car-cap"><b>Lucky Beats</b><small>Free beat generator</small></span></a>
-      <a class="car-slide" href="mixpilot.html"><img src="img/mixpilot-111-promo.jpg" alt="MixPilot, mixing assistant" loading="lazy"><span class="car-cap"><b>MixPilot</b><small>Free mixing assistant</small></span></a>
-      <a class="car-slide" href="radtune95.html"><img src="img/radtune95-main.jpg" alt="RADTUNE 95, vocal pitch correction" loading="lazy"><span class="car-cap"><b>RADTUNE 95</b><small>Vocal pitch correction</small></span></a>
-      <a class="car-slide" href="synthoween.html"><img src="img/synthoween-main.jpg" alt="Synth'O'Ween, Halloween synth" loading="lazy"><span class="car-cap"><b>Synth'O'Ween</b><small>Free Halloween synth</small></span></a>
-      <a class="car-slide" href="sampletuned.html"><img src="img/sampletuned/sampletuned-600x600.png" alt="SampleTuned, sample library sorted by key" loading="lazy"><span class="car-cap"><b>SampleTuned</b><small>Samples sorted by key</small></span></a>
+  <div class="sr-car" data-sr-car data-autoplay="5000" role="region" aria-roledescription="carousel" aria-label="Every Rems plug-in">
+    <div class="sr-view">
+    <div class="sr-track">
+      <a class="sr-slide" href="revolution.html" role="group" aria-roledescription="slide" aria-label="1 of 7"><div class="pic"><img src="img/revolution/shatter.jpg" alt="Revolution, the Shatter page" loading="eager"></div><span class="sr-cap"><span><small>Out now · 7-day trial</small><b>Revolution</b><em>Wavetable synth · 4 engines · 3,000 presets</em></span><span class="go">See plug-in →</span></span></a>
+      <a class="sr-slide" href="radtune95.html" role="group" aria-roledescription="slide" aria-label="2 of 7"><div class="pic"><img src="img/radtune95-main.jpg" alt="RADTUNE 95, vocal pitch correction" loading="eager"></div><span class="sr-cap"><span><small>New · pay what you want</small><b>RADTUNE 95</b><em>Vocal pitch correction with a Windows 95 look</em></span><span class="go">See plug-in →</span></span></a>
+      <a class="sr-slide" href="halcyon.html" role="group" aria-roledescription="slide" aria-label="3 of 7"><div class="pic"><img src="img/halcyon-synth.jpg" alt="Halcyon, free wavetable synth" loading="eager"></div><span class="sr-cap"><span><small>Free</small><b>Halcyon</b><em>Wavetable synth with 2,342 presets</em></span><span class="go">See plug-in →</span></span></a>
+      <a class="sr-slide" href="lucky-beats.html" role="group" aria-roledescription="slide" aria-label="4 of 7"><div class="pic"><img src="img/luckybeats-og.jpg" alt="Lucky Beats, beat generator" loading="lazy"></div><span class="sr-cap"><span><small>Free</small><b>Lucky Beats</b><em>A slot machine for beats and chords</em></span><span class="go">See plug-in →</span></span></a>
+      <a class="sr-slide" href="mixpilot.html" role="group" aria-roledescription="slide" aria-label="5 of 7"><div class="pic"><img class="fit" src="img/mixpilot-111-promo.jpg" alt="MixPilot, mixing assistant" loading="lazy"></div><span class="sr-cap"><span><small>Free</small><b>MixPilot</b><em>Mixing assistant with an editable EQ</em></span><span class="go">See plug-in →</span></span></a>
+      <a class="sr-slide" href="sampletuned.html" role="group" aria-roledescription="slide" aria-label="6 of 7"><div class="pic"><img class="fit" src="img/sampletuned/sampletuned-600x600.png" alt="SampleTuned, sample library sorted by key" loading="lazy"></div><span class="sr-cap"><span><small>Pay what you want</small><b>SampleTuned</b><em>Samples sorted by key on a colour wheel</em></span><span class="go">See plug-in →</span></span></a>
+      <a class="sr-slide" href="synthoween.html" role="group" aria-roledescription="slide" aria-label="7 of 7"><div class="pic"><img src="img/synthoween-main.jpg" alt="Synth'O'Ween, Halloween synth" loading="lazy"></div><span class="sr-cap"><span><small>Free · Halloween</small><b>Synth'O'Ween</b><em>A horror synth with 25 sounds</em></span><span class="go">See plug-in →</span></span></a>
     </div>
-    <button class="car-btn car-prev" type="button" aria-label="Previous plug-in">&#8592;</button>
-    <button class="car-btn car-next" type="button" aria-label="Next plug-in">&#8594;</button>
-    <div class="car-dots" aria-label="Choose a plug-in"></div>
-  </div>
-</section>
-
-<!-- hero: Revolution, out now -->
-<section class="hero" aria-labelledby="rv-title">
-  <div class="wrap split">
-    <div class="copy">
-      <div class="choices"><span class="pill">Out now</span><span class="meta">New wavetable synth</span></div>
-      <h1 id="rv-title">Revolution <span class="sr">by Rems Plugins</span></h1>
-      <div class="stripe"></div>
-      <p class="tagline">A synth to write the track.</p>
-      <p class="lead">Four sound engines, 3,000 presets, eight skins and animated scenes that move with your music. Your Vital and Serum 2 presets come in with one drop. Try it free for 7 days.</p>
-      <div class="ctas">
-        <a class="btn btn-ink" href="revolution.html#get">Try it for free</a>
-        <a class="btn btn-line" href="revolution.html">Discover Revolution</a>
-      </div>
-      <p class="meta">7-day free trial · VST3 · AU · LV2 · Standalone · Mac, Windows, Linux</p>
     </div>
-    <div class="pics">
-      <img class="ui" id="hero-shot" src="img/revolution/scene-legendary.jpg" alt="Revolution in Normal mode, The Touch skin, Legendary scene" width="1248" height="829" fetchpriority="high">
-      <div class="choices" data-switch="hero-shot" aria-label="Revolution looks">
-        <span class="meta" style="margin-right:4px">Look</span>
-        <button class="choice" type="button" aria-pressed="true" data-src="img/revolution/scene-legendary.jpg" data-alt="Revolution in Normal mode, The Touch skin, Legendary scene"><span class="dot" style="background:#e9b54a"></span>Legendary</button>
-        <button class="choice" type="button" aria-pressed="false" data-src="img/revolution/touch-duo.jpg" data-alt="Revolution in Normal mode, Duo scene: a white T-shirt in the dark"><span class="dot" style="background:#fff"></span>Duo</button>
-        <button class="choice" type="button" aria-pressed="false" data-src="img/revolution/touch-city-lights.jpg" data-alt="Revolution in Normal mode, City Lights scene: a red convertible heads into a synthwave sunset"><span class="dot" style="background:#e86fb0"></span>City Lights</button>
-        <button class="choice" type="button" aria-pressed="false" data-src="img/revolution/scene-aurora.jpg" data-alt="Revolution in Normal mode, Aurora visualizer"><span class="dot" style="background:#4fc9d6"></span>Aurora</button>
-        <button class="choice" type="button" aria-pressed="false" data-src="img/revolution/skin-light.jpg" data-alt="Revolution in Advanced mode, Light skin"><span class="dot" style="background:#f4f6fa"></span>Light</button>
-        <button class="choice" type="button" aria-pressed="false" data-src="img/revolution/skin-wood-alu.jpg" data-alt="Revolution in Advanced mode, Wood &amp; Alu skin"><span class="dot" style="background:#7a4a2a"></span>Wood &amp; Alu</button>
-      </div>
+    <div class="sr-ctrl">
+      <button class="sr-btn prev" type="button" aria-label="Previous plug-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="sr-dots"></div>
+      <button class="sr-btn next" type="button" aria-label="Next plug-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
     </div>
-  </div>
-  <div class="wrap">
-    <div class="stats">
-      <div><b>3,000</b><span>factory presets in 31 categories</span></div>
-      <div><b>4</b><span>engines: wavetable, granular, spectral, sampler</span></div>
-      <div><b>8</b><span>skins, from Neon Blue to The Touch</span></div>
-      <div><b>1 drop</b><span>to import a Vital or Serum 2 preset</span></div>
-    </div>
+    <p class="sr sr-live" aria-live="polite"></p>
   </div>
 </section>
 
@@ -133,6 +96,11 @@
     <a class="more" href="plugins.html">See all and filter →</a>
   </div>
   <div class="grid g3">
+    <a class="card prod" href="revolution.html">
+      <div class="stage"><img src="img/revolution/shatter.jpg" alt="Revolution interface, Shatter page" width="1248" height="832" loading="lazy"><span class="badge">7-day trial</span></div>
+      <div class="body"><span class="type">Instrument · synth</span><h3>Revolution</h3><p>A wavetable synth with four sound engines, 3,000 presets, eight skins and animated scenes. Vital and Serum 2 presets import in one drop.</p>
+        <div class="foot"><span>Mac · Win · Linux</span><span>29 €</span></div></div>
+    </a>
     <a class="card prod" href="radtune95.html">
       <div class="stage" style="background:#ece3f7"><img src="img/radtune95-main.jpg" alt="RADTUNE 95 interface" width="1240" height="1010" loading="lazy"><span class="badge" style="color:#9b2c9e">New</span></div>
       <div class="body"><span class="type" style="color:#9b2c9e">Effect · vocal pitch</span><h3>RADTUNE 95</h3><p>Real-time vocal pitch correction with a Windows 95 look: robot mode, doubler, choir and 17 presets.</p>
@@ -149,12 +117,12 @@
         <div class="foot"><span>Mac · Win · Linux</span><span>Free</span></div></div>
     </a>
     <a class="card prod" href="halcyon.html">
-      <div class="stage" style="background:#e2f4f2"><img src="img/halcyon-skins.jpg" alt="Halcyon in its six skins" width="1892" height="854" loading="lazy"><span class="badge" style="color:#0a7a74">1.3</span></div>
+      <div class="stage" style="background:#e2f4f2"><img class="fit" src="img/halcyon-skins.jpg" alt="Halcyon in its six skins" width="1892" height="854" loading="lazy"><span class="badge" style="color:#0a7a74">1.3</span></div>
       <div class="body"><span class="type" style="color:#0a7a74">Instrument · synth</span><h3>Halcyon</h3><p>A wavetable synth with 2,342 presets, Classics, Breed, Time Machine and Vital / Serum 2 import.</p>
         <div class="foot"><span>Mac · Win · Linux</span><span>Free</span></div></div>
     </a>
     <a class="card prod" href="sampletuned.html">
-      <div class="stage" style="background:#e4ecf6"><img src="img/sampletuned/sampletuned-600x600.png" alt="SampleTuned colour wheel" width="600" height="600" loading="lazy"><span class="badge" style="color:#1d4f8a">1.2</span></div>
+      <div class="stage" style="background:#e4ecf6"><img class="fit" src="img/sampletuned/sampletuned-600x600.png" alt="SampleTuned colour wheel" width="600" height="600" loading="lazy"><span class="badge" style="color:#1d4f8a">1.2</span></div>
       <div class="body"><span class="type" style="color:#1d4f8a">Sample browser</span><h3>SampleTuned</h3><p>Sort your sample library by key and type on a colour wheel. Hover to listen, drag into your DAW.</p>
         <div class="foot"><span>Mac · Win · Linux</span><span>Free</span></div></div>
     </a>
@@ -243,7 +211,7 @@
 
 <footer class="site-foot"><div class="wrap">
   <div class="cols">
-    <div><img src="img/brand/rems-plugins-logo-on-light.png" alt="Rems Plugins" width="203" height="34" loading="lazy" style="display:block;height:34px;width:auto"></div>
+    <div><img class="logo-full" src="img/brand/rems-plugins-logo-dark.png" alt="Rems Plugins" width="420" height="295" loading="lazy"></div>
     <div><h4>Plug-ins</h4><a href="revolution.html">Revolution</a><a href="radtune95.html">RADTUNE 95</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="sampletuned.html">SampleTuned</a><a href="plugins.html">All plug-ins</a></div>
     <div><h4>Help</h4><a href="help.html">Install guide</a><a href="help.html#macos">If macOS blocks a plug-in</a><a href="help.html#changelog">What's new</a></div>
     <div><h4>Community</h4><a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee</a><a href="./#newsletter">Newsletter</a></div>
@@ -251,6 +219,7 @@
   <div class="fine"><span>© 2026 Rems Plugins. VST is a trademark of Steinberg Media Technologies GmbH.</span><span>Your email is used to send you the download links and, only if you tick the box, news about updates and new plug-ins. Unsubscribe anytime. Emails are sent with Brevo.</span></div>
 </div></footer>
 <script src="js/site.js?v=3"></script>
+<script src="js/sunrise.js?v=1"></script>
 <script>
 // old links (newsletters, posts) pointed to sections of the previous one-page site
 (function(){var m={'#halcyon':'halcyon.html','#mixpilot':'mixpilot.html','#install':'help.html','#changelog':'help.html#changelog'};if(m[location.hash])location.replace(m[location.hash]);})();
