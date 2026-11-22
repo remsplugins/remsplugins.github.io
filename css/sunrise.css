@@ -1,6 +1,7 @@
 /* Home page, "Sunrise" dark style (Nov 2026).
    Near-black ground, one orange accent, a glowing orange arc behind the plug-ins carousel.
-   Loaded only by index.html, on top of site.css: other pages keep the light theme. */
+   Loaded on top of site.css by the pages whose <body> has class "sunrise"
+   (home, Revolution, MixPilot, Halcyon, SampleTuned); the other pages keep the light theme. */
 body.sunrise{
   --bg:#0b0b0d; --card:#141417; --ink:#f4f4f5; --ink-2:#d4d4d8; --text:#b4b4bd; --muted:#8e8e99;
   --line:#23232a; --line-2:#2a2a30; --line-3:#3a3a42;
@@ -118,3 +119,62 @@ body.sunrise{
 .sunrise .site-foot a:hover{color:var(--ink)}
 .sunrise .site-foot .fine{border-top-color:var(--line)}
 .sunrise .site-foot .logo-full{display:block;width:170px;height:auto}
+
+/* shared parts used on product pages */
+.sunrise .subnav{background:rgba(11,11,13,.92);border-color:var(--line)}
+.sunrise .subnav a{color:var(--text)}
+.sunrise .subnav a:hover{color:var(--ink)}
+.sunrise .crumbs,.sunrise .crumbs a{color:var(--muted)}
+.sunrise .crumbs span{color:var(--ink)}
+.sunrise .pill{background:var(--accent-bg);color:var(--accent-deep)}
+.sunrise .pill.dark{background:var(--ink);color:#0b0b0d}
+.sunrise .tags span,.sunrise .chips span{background:#141417;border-color:var(--line-2);color:var(--ink-2)}
+.sunrise .stripe{background:var(--orange)}
+.sunrise .box,.sunrise .panel,.sunrise .empty{background:#141417;border-color:var(--line);box-shadow:none}
+.sunrise .box p{color:var(--text)}
+.sunrise .choice{background:#141417;border-color:var(--line-3);color:var(--ink)}
+.sunrise .choice[aria-pressed=true],.sunrise .choice[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#0b0b0d}
+.sunrise .seg{background:#141417;border-color:var(--line-2)}
+.sunrise .seg .choice{background:transparent}
+.sunrise .seg .choice[aria-selected=true]{background:var(--ink);color:#0b0b0d}
+.sunrise .opt,.sunrise .fmt{background:#141417;border-color:var(--line-2);color:var(--ink)}
+.sunrise .specs dt,.sunrise .specs dd{border-color:var(--line-2)}
+.sunrise .checks li::before{filter:hue-rotate(160deg) saturate(2) brightness(1.4)}
+.sunrise .ui{box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.06)}
+.sunrise .video{box-shadow:0 30px 70px rgba(0,0,0,.55)}
+.sunrise .cmd button{background:var(--ink);color:#0b0b0d}
+.sunrise .rel{border-color:var(--line-2)}
+.sunrise .selects select{background:#141417;border-color:var(--line-3);color:var(--ink)}
+.sunrise .meter{background:var(--line-2)}
+.sunrise .meter .tick{background:#0b0b0d}
+.sunrise .feat-card .pic{background:#0e0e11}
+.sunrise dialog.signup{background:#141417;color:var(--ink);border:1px solid var(--line-2)}
+.sunrise dialog.signup .close{background:#0b0b0d;border-color:var(--line-2);color:var(--ink)}
+.sunrise dialog.signup::backdrop{background:rgba(0,0,0,.7)}
+.sunrise .thanks-card{background:#1d1d22;border:1px solid var(--line-2)}
+.sunrise .dl-count,.sunrise .dl-count svg{color:var(--muted)}
+
+/* page heroes: dark ground with a soft orange sunrise glow */
+.sunrise .rv-hero,.sunrise .mp-hero,.sunrise .hc-hero{background:radial-gradient(ellipse 70% 60% at 50% 105%,rgba(255,90,31,.22),rgba(11,11,13,0) 70%),var(--bg);border-bottom-color:var(--line)}
+.sunrise .rv-hero .shot img{box-shadow:0 -20px 80px rgba(255,90,31,.25),0 0 0 1px rgba(255,140,80,.25)}
+
+/* Revolution page */
+.sunrise .scenes figure,.sunrise .tm,.sunrise .halcyon{background:#141417;border-color:var(--line)}
+.sunrise .scenes figcaption span,.sunrise .halcyon p{color:var(--text)}
+.sunrise .skin-list .choice[aria-pressed=true]{background:var(--accent-bg);border-color:var(--accent);color:var(--ink)}
+.sunrise .filt{background:#141417}
+.sunrise .fx8 div{background:#141417;border-color:var(--line)}
+.sunrise .touch{background:#060607}
+.sunrise .yt-title{color:var(--ink)}
+
+/* MixPilot page */
+.sunrise .num li::before{background:var(--orange);color:var(--on-orange)}
+
+/* SampleTuned page: download dialog */
+.sunrise dialog.pact{background:#141417;color:var(--ink);border-color:var(--line-2)}
+.sunrise .pact .close,.sunrise .pact .sub,.sunrise .pact .optin,.sunrise .pact .optin small,.sunrise .pact .legal{color:var(--text)}
+.sunrise .pact input[type=email]{background:#0b0b0d;border-color:var(--line-3);color:var(--ink)}
+.sunrise .pact button[type=submit]{background:var(--orange);color:var(--on-orange)}
+.sunrise .pact .err{color:#ff8a80}
+.sunrise .dl-count{background:#141417;border-color:var(--line-2)}
+.sunrise .dl-count b{color:var(--ink)}
