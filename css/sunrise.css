@@ -1,7 +1,7 @@
 /* Home page, "Sunrise" dark style (Nov 2026).
    Near-black ground, one orange accent, a glowing orange arc behind the plug-ins carousel.
    Loaded on top of site.css by the pages whose <body> has class "sunrise"
-   (home, Revolution, MixPilot, Halcyon, SampleTuned); the other pages keep the light theme. */
+   (home, catalogue, Revolution, MixPilot, Halcyon, SampleTuned); the other pages keep the light theme. */
 body.sunrise{
   --bg:#0b0b0d; --card:#141417; --ink:#f4f4f5; --ink-2:#d4d4d8; --text:#b4b4bd; --muted:#8e8e99;
   --line:#23232a; --line-2:#2a2a30; --line-3:#3a3a42;
@@ -178,3 +178,12 @@ body.sunrise{
 .sunrise .pact .err{color:#ff8a80}
 .sunrise .dl-count{background:#141417;border-color:var(--line-2)}
 .sunrise .dl-count b{color:var(--ink)}
+
+/* catalogue page */
+.sunrise .cat-tabs{border-bottom-color:var(--line-2)}
+.sunrise .choice select{color:var(--ink)!important}
+.sunrise .choice select option{background:#141417;color:var(--ink)}
+.sunrise .choice input{background:transparent;color:var(--ink);border:0}
+.sunrise .opt::before{border-color:#6a6a74}
+.sunrise .opt[aria-pressed=true],.sunrise .fmt[aria-pressed=true]{border-color:var(--accent);background:var(--accent-bg)}
+.sunrise .opt[aria-pressed=true]::before{border-color:var(--orange);background:var(--orange)}
