@@ -303,17 +303,17 @@ form.js-notify{display:flex;flex-direction:column;gap:12px}
 .carousel{position:relative}
 .car-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 4px 16px;-webkit-overflow-scrolling:touch}
 .car-track::-webkit-scrollbar{display:none}
-.car-slide{position:relative;flex:0 0 min(420px,78vw);scroll-snap-align:start;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);text-decoration:none;color:inherit;display:block}
-.car-slide img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .35s ease}
+.car-slide{position:relative;flex:0 0 min(640px,90vw);scroll-snap-align:start;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);text-decoration:none;color:inherit;display:block}
+.car-slide img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .35s ease}
 .car-slide:hover img,.car-slide:focus-visible img{transform:scale(1.04)}
 .car-cap{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 12px;background:linear-gradient(transparent,rgba(10,12,16,.75));color:#fff;display:flex;flex-direction:column;gap:2px}
-.car-cap b{font-family:var(--display);font-size:18px;font-weight:600}
-.car-cap small{font-size:13px;opacity:.92}
-.car-btn{position:absolute;top:calc((100% - 34px)/2);transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:#fff;color:var(--ink);font-size:17px;cursor:pointer;box-shadow:0 6px 18px rgba(21,23,28,.14);display:flex;align-items:center;justify-content:center;z-index:2;padding:0}
+.car-cap b{font-family:var(--display);font-size:22px;font-weight:600}
+.car-cap small{font-size:15px;opacity:.92}
+.car-btn{position:absolute;top:calc((100% - 34px)/2);transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);background:#fff;color:var(--ink);font-size:20px;cursor:pointer;box-shadow:0 6px 18px rgba(21,23,28,.14);display:flex;align-items:center;justify-content:center;z-index:2;padding:0}
 .car-prev{left:-10px}.car-next{right:-10px}
 .car-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 .car-dots{display:flex;gap:8px;justify-content:center}
 .car-dots button{width:8px;height:8px;border-radius:50%;border:0;background:var(--line-3);cursor:pointer;padding:0}
 .car-dots button[aria-selected="true"]{background:var(--ink)}
-@media (max-width:720px){.car-prev{left:6px}.car-next{right:6px}.car-slide{flex-basis:min(320px,82vw)}}
+@media (max-width:720px){.car-prev{left:6px}.car-next{right:6px}.car-slide{flex-basis:88vw}}
 @media (prefers-reduced-motion:reduce){.car-slide img{transition:none}}
