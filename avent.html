@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/site.css?v=4">
+<link rel="stylesheet" href="css/sunrise.css?v=3">
+<meta name="theme-color" content="#0b0b0d">
+<title>Advent Calendar · Rems Plugins</title>
+<meta name="description" content="The Revolution Advent Calendar: one free gift a day from December 1 to 24. Presets, wavetables and loops for the Revolution wavetable synth.">
+<meta property="og:title" content="The Revolution Advent Calendar">
+<meta property="og:description" content="One free gift a day, December 1 to 24: presets, wavetables and loops for Revolution.">
+<meta property="og:image" content="https://remsplugins.com/img/revolution/revolution-og.jpg">
+<meta property="og:url" content="https://remsplugins.com/avent.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://remsplugins.com/avent.html">
+<style>
+dialog.pact{width:min(440px,calc(100% - 32px));border:1px solid #d9d4ca;border-radius:18px;padding:0;background:#fff;color:#16181d;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+dialog.pact::backdrop{background:rgba(20,22,28,.55)}
+.pact form{display:grid;gap:14px;padding:28px 26px 22px;position:relative}
+.pact .close{position:absolute;right:10px;top:8px;width:36px;height:36px;border:0;background:none;font-size:26px;cursor:pointer;color:#555}
+.pact h2{font:600 26px/1.2 Unbounded,system-ui,sans-serif;margin:0}
+.pact .sub{font-size:15px;color:#555;margin:0}
+.pact label.f{display:grid;gap:6px;font-size:14px;font-weight:600}
+.pact input[type=email]{font:inherit;font-size:16px;border:1px solid #cfc9bd;border-radius:10px;padding:11px 13px;width:100%}
+.pact .optin{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#444}
+.pact .optin input{margin-top:3px;width:16px;height:16px;flex:none}
+.pact .optin small{display:block;color:#777}
+.pact .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.pact .err{color:#b3261e;font-size:14px;min-height:0;margin:0}
+.pact button[type=submit]{font:600 16px Inter,system-ui,sans-serif;background:#16181d;color:#fff;border:0;border-radius:999px;padding:13px;cursor:pointer}
+.pact button[type=submit]:disabled{opacity:.6}
+.pact .legal{font-size:12px;color:#777;margin:0}
+.adv-hero{padding:64px 0 20px;text-align:center}
+.adv-hero h1{font-size:clamp(34px,6vw,64px);color:var(--ink)}
+.adv-hero h1 em{font-style:normal;color:var(--orange)}
+.adv-hero p{max-width:620px;margin:16px auto 0;color:var(--text);font-size:18px}
+.adv-note{margin:18px auto 0;display:inline-block;background:#141417;border:1px solid var(--line-2);border-radius:999px;padding:8px 16px;font-size:14px;color:var(--ink-2)}
+.adv-note[hidden]{display:none}
+.adv-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;padding:28px 0 40px}
+@media(max-width:900px){.adv-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:560px){.adv-grid{grid-template-columns:repeat(3,1fr);gap:10px}}
+.box{position:relative;aspect-ratio:1/1.1;border-radius:18px;border:1px solid var(--line-2);background:#141417;perspective:900px}
+.box .n{font-family:var(--display);font-weight:800;font-size:clamp(24px,4vw,34px);line-height:1}
+.box .face{position:absolute;inset:0;border-radius:18px;padding:12px;display:flex;flex-direction:column;justify-content:space-between}
+.box.locked{background:repeating-linear-gradient(-45deg,#141417 0 14px,#18181c 14px 28px)}
+.box.locked .n{color:var(--muted)}
+.box .lock{font-size:12px;color:var(--muted);font-weight:600}
+.inside{background:radial-gradient(circle at 50% 35%,#3a1a0d,#141417 72%)}
+.inside .n{color:#ff8a5b}
+.inside .g{font-size:13px;font-weight:700;color:#fff;line-height:1.3}
+.inside .t{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.inside .get{font:800 12px var(--body);white-space:nowrap;background:var(--orange);color:var(--on-orange);border:0;border-radius:999px;padding:7px 11px;align-self:flex-start;cursor:pointer}
+.inside .get[disabled]{background:#2a2a30;color:var(--muted);cursor:default}
+.box.fresh .inside .g,.box.fresh .inside .t{transform:scale(.6);opacity:0;transition:all .5s .45s cubic-bezier(.2,1.6,.4,1)}
+.box.fresh .inside .get{opacity:0;transform:translateY(10px);transition:all .4s .7s}
+.box.fresh.opened .inside .g,.box.fresh.opened .inside .t,.box.fresh.opened .inside .get{opacity:1;transform:none}
+.door{z-index:2;cursor:pointer;background:linear-gradient(150deg,#2a2a30,#1c1c21);border:1px solid #3a3a42;transform-origin:left center;transition:transform 1s cubic-bezier(.6,.05,.2,1),opacity .3s .8s;backface-visibility:hidden}
+.door .n{color:var(--ink)}
+.door .tap{font-size:12px;font-weight:800;color:var(--ink);border:1px solid #3a3a42;border-radius:999px;padding:6px 10px;align-self:flex-start;white-space:nowrap}
+.door:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:10px;margin-left:-5px;background:#ffffff10}
+.box.today{z-index:3;border-color:#ff8a5b;box-shadow:0 18px 50px rgba(255,90,31,.35)}
+.box.today .door{background:linear-gradient(150deg,#ff5a1f,#ff8a5b);border:0;animation:wiggle 2.4s ease-in-out infinite}
+.box.today .door .n,.box.today .door .tap{color:#160a04}.box.today .door .tap{background:#fff;border:0}
+.box.opened .door{transform:rotateY(-115deg);opacity:0;pointer-events:none;animation:none}
+@keyframes wiggle{0%,80%,100%{transform:rotate(0)}85%{transform:rotate(-2deg)}90%{transform:rotate(2deg)}95%{transform:rotate(-1deg)}}
+.flash{position:absolute;inset:-30px;border-radius:30px;background:radial-gradient(circle,#ffb38a 0,#ff5a1f55 40%,transparent 70%);opacity:0;pointer-events:none}
+.box.opened.fresh .flash{animation:flash .9s ease-out}
+@keyframes flash{0%{opacity:0;transform:scale(.6)}30%{opacity:1}100%{opacity:0;transform:scale(1.4)}}
+.bit{position:absolute;left:50%;top:50%;border-radius:50%;pointer-events:none;z-index:5}
+@media (prefers-reduced-motion:reduce){.door,.box.today .door{transition:none;animation:none}.box.fresh .inside *{transition:none}}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-bottom:56px}
+@media(max-width:700px){.how{grid-template-columns:1fr}}
+.how div{background:#141417;border:1px solid var(--line-2);border-radius:18px;padding:20px}
+.how b{display:block;color:var(--ink);font-family:var(--display);font-size:18px;margin-bottom:6px}
+.how span{color:var(--text);font-size:15px}
+.adv-cta{text-align:center;padding:0 0 70px}
+.adv-cta a{display:inline-block;background:var(--orange);color:var(--on-orange);font-weight:800;padding:16px 28px;border-radius:999px;text-decoration:none}
+.pact .known{background:none;border:0;padding:0;font:600 13px var(--body);color:var(--accent);text-decoration:underline;cursor:pointer;justify-self:start}
+</style>
+</head>
+<body class="sunrise">
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="./" aria-label="Rems Plugins, home"><img src="img/brand/rems-mark-dark.png" alt="" width="52" height="34">REMS PLUGINS</a>
+  <nav class="nav" aria-label="Main"><div class="nav-dd"><a class="nav-dd-btn" href="plugins.html" aria-haspopup="true">Plugins <span aria-hidden="true">▾</span></a><div class="nav-menu"><a href="plugins.html">All plugins</a><a href="revolution.html">Revolution</a><a href="radtune95.html">RADTUNE 95</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="sampletuned.html">SampleTuned</a></div></div><a href="revolution.html" class="hot">Revolution</a><a href="help.html">Install</a><a href="help.html#changelog">What's new</a></nav>
+  <div class="head-cta"><a class="btn btn-coffee btn-sm" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee</a></div>
+</div></header>
+<main class="wrap">
+<section class="adv-hero">
+<div class="kicker">December 1 - 24</div>
+<h1>The Revolution <em>Advent Calendar</em></h1>
+<p>One free gift a day for Revolution: presets, wavetables and loops. Come back every morning, a new box opens.</p>
+<p class="adv-note" id="adv-note" hidden></p>
+</section>
+<section class="adv-grid" id="adv-grid" aria-label="Advent calendar boxes"></section>
+<section class="how">
+<div><b>1. Get Revolution</b><span>The free demo is enough to load every gift.</span></div>
+<div><b>2. Open a box</b><span>Each gift is a free download and stays available until December 31.</span></div>
+<div><b>3. Drop it in</b><span>Load the presets or wavetables in Revolution, or the loops in your DAW.</span></div>
+</section>
+<div class="adv-cta"><a href="revolution.html">Free VST demo</a></div>
+</main>
+<footer class="site-foot"><div class="wrap">
+  <div class="cols">
+    <div><img class="logo-full" src="img/brand/rems-plugins-logo-dark.png" alt="Rems Plugins" width="420" height="295" loading="lazy"></div>
+    <div><h4>Plug-ins</h4><a href="revolution.html">Revolution</a><a href="radtune95.html">RADTUNE 95</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="sampletuned.html">SampleTuned</a><a href="plugins.html">All plug-ins</a></div>
+    <div><h4>Help</h4><a href="help.html">Install guide</a><a href="help.html#macos">If macOS blocks a plug-in</a><a href="help.html#changelog">What's new</a></div>
+    <div><h4>Community</h4><a href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee</a><a href="./#newsletter">Newsletter</a></div>
+  </div>
+  <div class="fine"><span>© 2026 Rems Plugins. VST is a trademark of Steinberg Media Technologies GmbH.</span><span>Your email is used to send you the download links and, only if you tick the box, news about updates and new plug-ins. Unsubscribe anytime. Emails are sent with Brevo.</span></div>
+</div></footer>
+<dialog class="pact" id="signup" aria-labelledby="su-title">
+  <form id="su-form" method="POST" action="https://83624506.sibforms.com/serve/MUIFAJ_K2-8yEx0hM65dNAN9YlxWxZlgmpC9fWGR0itQIPezsBkQH99aHNgvOY4KgGUBGxujkIrHeq_HbMRT43KHnFZnxmJ1xHBC9fhewqAIb3Ax95mntkHvSg9uKV7A4Je6QgtpwnkqIim0ny_2pGAbpI7oja2ytzHJeillrtfzoJr9FSkmNuVbJqYtO8_J7iMon9HQW-6xR_QWIw==" novalidate>
+    <button class="close" type="button" id="su-close" aria-label="Close">×</button>
+    <h2 id="su-title" class="gold">Unwrap your gift</h2>
+    <p class="sub">Leave your email once and every box of the calendar opens straight away, all month long.</p>
+    <label class="f">Email address
+      <input type="email" name="EMAIL" id="su-email" autocomplete="email" placeholder="you@example.com" required>
+    </label>
+    <label class="optin"><input type="checkbox" name="NEWSLETTER" value="1">
+      <span>I agree to receive emails from Rems Plugins about new products and updates<small>Optional, not needed for the gifts. Unsubscribe anytime with one click.</small></span></label>
+    <input type="text" name="email_address_check" value="" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="locale" value="en">
+    <p class="err" id="su-err" role="alert"></p>
+    <button class="btn btn-spin" type="submit" id="su-go">Get my gift</button>
+    <button class="known" type="button" id="su-known">Already gave us your email? Skip this</button>
+    <p class="legal">We use your email to give you the downloads and, only if you tick the box, to send news. Emails are sent with Brevo. No spam, ever.</p>
+  </form>
+</dialog>
+<script>
+(function(){
+  // Gifts: set "file" once the zip is in downloads/avent/. type: P = presets, W = wavetables, L = loops.
+  var GIFTS=[
+    ['5 pads "Snow Night"','Presets',null],['10 wavetables "Analog Drift"','Wavetables',null],['4 basses 80s','Presets',null],
+    ['"Winter House" loops, 124 BPM','Loops',null],['5 FM leads','Presets',null],['8 wavetables "Glass Bells"','Wavetables',null],
+    ['5 keys "Fireplace"','Presets',null],['10 wavetables "Pluck Shapes"','Wavetables',null],['4 Live pad sets','Presets',null],
+    ['10 wavetables "Vocal Formants"','Wavetables',null],['5 plucks "Ice"','Presets',null],['"Lo-fi Christmas" loops, 85 BPM','Loops',null],
+    ['5 cinematic pads','Presets',null],['8 wavetables "Tape"','Wavetables',null],['5 synthwave basses','Presets',null],
+    ['8 wavetables "Techno Metal"','Wavetables',null],['5 synth brass','Presets',null],['10 wavetables "Digital Grit"','Wavetables',null],
+    ['5 ambient drones','Presets',null],['"Melodic House" loops, 124 BPM','Loops',null],['5 supersaw leads','Presets',null],
+    ['8 wavetables "Choir"','Wavetables',null],['Best of the 24','Presets',null],['"Christmas Eve" surprise, 10 presets','Presets',null]
+  ];
+  var YEAR=2026, ORDER=[13,2,19,8,24,5,11,17,1,22,7,15,4,20,10,16,3,23,9,14,6,21,12,18];
+  var BREVO_OK='rp_email_given', OPENED='rp_advent_opened';
+  function get(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+  function set(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+  var q=new URLSearchParams(location.search);
+  // links in Rems Plugins emails carry ?s=1: subscribers never see the email box
+  if(q.get('s')==='1'){set(BREVO_OK,'1');q.delete('s');history.replaceState(null,'',location.pathname+(q.toString()?'?'+q:'')+location.hash);}
+  // today's date in Paris (YYYY-MM-DD); ?preview=2026-12-05 to check the page before December
+  var today=q.get('preview')||new Date().toLocaleDateString('en-CA',{timeZone:'Europe/Paris'});
+  function dayDate(d){return YEAR+'-12-'+(d<10?'0':'')+d;}
+  var opened=(get(OPENED)||'').split(',').filter(Boolean);
+  var grid=document.getElementById('adv-grid'), note=document.getElementById('adv-note');
+  if(today<dayDate(1)){note.hidden=false;note.textContent='The first box opens on December 1. See you there!';}
+  else if(today>dayDate(31)){note.hidden=false;note.textContent='The calendar is over. Thanks for opening it with us!';}
+
+  ORDER.forEach(function(d){
+    var g=GIFTS[d-1], el=document.createElement('div'); el.className='box';
+    var unlocked=today>=dayDate(d)&&today<=dayDate(31), isToday=today===dayDate(d);
+    if(!unlocked){el.classList.add('locked');el.innerHTML='<div class="face"><span class="n">'+d+'</span><span class="lock">Opens Dec '+d+'</span></div>';grid.appendChild(el);return;}
+    if(isToday)el.classList.add('today');
+    var ready=!!g[2];
+    el.innerHTML='<div class="flash"></div><div class="face inside"><span class="n">'+d+'</span><span><span class="t">'+g[1]+'</span><br><span class="g">'+g[0]+'</span></span>'+
+      '<button class="get" type="button"'+(ready?'':' disabled')+'>'+(ready?'Free download':'Coming soon')+'</button></div>'+
+      '<div class="face door" role="button" tabindex="0" aria-label="Open box '+d+'"><span class="n">'+d+'</span><span class="tap">'+(isToday?'Tap to open':'Open')+'</span></div>';
+    if(opened.indexOf(String(d))>=0)el.classList.add('opened');
+    var door=el.querySelector('.door');
+    function open(){if(el.classList.contains('opened'))return;el.classList.add('fresh','opened');opened.push(String(d));set(OPENED,opened.join(','));burst(el);}
+    door.addEventListener('click',open);
+    door.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+    if(ready)el.querySelector('.get').addEventListener('click',function(){download(g[2]);});
+    grid.appendChild(el);
+  });
+
+  function burst(el){
+    if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    var c=['#ff5a1f','#ff8a5b','#ffffff','#ffd34a','#8ab4ff'];
+    for(var i=0;i<36;i++){var p=document.createElement('span');p.className='bit';p.style.background=c[i%c.length];
+      var s=6+Math.random()*8;p.style.width=p.style.height=s+'px';if(i%3===0)p.style.borderRadius='2px';el.appendChild(p);
+      var a=Math.random()*Math.PI*2,r=90+Math.random()*170;
+      var an=p.animate([{transform:'translate(-50%,-50%)',opacity:1},{transform:'translate('+(Math.cos(a)*r)+'px,'+(Math.sin(a)*r+60)+'px) rotate('+(Math.random()*720)+'deg) scale(.2)',opacity:0}],{duration:1100+Math.random()*500,easing:'cubic-bezier(.1,.8,.3,1)',fill:'forwards'});
+      an.onfinish=(function(n){return function(){n.remove();};})(p);}
+  }
+
+  // email once: after that, every box downloads directly on this browser
+  var dlg=document.getElementById('signup'),fm=document.getElementById('su-form'),em=document.getElementById('su-email'),er=document.getElementById('su-err'),go=document.getElementById('su-go'),label=go.textContent,pending=null;
+  function fetchFile(url){var a=document.createElement('a');a.href=url;a.download='';document.body.appendChild(a);a.click();a.remove();}
+  function download(url){if(get(BREVO_OK)==='1'||typeof dlg.showModal!=='function'){fetchFile(url);return;}pending=url;er.textContent='';dlg.showModal();em.focus();}
+  function unlock(){set(BREVO_OK,'1');dlg.close();if(pending)fetchFile(pending);pending=null;}
+  document.getElementById('su-close').addEventListener('click',function(){dlg.close();});
+  document.getElementById('su-known').addEventListener('click',unlock);
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+  fm.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em.value.trim())){er.textContent='Please enter a valid email address.';em.focus();return;}
+    go.disabled=true;go.textContent='One moment…';er.textContent='';
+    var done=false,t;function next(){if(!done){done=true;go.disabled=false;go.textContent=label;unlock();}}
+    fetch(fm.action,{method:'POST',body:new FormData(fm),mode:'no-cors'}).then(next,function(){done=true;clearTimeout(t);go.disabled=false;go.textContent=label;er.textContent='Something went wrong. Please check your connection and try again.';});
+    t=setTimeout(next,8000);
+  });
+})();
+</script>
+</body>
+</html>
