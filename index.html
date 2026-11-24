@@ -36,7 +36,7 @@
 <body class="sunrise">
 <header class="site-head"><div class="wrap">
   <a class="brand" href="./" aria-label="Rems Plugins, home"><img src="img/brand/rems-mark-dark.png" alt="" width="52" height="34">REMS PLUGINS</a>
-  <nav class="nav" aria-label="Main"><div class="nav-dd"><a class="nav-dd-btn" href="plugins.html" aria-haspopup="true">Plugins <span aria-hidden="true">▾</span></a><div class="nav-menu"><a href="plugins.html">All plugins</a><a href="revolution.html">Revolution</a><a href="radtune95.html">RADTUNE 95</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="sampletuned.html">SampleTuned</a></div></div><a href="revolution.html" class="hot">Revolution</a><a href="help.html">Install</a><a href="help.html#changelog">What's new</a></nav>
+  <nav class="nav" aria-label="Main"><div class="nav-dd"><a class="nav-dd-btn" href="plugins.html" aria-haspopup="true">Plugins <span aria-hidden="true">▾</span></a><div class="nav-menu"><a href="plugins.html">All plugins</a><a href="revolution.html">Revolution</a><a href="radtune95.html">RADTUNE 95</a><a href="lucky-beats.html">Lucky Beats</a><a href="mixpilot.html">MixPilot</a><a href="halcyon.html">Halcyon</a><a href="synthoween.html">Synth'O'Ween</a><a href="sampletuned.html">SampleTuned</a></div></div><a href="revolution.html" class="hot">Revolution</a><a href="avent.html">Advent calendar</a><a href="help.html">Install</a><a href="help.html#changelog">What's new</a></nav>
   <div class="head-cta"><a class="btn btn-coffee btn-sm" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Buy me a coffee</a></div>
 </div></header>
 
@@ -71,6 +71,40 @@
     </div>
     <p class="sr sr-live" aria-live="polite"></p>
   </div>
+</section>
+
+
+<!-- advent calendar promo -->
+<section class="wrap sec adv-promo-wrap" aria-labelledby="adv-promo-title">
+  <a class="adv-promo" href="avent.html">
+    <div class="adv-txt">
+      <p class="adv-kick">December 1 to 24</p>
+      <h2 id="adv-promo-title">Revolution Advent Calendar</h2>
+      <p>A free gift for Revolution every day: preset packs, wavetables and loop kits. Open one box a day.</p>
+      <span class="adv-btn" data-adv-label>Open the calendar →</span>
+    </div>
+    <div class="adv-doors" aria-hidden="true">
+      <i>7</i><i>18</i><i>3</i><i>12</i><i>24</i><i>9</i><i>15</i><i>1</i><i>21</i><i>5</i><i>11</i><i>19</i>
+    </div>
+  </a>
+  <style>
+    .adv-promo{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;padding:36px 40px;border-radius:28px;text-decoration:none;color:#fff;
+      background:radial-gradient(circle at 85% 20%,#ff6a3d55 0,transparent 45%),linear-gradient(135deg,#3a0d14 0%,#1a0b10 60%,#0e0a0c 100%);border:1px solid #ff6a3d55;box-shadow:0 30px 70px #0006;transition:transform .2s}
+    .adv-promo:hover{transform:translateY(-3px)}
+    .adv-kick{font-family:var(--mono);font-size:13px;color:#ffb347;margin:0 0 8px}
+    .adv-promo h2{font-family:var(--display);font-size:clamp(26px,4vw,40px);line-height:1.1;margin:0 0 12px;color:#fff}
+    .adv-promo p{color:#f1d9d0;margin:0 0 20px;font-size:17px}
+    .adv-btn{display:inline-flex;align-items:center;min-height:48px;padding:0 26px;border-radius:999px;background:#ff6a3d;color:#1a0b10;font:700 16px var(--body)}
+    .adv-doors{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .adv-doors i{font-style:normal;aspect-ratio:1;border-radius:12px;display:flex;align-items:center;justify-content:center;font:800 20px var(--display);color:#ffd9a0;
+      background:linear-gradient(160deg,#5a1620,#2a0c12);border:1px solid #ffb34755;box-shadow:inset 0 0 0 4px #ffffff08}
+    .adv-doors i:nth-child(8){background:#ff6a3d;color:#1a0b10;box-shadow:0 0 30px #ff6a3d99;animation:advw 2.4s ease-in-out infinite}
+    @keyframes advw{0%,100%{transform:rotate(0)}10%{transform:rotate(-6deg)}20%{transform:rotate(6deg)}30%{transform:rotate(0)}}
+    @media (prefers-reduced-motion:reduce){.adv-doors i{animation:none!important}}
+    @media (max-width:760px){.adv-promo{grid-template-columns:1fr;padding:26px 22px}.adv-doors{grid-template-columns:repeat(6,1fr);gap:6px}.adv-doors i{font-size:14px;border-radius:8px}}
+  </style>
+  <script>(function(){try{var d=new Date().toLocaleDateString('en-CA',{timeZone:'Europe/Paris'});var el=document.querySelector('[data-adv-label]');
+    if(d>='2026-12-01'&&d<='2026-12-24')el.textContent="Open today's box →";else if(d<'2026-12-01')el.textContent='See the calendar →';}catch(e){}})();</script>
 </section>
 
 <!-- inside Revolution -->
