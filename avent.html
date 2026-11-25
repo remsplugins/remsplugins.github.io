@@ -61,10 +61,13 @@ dialog.win::backdrop{background:rgba(10,10,14,.7)}
 .adv-hero p{max-width:620px;margin:16px auto 0;color:var(--text);font-size:18px}
 .adv-note{margin:18px auto 0;display:inline-block;background:#141417;border:1px solid var(--line-2);border-radius:999px;padding:8px 16px;font-size:14px;color:var(--ink-2)}
 .adv-note[hidden]{display:none}
-.adv-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;padding:28px 0 40px}
+.adv-grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-flow:dense;gap:14px;padding:28px 0 40px}
 @media(max-width:900px){.adv-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:560px){.adv-grid{grid-template-columns:repeat(3,1fr);gap:10px}}
 .box{position:relative;aspect-ratio:1/1.1;border-radius:18px;border:1px solid var(--line-2);background:#141417;perspective:900px}
+.box.big{grid-column:span 2;aspect-ratio:2.1/1.1;border-color:#ff8a5b66}
+.box.big .n{font-size:clamp(30px,5vw,44px)}
+.box.big .inside .g{font-size:clamp(15px,2.4vw,20px)}
 .box .n{font-family:var(--display);font-weight:800;font-size:clamp(24px,4vw,34px);line-height:1}
 .box .face{position:absolute;inset:0;border-radius:18px;padding:12px;display:flex;flex-direction:column;justify-content:space-between}
 .box.locked{background:repeating-linear-gradient(-45deg,#141417 0 14px,#18181c 14px 28px)}
@@ -166,13 +169,13 @@ dialog.win::backdrop{background:rgba(10,10,14,.7)}
   // Gifts: set "file" once the zip is in downloads/avent/. type: P = presets, W = wavetables, L = loops.
   var GIFTS=[
     ['5 pads "Snow Night"','Presets',null],['10 wavetables "Analog Drift"','Wavetables',null],['4 basses 80s','Presets',null],
-    ['"Winter House" loops, 124 BPM','Loops',null],['5 FM leads','Presets',null],['8 wavetables "Glass Bells"','Wavetables',null],
-    ['5 keys "Fireplace"','Presets',null],['10 wavetables "Pluck Shapes"','Wavetables',null],['4 Live pad sets','Presets',null],
+    ['10 wavetables "Pluck Shapes"','Wavetables',null],['5 FM leads','Presets',null],['8 wavetables "Glass Bells"','Wavetables',null],
+    ['5 keys "Fireplace"','Presets',null],['SampleTuned 1.2.2, free update','Update',null,'Your gift: the SampleTuned 1.2.2 update, free. BPM range filter for loops, improved sample map, smoother library scan.'],['4 Live pad sets','Presets',null],
     ['10 wavetables "Vocal Formants"','Wavetables',null],['5 plucks "Ice"','Presets',null],['"Lo-fi Christmas" loops, 85 BPM','Loops',null],
     ['5 cinematic pads','Presets',null],['8 wavetables "Tape"','Wavetables',null],['5 synthwave basses','Presets',null],
-    ['8 wavetables "Techno Metal"','Wavetables',null],['5 synth brass','Presets',null],['10 wavetables "Digital Grit"','Wavetables',null],
+    ['RADTUNE 95 1.2, free update','Update',null,'Your gift: the RADTUNE 95 1.2 update, free.'],['5 synth brass','Presets',null],['10 wavetables "Digital Grit"','Wavetables',null],
     ['5 ambient drones','Presets',null],['"Melodic House" loops, 124 BPM','Loops',null],['5 supersaw leads','Presets',null],
-    ['8 wavetables "Choir"','Wavetables',null],['Best of the 24','Presets',null],['Revolution 1.5, free update','Update',null]
+    ['8 wavetables "Choir"','Wavetables',null],['8 wavetables "Techno Metal"','Wavetables',null],['Revolution 1.5 update + Best of the 24','Update',null,'Your Christmas gift: the Revolution 1.5 update, free, plus the Best of the 24 pack.']
   ];
   var YEAR=2026, ORDER=[13,2,19,8,24,5,11,17,1,22,7,15,4,20,10,16,3,23,9,14,6,21,12,18];
   var BREVO_OK='rp_email_given', OPENED='rp_advent_opened';
@@ -190,7 +193,7 @@ dialog.win::backdrop{background:rgba(10,10,14,.7)}
   else if(today>dayDate(31)){note.hidden=false;note.textContent='The calendar is over. Thanks for opening it with us!';}
 
   ORDER.forEach(function(d){
-    var g=GIFTS[d-1], el=document.createElement('div'); el.className='box';
+    var g=GIFTS[d-1], el=document.createElement('div'); el.className='box'+((g[1]==='Update'||g[1]==='Loops')?' big':'');
     var unlocked=today>=dayDate(d)&&today<=dayDate(31), isToday=today===dayDate(d);
     if(!unlocked){el.classList.add('locked');el.innerHTML='<div class="face"><span class="n">'+d+'</span><span class="lock">Opens Dec '+d+'</span></div>';grid.appendChild(el);return;}
     if(isToday)el.classList.add('today');
@@ -212,7 +215,7 @@ dialog.win::backdrop{background:rgba(10,10,14,.7)}
   var MSG={Presets:'Here are free presets for Revolution.',Wavetables:'Here are free wavetables for Revolution.',Loops:'Here is a free loop kit for your next track.',Update:'Your Christmas gift: the Revolution 1.5 update, free.'};
   var win=document.getElementById('win'),winG=null;
   function showWin(d,g){if(typeof win.showModal!=='function')return;winG=g;
-    document.getElementById('win-day').textContent='BOX '+d;document.getElementById('win-msg').textContent=MSG[g[1]]||'Here is your free gift.';
+    document.getElementById('win-day').textContent='BOX '+d;document.getElementById('win-msg').textContent=g[3]||MSG[g[1]]||'Here is your free gift.';
     document.getElementById('win-type').textContent=g[1];document.getElementById('win-gift').textContent=g[0];
     var b=document.getElementById('win-dl');b.disabled=!g[2];b.textContent=g[2]?'Free download':'Download coming soon';document.getElementById('win-next').textContent=d<24?'Come back tomorrow for a new gift!':'Merry Christmas, and thanks for opening the calendar with us!';win.showModal();}
   document.getElementById('win-close').addEventListener('click',function(){win.close();});
