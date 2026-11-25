@@ -24,7 +24,10 @@ body.sunrise{
 .sunrise .brand:hover{color:var(--ink)}
 .sunrise .brand img{display:block;height:34px;width:auto}
 .sunrise .nav a,.sunrise .nav-dd-btn{color:var(--text)}
-.sunrise .nav a:hover,.sunrise .nav .hot{color:var(--ink)}
+.sunrise .nav a:hover{color:var(--ink)}
+.sunrise .nav .nav-dd-btn,.sunrise .nav .nav-dd-btn[data-current]{color:#fff}
+.sunrise .nav a.hot{color:var(--accent)}
+.sunrise .nav a.hot:hover{color:var(--accent-ink)}
 .sunrise .nav-menu{background:#141417;border-color:var(--line-2);box-shadow:0 12px 32px rgba(0,0,0,.5)}
 .sunrise .nav-menu a:hover{background:rgba(255,255,255,.06)}
 .sunrise .btn-coffee{background:var(--orange);border-color:var(--orange);color:var(--on-orange);font-weight:700}
