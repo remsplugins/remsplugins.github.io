@@ -200,7 +200,7 @@ dialog.win::backdrop{background:rgba(10,10,14,.7)}
       '<div class="face door" role="button" tabindex="0" aria-label="Open box '+d+'"><span class="n">'+d+'</span><span class="tap">'+(isToday?'Tap to open':'Open')+'</span></div>';
     if(opened.indexOf(String(d))>=0)el.classList.add('opened');
     var door=el.querySelector('.door');
-    function open(){if(el.classList.contains('opened'))return;el.classList.add('fresh','opened');opened.push(String(d));set(OPENED,opened.join(','));burst(el);setTimeout(function(){showWin(d,g);},900);}
+    function open(){if(el.classList.contains('opened'))return;el.classList.add('fresh','opened');window.track&&window.track('avent-open-'+(d<10?'0':'')+d);opened.push(String(d));set(OPENED,opened.join(','));burst(el);setTimeout(function(){showWin(d,g);},900);}
     door.addEventListener('click',open);
     door.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
     if(ready)el.querySelector('.get').addEventListener('click',function(){download(g[2]);});
@@ -246,5 +246,6 @@ dialog.win::backdrop{background:rgba(10,10,14,.7)}
   });
 })();
 </script>
+<script src="js/stats.js?v=1" defer></script>
 </body>
 </html>
