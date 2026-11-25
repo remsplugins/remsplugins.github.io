@@ -175,7 +175,7 @@ dialog.win::backdrop{background:rgba(10,10,14,.7)}
     ['5 cinematic pads','Presets',null],['8 wavetables "Tape"','Wavetables',null],['5 synthwave basses','Presets',null],
     ['RADTUNE 95 1.2, free update','Update',null,'Your gift: the RADTUNE 95 1.2 update, free.'],['5 synth brass','Presets',null],['10 wavetables "Digital Grit"','Wavetables',null],
     ['5 ambient drones','Presets',null],['"Melodic House" loops, 124 BPM','Loops',null],['5 supersaw leads','Presets',null],
-    ['8 wavetables "Choir"','Wavetables',null],['8 wavetables "Techno Metal"','Wavetables',null],['Revolution 1.5 update + Best of the 24','Update',null,'Your Christmas gift: the Revolution 1.5 update, free, plus the Best of the 24 pack.']
+    ['8 wavetables "Choir"','Wavetables',null],['8 wavetables "Techno Metal"','Wavetables',null],['Big surprise !!!','Surprise',null,'Your Christmas gift: the Revolution 1.5 update, free, plus the Best of the 24 pack.']
   ];
   var YEAR=2026, ORDER=[13,2,19,8,24,5,11,17,1,22,7,15,4,20,10,16,3,23,9,14,6,21,12,18];
   var BREVO_OK='rp_email_given', OPENED='rp_advent_opened';
@@ -193,7 +193,7 @@ dialog.win::backdrop{background:rgba(10,10,14,.7)}
   else if(today>dayDate(31)){note.hidden=false;note.textContent='The calendar is over. Thanks for opening it with us!';}
 
   ORDER.forEach(function(d){
-    var g=GIFTS[d-1], el=document.createElement('div'); el.className='box'+((g[1]==='Update'||g[1]==='Loops')?' big':'');
+    var g=GIFTS[d-1], el=document.createElement('div'); el.className='box'+((g[1]==='Update'||g[1]==='Loops'||d===24)?' big':'');
     var unlocked=today>=dayDate(d)&&today<=dayDate(31), isToday=today===dayDate(d);
     if(!unlocked){el.classList.add('locked');el.innerHTML='<div class="face"><span class="n">'+d+'</span><span class="lock">Opens Dec '+d+'</span></div>';grid.appendChild(el);return;}
     if(isToday)el.classList.add('today');
