@@ -575,7 +575,7 @@ wave.addEventListener('keydown',e=>{if(!audio.duration||!audio.src.endsWith(DEMO
 // email avant téléchargement (Brevo), puis la page de téléchargement de Lucky Beats
 (function(){
   var dlg=document.getElementById('signup'),fm=document.getElementById('su-form'),em=document.getElementById('su-email'),er=document.getElementById('su-err'),go=document.getElementById('su-go');
-  var DEST='merci.html?p=Lucky%20Beats';
+  var DEST='https://remsplugins.github.io/lucky-beats-download.html';
   if(!dlg||typeof dlg.showModal!=='function') return;
   document.querySelectorAll('.js-get').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();er.textContent='';dlg.showModal();em.focus();});});
   document.getElementById('su-close').addEventListener('click',function(){dlg.close();});

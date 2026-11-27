@@ -493,7 +493,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
 // email avant téléchargement (Brevo), puis la page de téléchargement de Synth'O'Ween
 (function(){
   var dlg=document.getElementById('signup'),fm=document.getElementById('su-form'),em=document.getElementById('su-email'),er=document.getElementById('su-err'),go=document.getElementById('su-go');
-  var DEST='merci.html?p=Synth%27O%27Ween';
+  var DEST='https://remsplugins.github.io/synthoween-download.html';
   if(!dlg||typeof dlg.showModal!=='function') return;
   document.querySelectorAll('.js-get').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();er.textContent='';dlg.showModal();em.focus();});});
   document.getElementById('su-close').addEventListener('click',function(){dlg.close();});
