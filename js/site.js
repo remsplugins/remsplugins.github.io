@@ -10,7 +10,7 @@
   if(dlg&&typeof dlg.showModal==='function'){
     var fm=dlg.querySelector('form'),em=fm.querySelector('[name=EMAIL]'),er=fm.querySelector('.err'),go=fm.querySelector('[type=submit]'),label=go.textContent,dest='download.html';
     document.querySelectorAll('.js-get').forEach(function(a){a.addEventListener('click',function(e){
-      e.preventDefault();dest=a.dataset.dest||'merci.html?p='+encodeURIComponent(a.dataset.plugin||'');
+      e.preventDefault();dest=a.dataset.dest||'download.html';
       var n=dlg.querySelector('.su-name');if(n)n.textContent=a.dataset.plugin||'Rems Plugins';
       er.textContent='';dlg.showModal();em.focus();});});
     dlg.querySelector('.close').addEventListener('click',function(){dlg.close();});
