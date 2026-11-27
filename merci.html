@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Thank you · Rems Plugins</title>
+<link rel="icon" href="/favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png?v=2">
+<style>
+:root{--bg:#0d0809;--card:#1b1315;--fg:#f6ead8;--mut:#c9b79c;--g1:#e8467c;--g2:#f07a3a;--ink:#1a0c08;--line:rgba(255,255,255,.12);color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse 90% 50% at 50% 0,rgba(232,70,124,.25),transparent 70%),var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{max-width:980px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-left)) 50px}
+nav{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:30px;padding:12px 22px;font-weight:800;letter-spacing:.04em;margin-bottom:26px}
+nav a{color:inherit;text-decoration:none}
+.ok{text-align:center;margin:10px 0 22px}
+.tick{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--ink);display:grid;place-items:center;font-size:28px;margin:0 auto 12px}
+h1{font-size:clamp(28px,5vw,40px);line-height:1.15;margin:0 0 8px}
+h2{font-size:24px;margin:0 0 10px;line-height:1.2}
+.ok p{color:var(--mut);margin:0}.ok b{color:var(--fg)}
+.pair{display:grid;gap:18px;margin-top:18px}
+@media(min-width:800px){.pair{grid-template-columns:1fr 1fr}}
+.card{border:1px solid var(--line);background:var(--card);border-radius:28px;padding:26px}
+.card.warm{background:linear-gradient(150deg,rgba(150,100,40,.45),var(--card) 80%)}
+.card p{color:var(--mut);margin:0 0 18px}
+.b{display:inline-flex;align-items:center;gap:8px;border-radius:40px;padding:13px 24px;font-weight:700;background:linear-gradient(90deg,var(--g1),var(--g2));color:var(--ink);text-decoration:none;margin:0 6px 10px 0;font-size:16px}
+.b:hover{filter:brightness(1.08)}
+.b.o{background:none;color:var(--fg);border:1px solid var(--line)}
+.small{text-align:center;color:var(--mut);font-size:13px;margin-top:22px}
+.small a{color:inherit}
+:focus-visible{outline:2px solid #ffd98a;outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a href="./">REMS PLUGINS</a><a href="./#plugins">Plugins</a></nav>
+<div class="ok">
+  <div class="tick" aria-hidden="true">✓</div>
+  <h1>Thanks! Check your inbox.</h1>
+  <p>Your download link for <b id="name">your plug-in</b> is on its way by email.<br>Nothing after a couple of minutes? Look in your spam folder.</p>
+</div>
+<div class="pair">
+  <div class="card warm"><h2>Follow the groove</h2>
+    <p>The plug-ins are free and will stay that way. If you want to give back, the simplest way is to follow me: that's where I announce the new ones.</p>
+    <a class="b" href="https://www.instagram.com/remsplugins.com/" target="_blank" rel="noopener">Follow on Instagram</a></div>
+  <div class="card"><h2>The plug-ins are free</h2>
+    <p>If this one helps you, a small tip helps me make others. It's optional and changes nothing about your download.</p>
+    <a class="b" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">€3</a><a class="b" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">€5</a><a class="b" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">€10</a><a class="b o" href="https://buymeacoffee.com/remsplugins" target="_blank" rel="noopener">Other amount</a></div>
+</div>
+<p class="small">Tips go through Buy Me a Coffee, where you choose the amount. Your email is only used to send you the link and, if you ticked the box, news. Unsubscribe anytime. Emails are sent with Brevo. <a href="./">Back to the site</a></p>
+</div>
+<script>
+(function(){try{var p=new URLSearchParams(location.search).get('p');if(p&&/^[\w .'-]{1,30}$/.test(p))document.getElementById('name').textContent=p;}catch(e){}})();
+</script>
+</body></html>
